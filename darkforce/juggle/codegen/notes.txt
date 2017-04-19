@@ -1,0 +1,14 @@
+/*
+ * juggle codegen code explain notes
+ *
+ * juggle is a rpc framework under the GPL v2 License
+ * 
+ * juggle codegen generate rcp code
+ * only for send message and dispense message
+ * so users need write code handle process message
+ *
+ * this notes create in 2015.4.26
+ * made for juggle codegen
+ * autor qianqians
+ */
+

@@ -1,0 +1,5 @@
+ADD_SUBDIRECTORY(msque ${Hemsleya_bin_path}//test//concurrent//container//msque)
+ADD_SUBDIRECTORY(optimisticque ${Hemsleya_bin_path}//test//concurrent//container//optimisticque)
+ADD_SUBDIRECTORY(swapque ${Hemsleya_bin_path}//test//concurrent//container//swapque)
+ADD_SUBDIRECTORY(ringque ${Hemsleya_bin_path}//test//concurrent//container//ringque)
+ADD_SUBDIRECTORY(testbase ${Hemsleya_bin_path}//test//concurrent//container//testbase)

@@ -1,0 +1,10 @@
+module logic{
+	bool register_user(string uuid);
+	
+	void unregister_user(string uuid);
+
+	void register_gate(int gatenum, string ip, int port);
+
+	void register_db(int dbnum, string ip, int port);
+
+}

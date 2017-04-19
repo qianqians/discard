@@ -1,0 +1,8 @@
+module routing{
+	void register_user(string uuid, int gatenum, int logicnum, int dbnum);
+
+	void unregister_user(string uuid);
+
+	array<int> get_user(string uuid);
+
+}

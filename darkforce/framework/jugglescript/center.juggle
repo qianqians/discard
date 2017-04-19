@@ -1,0 +1,10 @@
+module center{
+	int register_logic(string ip, int port);
+	
+	int register_gate(string ip, int port);
+
+	int register_routing(string ip, int port);
+
+	int register_db(string ip, int port);
+
+}

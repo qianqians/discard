@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "chat", "chat\chat.vcxproj", "{4ED704AE-70AA-4091-8F89-324971AA8A13}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "chatserver", "chatserver\chatserver.vcxproj", "{4E144BDF-4558-40A6-AE57-714821AECFBE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4ED704AE-70AA-4091-8F89-324971AA8A13}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4ED704AE-70AA-4091-8F89-324971AA8A13}.Debug|Win32.Build.0 = Debug|Win32
+		{4ED704AE-70AA-4091-8F89-324971AA8A13}.Debug|x64.ActiveCfg = Debug|Win32
+		{4ED704AE-70AA-4091-8F89-324971AA8A13}.Release|Win32.ActiveCfg = Release|Win32
+		{4ED704AE-70AA-4091-8F89-324971AA8A13}.Release|Win32.Build.0 = Release|Win32
+		{4ED704AE-70AA-4091-8F89-324971AA8A13}.Release|x64.ActiveCfg = Release|Win32
+		{4E144BDF-4558-40A6-AE57-714821AECFBE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4E144BDF-4558-40A6-AE57-714821AECFBE}.Debug|Win32.Build.0 = Debug|Win32
+		{4E144BDF-4558-40A6-AE57-714821AECFBE}.Debug|x64.ActiveCfg = Debug|x64
+		{4E144BDF-4558-40A6-AE57-714821AECFBE}.Debug|x64.Build.0 = Debug|x64
+		{4E144BDF-4558-40A6-AE57-714821AECFBE}.Release|Win32.ActiveCfg = Release|Win32
+		{4E144BDF-4558-40A6-AE57-714821AECFBE}.Release|Win32.Build.0 = Release|Win32
+		{4E144BDF-4558-40A6-AE57-714821AECFBE}.Release|x64.ActiveCfg = Release|x64
+		{4E144BDF-4558-40A6-AE57-714821AECFBE}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

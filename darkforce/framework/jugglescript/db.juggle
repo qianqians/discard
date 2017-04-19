@@ -1,0 +1,28 @@
+module dbproxy{
+	bool add_user();
+
+	bool create_index(string collection_name, string keys);
+	
+	bool drop_index(string collection, string index_name);
+
+	array<table> find_indexes (string  collection);
+
+	int count(string collection_name, table query, int skip, int limit);
+	
+	bool insert(string collection, table document);
+	
+	bool save(string collection, table document);
+	
+	bool update (string collection, table query, table update);
+
+	bool remove(string collection, table query);
+
+	array<table> find(string collection, int skip, int limit, int batch_size, table query, array<string> fields);
+	
+	table find_and_modify(string collection, table query, table sort, table update, array<string> fields, bool _remove, bool upsert, bool _new);
+
+	table validate(string collection);
+	
+	table stats(string collection);
+
+}

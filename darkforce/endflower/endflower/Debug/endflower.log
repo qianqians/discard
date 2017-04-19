@@ -1,0 +1,53 @@
+﻿  wnd.cpp
+CL : warning : Boost.Signals is no longer being maintained and is now deprecated. Please switch to Boost.Signals2. To disable this warning message, define BOOST_SIGNALS_NO_DEPRECATION_WARNING.
+  Unknown compiler version - please run the configure tests and report the results
+c:\users\qianqians\onedrive\documents\darkforce\darkforce\third_party\boost\boost\mpl\and.hpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\qianqians\onedrive\documents\darkforce\darkforce\third_party\boost\boost\mpl\or.hpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  vertext.cpp
+  texture.cpp
+  shader.cpp
+  Unknown compiler version - please run the configure tests and report the results
+CL : warning : Boost.Signals is no longer being maintained and is now deprecated. Please switch to Boost.Signals2. To disable this warning message, define BOOST_SIGNALS_NO_DEPRECATION_WARNING.
+c:\users\qianqians\onedrive\documents\darkforce\darkforce\third_party\boost\boost\mpl\and.hpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\qianqians\onedrive\documents\darkforce\darkforce\third_party\boost\boost\mpl\or.hpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  render.cpp
+  Unknown compiler version - please run the configure tests and report the results
+CL : warning : Boost.Signals is no longer being maintained and is now deprecated. Please switch to Boost.Signals2. To disable this warning message, define BOOST_SIGNALS_NO_DEPRECATION_WARNING.
+c:\users\qianqians\onedrive\documents\darkforce\darkforce\third_party\boost\boost\mpl\and.hpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\qianqians\onedrive\documents\darkforce\darkforce\third_party\boost\boost\mpl\or.hpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  material.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  endflower.cpp
+CL : warning : Boost.Signals is no longer being maintained and is now deprecated. Please switch to Boost.Signals2. To disable this warning message, define BOOST_SIGNALS_NO_DEPRECATION_WARNING.
+  Unknown compiler version - please run the configure tests and report the results
+c:\users\qianqians\onedrive\documents\darkforce\darkforce\third_party\boost\boost\mpl\and.hpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\qianqians\onedrive\documents\darkforce\darkforce\third_party\boost\boost\mpl\or.hpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  control.cpp
+  Unknown compiler version - please run the configure tests and report the results
+CL : warning : Boost.Signals is no longer being maintained and is now deprecated. Please switch to Boost.Signals2. To disable this warning message, define BOOST_SIGNALS_NO_DEPRECATION_WARNING.
+c:\users\qianqians\onedrive\documents\darkforce\darkforce\third_party\boost\boost\mpl\and.hpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\qianqians\onedrive\documents\darkforce\darkforce\third_party\boost\boost\mpl\or.hpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\qianqians\onedrive\documents\darkforce\darkforce\endflower\endflower\control.cpp(20): warning C4244: “=”: 从“GLdouble”转换到“float”，可能丢失数据
+c:\users\qianqians\onedrive\documents\darkforce\darkforce\endflower\endflower\control.cpp(21): warning C4244: “=”: 从“GLdouble”转换到“float”，可能丢失数据
+c:\users\qianqians\onedrive\documents\darkforce\darkforce\endflower\endflower\control.cpp(22): warning C4244: “=”: 从“GLdouble”转换到“float”，可能丢失数据
+c:\users\qianqians\onedrive\documents\darkforce\darkforce\endflower\endflower\control.cpp(25): warning C4244: “=”: 从“GLdouble”转换到“float”，可能丢失数据
+c:\users\qianqians\onedrive\documents\darkforce\darkforce\endflower\endflower\control.cpp(26): warning C4244: “=”: 从“GLdouble”转换到“float”，可能丢失数据
+c:\users\qianqians\onedrive\documents\darkforce\darkforce\endflower\endflower\control.cpp(27): warning C4244: “=”: 从“GLdouble”转换到“float”，可能丢失数据
+c:\users\qianqians\onedrive\documents\darkforce\darkforce\endflower\endflower\control.cpp(30): warning C4244: “=”: 从“GLdouble”转换到“float”，可能丢失数据
+c:\users\qianqians\onedrive\documents\darkforce\darkforce\endflower\endflower\control.cpp(31): warning C4244: “=”: 从“GLdouble”转换到“float”，可能丢失数据
+c:\users\qianqians\onedrive\documents\darkforce\darkforce\endflower\endflower\control.cpp(32): warning C4244: “=”: 从“GLdouble”转换到“float”，可能丢失数据
+c:\users\qianqians\onedrive\documents\darkforce\darkforce\endflower\endflower\control.cpp(35): warning C4244: “=”: 从“GLdouble”转换到“float”，可能丢失数据
+c:\users\qianqians\onedrive\documents\darkforce\darkforce\endflower\endflower\control.cpp(36): warning C4244: “=”: 从“GLdouble”转换到“float”，可能丢失数据
+c:\users\qianqians\onedrive\documents\darkforce\darkforce\endflower\endflower\control.cpp(37): warning C4244: “=”: 从“GLdouble”转换到“float”，可能丢失数据
+  context.cpp
+  Unknown compiler version - please run the configure tests and report the results
+CL : warning : Boost.Signals is no longer being maintained and is now deprecated. Please switch to Boost.Signals2. To disable this warning message, define BOOST_SIGNALS_NO_DEPRECATION_WARNING.
+c:\users\qianqians\onedrive\documents\darkforce\darkforce\third_party\boost\boost\mpl\and.hpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\qianqians\onedrive\documents\darkforce\darkforce\third_party\boost\boost\mpl\or.hpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\qianqians\onedrive\documents\darkforce\darkforce\endflower\endflower\context.cpp(40): warning C4800: “BOOL”: 将值强制为布尔值“true”或“false”(性能警告)
+  camera.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  正在生成代码...
+material.obj : warning LNK4221: 此对象文件未定义任何之前未定义的公共符号，因此任何耗用此库的链接操作都不会使用此文件
+camera.obj : warning LNK4221: 此对象文件未定义任何之前未定义的公共符号，因此任何耗用此库的链接操作都不会使用此文件
+  endflower.vcxproj -> C:\Users\qianqians\OneDrive\Documents\DarkForce\darkforce\endflower\Debug\endflower.lib
