@@ -1,0 +1,138 @@
+
+TaiQuanShou.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+piaodai
+  rotate: false
+  xy: 242, 139
+  size: 206, 259
+  orig: 206, 259
+  offset: 0, 0
+  index: -1
+shenti
+  rotate: false
+  xy: 2, 400
+  size: 448, 622
+  orig: 448, 622
+  offset: 0, 0
+  index: -1
+shenti_1
+  rotate: true
+  xy: 452, 355
+  size: 481, 538
+  orig: 481, 538
+  offset: 0, 0
+  index: -1
+youshangbi
+  rotate: false
+  xy: 450, 7
+  size: 217, 346
+  orig: 217, 346
+  offset: 0, 0
+  index: -1
+zuoshangbi
+  rotate: false
+  xy: 2, 2
+  size: 238, 351
+  orig: 238, 351
+  offset: 0, 0
+  index: -1
+zuoxiaobii
+  rotate: true
+  xy: 669, 31
+  size: 322, 268
+  orig: 322, 268
+  offset: 0, 0
+  index: -1
+zuoxiaotui
+  rotate: true
+  xy: 452, 838
+  size: 184, 541
+  orig: 184, 541
+  offset: 0, 0
+  index: -1
+
+TaiQuanShou2.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bozi
+  rotate: false
+  xy: 289, 8
+  size: 179, 179
+  orig: 179, 179
+  offset: 0, 0
+  index: -1
+kuabu
+  rotate: false
+  xy: 342, 730
+  size: 427, 288
+  orig: 427, 288
+  offset: 0, 0
+  index: -1
+tou
+  rotate: true
+  xy: 289, 189
+  size: 317, 276
+  orig: 317, 276
+  offset: 0, 0
+  index: -1
+youdatui
+  rotate: false
+  xy: 2, 508
+  size: 338, 510
+  orig: 338, 510
+  offset: 0, 0
+  index: -1
+youjiao
+  rotate: true
+  xy: 771, 756
+  size: 262, 109
+  orig: 262, 109
+  offset: 0, 0
+  index: -1
+youshou
+  rotate: false
+  xy: 639, 104
+  size: 152, 165
+  orig: 152, 165
+  offset: 0, 0
+  index: -1
+youxiaobi
+  rotate: false
+  xy: 567, 271
+  size: 273, 287
+  orig: 273, 287
+  offset: 0, 0
+  index: -1
+youxiaotui
+  rotate: true
+  xy: 342, 560
+  size: 168, 520
+  orig: 168, 520
+  offset: 0, 0
+  index: -1
+zuodaitui
+  rotate: false
+  xy: 2, 67
+  size: 285, 439
+  orig: 285, 439
+  offset: 0, 0
+  index: -1
+zuojiao
+  rotate: false
+  xy: 470, 19
+  size: 167, 168
+  orig: 167, 168
+  offset: 0, 0
+  index: -1
+zuoshou
+  rotate: false
+  xy: 882, 862
+  size: 136, 156
+  orig: 136, 156
+  offset: 0, 0
+  index: -1
