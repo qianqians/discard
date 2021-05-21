@@ -148,7 +148,9 @@ struct chunk * _chunk_from_free(struct mempage_heap * _heap){
 		}
 
 		if (_heap->_alloc_slide.compare_exchange_strong(slide, newslide)){
-			while((_chunk = _heap->_free[newslide].exchange(0)) == 0);
+			if((_chunk = _heap->_free[newslide].exchange(0)) == 0){
+				continue;
+			}
 			break;
 		}
 	}
