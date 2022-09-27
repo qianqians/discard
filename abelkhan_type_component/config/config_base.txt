@@ -1,0 +1,31 @@
+{
+    "center":{
+        "ip":"127.0.0.1",
+        "port":1234,
+        "gm_ip":"127.0.0.1",
+        "gm_port":2234,
+		"log_level":"debug",
+		"log_file":"center.txt",
+		"log_dir":"./log/"
+    },
+
+    "dbproxy":{
+		"name":"dbproxy",
+		"ip":"127.0.0.1",
+		"port":1235,
+		"db_url":"mongodb://127.0.0.1:27017",
+		"log_level":"debug",
+		"log_file":"dbproxy.txt",
+		"log_dir":"./log/",
+		"index":[{"db":"chicken", "collection":"role", "key":"account", "is_unique":true},
+	             {"db":"chicken", "collection":"role", "key":"id", "is_unique":true}]
+    },
+
+    "gm":{
+		"gm_ip":"127.0.0.1",
+        "gm_port":2234,
+		"log_level":"debug",
+		"log_file":"control.txt",
+		"log_dir":"./log/"
+    }
+}

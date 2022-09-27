@@ -1,0 +1,3 @@
+[submodule "cpp/3rdparty/rapidjson"]
+	path = cpp/3rdparty/rapidjson
+	url = https://github.com/Tencent/rapidjson.git

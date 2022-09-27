@@ -1,0 +1,6 @@
+[submodule "cpp/3rdparty/rapidjson"]
+	path = cpp/3rdparty/rapidjson
+	url = https://github.com/Tencent/rapidjson.git
+[submodule "cpp/3rdparty/sole"]
+	path = cpp/3rdparty/sole
+	url = https://github.com/r-lyeh-archived/sole.git

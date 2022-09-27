@@ -1,0 +1,5 @@
+D:\abelkhan\abelkhan_type_component\client\bin\Debug\netstandard2.0\client.deps.json
+D:\abelkhan\abelkhan_type_component\client\bin\Debug\netstandard2.0\client.dll
+D:\abelkhan\abelkhan_type_component\client\obj\Debug\netstandard2.0\client.csprojAssemblyReference.cache
+D:\abelkhan\abelkhan_type_component\client\obj\Debug\netstandard2.0\client.AssemblyInfoInputs.cache
+D:\abelkhan\abelkhan_type_component\client\obj\Debug\netstandard2.0\client.AssemblyInfo.cs

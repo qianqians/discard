@@ -1,0 +1,1 @@
+start ts-node ./server/login/login_server.ts ./config/config_node.txt login

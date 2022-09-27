@@ -1,0 +1,22 @@
+{
+    "center":{
+        "ip":"127.0.0.1",
+        "port":1234
+    },
+
+	"login":{
+		"name":"login",
+		"hub_type":"login",
+		"ip":"127.0.0.1",
+		"port":1237,
+		"out_host":"wuming.code.mona",
+		"out_port":5001,
+		"dbproxy":"dbproxy",
+		"log_level":"trace",
+		"log_file":"login.txt",
+		"log_dir":"./log/"
+	},
+
+	"default_key":2215053170
+
+}
