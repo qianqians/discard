@@ -1,0 +1,5 @@
+module hub_call_hub{
+	reg_hub req(string hub_name, string hub_type) rsp() err();
+
+	req_hub_cmd req(string cmd, string param) rsp(string resp) err();
+}

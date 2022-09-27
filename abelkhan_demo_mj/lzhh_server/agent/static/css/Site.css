@@ -1,0 +1,67 @@
+﻿/* 支架模版站点样式*/
+body {
+    font-size: 14px;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #fff;
+}
+
+header, footer, nav, section {
+    display: block;
+}
+
+
+/* 表单基本样式*/
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 5px 5px 5px;
+    margin: 0 0 5px 0;
+}
+
+legend {
+    font-size: 3px;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    float:left;
+	width:80px;
+}
+
+.editor-field {
+}
+
+.display-label {
+    float:left;
+	width:80px;
+}
+
+.display-field {
+}
+
+/* 验证信息基本样式*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    color: #f00;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    color: #f00;
+}

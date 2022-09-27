@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>登录</title>
+        <style type="text/css">
+
+            div#container{ margin:20% auto auto 42%; }
+            div#nodes{ font-size:100%; margin:10px auto 10px 90px; }
+            div#mobile_node{ float:left; margin:5px auto 5px auto; }
+            div#mima_node{ clear:both; float:left; margin:5px auto 5px 32px; }
+            div#button{ clear:both; margin:5px auto 5px 130px; }
+
+        </style>
+    </head>
+    <body>
+        <div id="container">
+          <div id="nodes">三袁互娱-代理登录</div>
+          <div id="mobile_node">手机号码:</div>
+          <input id="edit_mobile" style="float:left; height:24px;width:200px" type="text">
+          <div id="mima_node">密码:</div>
+          <input id="edit" style="float:left; height:24px;width:200px" onkeydown="editonenterdown(this)" onclicgk="valueNotNull()" type="password">
+          <div id="button"> 
+              <button id="searchbutton" style="clear:both; width:80px; height:30px;" onclicgk="buttononclick(this)" type="button">登录</button>
+              
+          </div>
+        </div>
+    </body>
+       <script src="JSON.js" ></script>
+	   <script src="JSONError.js" ></script>
+	   <script src="JSONRequest.js" ></script>
+	   <script src="JSONRequestError.js" ></script>
+    <script>
+        function GetRequest() {
+            var url = top.window.location.href;
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(url.indexOf("?") + 1);
+                strs = str.split("&");
+                for(var i = 0; i < strs.length; i ++) {
+                   theRequest[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
+                }
+            }
+            return theRequest;
+        }
+
+        function editonenterdown(id){
+            if (event.keyCode === 13){
+                agent_logic();
+            }
+        }
+
+        function buttononclick(id){
+            agent_logic();
+        }
+
+        function agent_logic(){
+		location.href="../templates/manage_info.html";
+            if (document.getElementById("edit").value != ""){
+                var req = GetRequest();
+                var params = {"sid":req["sid"], "mobile":document.getElementById("edit_mobile").value, "mima":document.getElementById("edit").value};
+                JSONRequest.post("/agent/user_login", params, function (requestNumber, value, exception){
+                    if (value["error"])
+                    {
+                        alert(value["error"]);
+                    }
+                    else
+                    {
+                        url = value["url"];
+                        location.assign(url);
+                        window.location=url;
+                        location.href="../templates/manage_info.html";
+                    }
+                });
+            }
+        }
+
+
+
+
+    </script>
+</html>

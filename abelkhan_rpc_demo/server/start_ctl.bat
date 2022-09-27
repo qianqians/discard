@@ -1,0 +1,1 @@
+start ./control.exe ./config_ctl.txt gm

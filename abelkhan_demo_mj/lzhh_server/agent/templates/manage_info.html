@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=1400px,initial-scale=1.5,user-scalable=yes" />
+	<title>详细页面</title>
+	<script language="javascript" src="/JSON.js"></script>
+	<script language="javascript" src="/JSONError.js"></script>
+	<script language="javascript" src="/JSONRequestError.js"></script>
+	<script language="javascript" src="/JSONRequest.js"></script>
+	<!-- CSS样式表 -->
+	<link  type="text/css"  href="/static/extjs/resources/css/ext-all.css" rel="stylesheet"/>
+	<link  type="text/css"  href="/static/extjs/resources/css/xtheme-gray.css" rel="stylesheet"/>
+	<script type="text/javascript" src="/static/extjs/adapter/ext/ext-base.js"></script>
+	<script type="text/javascript" src="/static/extjs/ext-all.js"></script>
+	<script type="text/javascript" src="/static/extjs/adapter/ext/ext-basex.js"></script>
+	<script type="text/javascript" src="/static/extjs/ext-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="/static/extjs/sel.js"></script>
+	<script type="text/javascript" src="/static/extjs/plugins/header/GroupHeaderPlugin.js"></script>
+	<!-- jQuery库 -->
+	<script type="text/javascript" src="/static/jquery/jquery-1.6.4.min.js"></script>
+
+</head>
+<body id="body">
+	<div class="asideR-cont" id="rootbody">
+		<div id="div1"><h1 style="text-align:center" id="title"></h1></div>
+		<div id="div1"><h1 style="text-align:center" id="jiazai">数据正在加载中，请稍等二秒钟！</h1></div>
+		<div class="strate-eleme">
+
+			<div class="query-tbl">
+				<div class="table-list" id="myGrid"></div>
+			</div>
+			 <button style="width:120px; height:30px;" onclick="goBack()">返回上一页</button>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		var myStore;
+		var myGrid;
+		var columns;	
+		var params;
+		var play;
+		var fields;
+		var data;
+		var req;
+		var operation;
+		var sid;
+		var phone;
+		var dataDaoxu;
+	Ext.onReady(function() {
+		function GetRequest() {
+		    var url = top.window.location.href;
+		    var theRequest = new Object();
+		    if (url.indexOf("?") != -1) {
+		        var str = url.substr(url.indexOf("?") + 1);
+		        strs = str.split("&");
+		        for(var i = 0; i < strs.length; i ++) {
+		           theRequest[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
+		        }
+		    }
+			    return theRequest;
+		}
+			req = GetRequest();
+			operation=req["operation"];
+			sid = req["sid"];
+			if(sid!=''&sid!=undefined&operation=='proxy'){
+				params = {"sid":sid};
+				JSONRequest.post("/agent/agent_info", params, function (requestNumber, value, exception){
+					if (value["error"])
+					{
+						alert(value["error"]);
+					}
+					else
+					{
+						document.getElementById("title").innerHTML="我的代理";			
+							//初始化列表模型
+						columns = new Ext.grid.ColumnModel({
+							defaults : {
+								css : 'cursor:default!important;'
+							},
+							columns : [{header : '序号', dataIndex : 'id', align : "center", renderer : nameRender, width : 10, sortable : true
+							}, {header : '姓名', dataIndex : 'name',align : "center", renderer : nameRender, width : 15, sortable : false
+							}, {header : '电话', dataIndex : 'mobile',align : "center", renderer : nameRender, width : 25, sortable : false
+							}, {header : '微信号', dataIndex : 'wechat', align : "center", renderer : nameRender, width : 30, sortable : false
+							},{header : '代理号', dataIndex : 'key', align : "center", renderer : nameRender, width : 20, sortable : false
+							},{header : '玩家ID', dataIndex : 'game_id', align : "center", renderer : nameRender, width : 20, sortable : false
+							},{header : '会员数', dataIndex : 'player_count', align : "center", renderer : nameRender, width : 10, sortable : false
+							},{header : '下级代理数', dataIndex : 'child_agent_count', align : "center", renderer : nameRender, width : 20, sortable : false
+							},{header : '可用余额', dataIndex : 'kong', align : "center", renderer : nameRender, width : 15, sortable : false
+							},{header : '总收入', dataIndex : 'sum_total_fee', align : "center", renderer : nameRender, width : 15, sortable : false
+							},{header : '身份证', dataIndex : 'identity', align : "center", renderer : nameRender, width : 35, sortable : false
+							},{header : '会员付费', dataIndex : 'player_total_fee', align : "center", renderer : nameRender, width : 15, sortable : false
+							},{header : '下级代理会员付费', dataIndex : 'child_total_fee', align : "center", renderer : nameRender, width : 35, sortable : false
+							}]
+						});
+						fields =[  'id','name','mobile','wechat','key',"game_id","player_count","child_agent_count","kong","sum_total_fee","identity","player_total_fee","child_total_fee"];
+						data=new Array(value.length);						
+						for(var i=0;i<value.length;i++){
+							data[i]=[(i+1),value[i]["name"],value[i]["mobile"],value[i]["wechat"],value[i]["key"],value[i]["game_id"],value[i]["player_count"],value[i]["child_agent_count"],'',value[i]["sum_total_fee"],value[i]["identity"],value[i]["player_total_fee"],value[i]["child_total_fee"]];
+							
+						}
+					}
+				});
+			}
+
+			if(sid!=''&sid!=undefined&operation=='detail'){
+				params = {"sid":sid};
+				JSONRequest.post("/agent/player_pay_info", params, function (requestNumber, value, exception){
+					if (value["error"])
+					{
+						alert(value["error"]);
+					}
+					else
+					{
+						document.getElementById("title").innerHTML="充值明细";
+								//初始化列表模型
+						columns = new Ext.grid.ColumnModel({
+							defaults : {
+								css : 'cursor:default!important;'
+							},
+							columns : [{header : '代理昵称', dataIndex : 'agent_nick_name', align : "center", renderer : nameRender, width : 15, sortable : false
+							}, {header : '绑定的代理号', dataIndex : 'agent_reg_key',align : "center", renderer : nameRender, width : 15, sortable : false
+							}, {header : '代理级别', dataIndex : 'agent_lv',align : "center", renderer : nameRender, width : 15, sortable : false
+							}, {header : '玩家ID', dataIndex : 'player_reg_key', align : "center", renderer : nameRender, width : 20, sortable : false
+							},{header : '充值昵称', dataIndex : 'player_nickname', align : "center", renderer : nameRender, width : 20, sortable : false
+							},{header : '充值金额', dataIndex : 'total_fee', align : "center", renderer : nameRender, width : 20, sortable : true
+							},{header : '充值时间', dataIndex : 'time', align : "center", renderer : dateRender, width : 25, sortable : true
+							},{header : '本次收入', dataIndex : 'total_fee_commission', align : "center", renderer : nameRender, width : 20, sortable : true
+							},{header : '收入说明', dataIndex : 'commission_type', align : "center", renderer : nameRender, width : 20, sortable : false
+							},{header : '之前余额', dataIndex : 'kong5', align : "center", renderer : nameRender, width : 20, sortable : true
+							},{header : '收入后所得', dataIndex : 'kong6', align : "center", renderer : nameRender, width : 20, sortable : true
+							}]
+						});
+						fields =[  "agent_nick_name","agent_reg_key","agent_lv",'player_reg_key',"player_nickname","total_fee","time","total_fee_commission","commission_type","kong5","kong6"];
+						data=new Array(value.length);
+						//定义倒序数组
+						dataDaoxu=new Array(value.length);
+						var kong5;
+						var kong6;
+						//定义中间变量缓存上次余额
+						var tmpMoney;
+						for(var i=0;i<value.length;i++){	
+							if(i<1){
+								kong5=0;
+								kong6=kong5+value[i]["total_fee_commission"];
+								tmpMoney=kong6;
+							}else{
+								kong5=tmpMoney;
+								kong6=tmpMoney+value[i]["total_fee_commission"];
+								tmpMoney=kong6;
+							}
+							data[i]=[value[i]["agent_nick_name"],value[i]["agent_reg_key"],value[i]["agent_lv"],value[i]["player_reg_key"],value[i]["player_nickname"],value[i]["total_fee"],value[i]["time"],value[i]["total_fee_commission"],value[i]["commission_type"],kong5,kong6];
+							dataDaoxu[value.length-i-1]=data[i];
+						}
+						for(i = 0;i < dataDaoxu.length;i ++){
+							data[i]=dataDaoxu[i];
+						}
+					}
+				});
+			}		
+	});
+	
+	function  yanshi(){
+				//初始化请求列表DS
+				myStore = new Ext.data.ArrayStore({		
+					fields : fields,
+					data:data
+				});
+
+				// 分页
+				var pager = new Ext.PagingToolbar({
+					store : myStore,
+					displayInfo : true,
+					displayMsg : '显示第 {0} 条到 {1} 条记录,一共 {2} 条',
+					emptyMsg : "没有符合条件的记录"
+				});
+
+				var ctlSm = new Ext.grid.RowSelectionModel({
+					// 接触控制配置列表仅允许单选
+					singleSelect : true
+				});
+
+				myGrid = new Ext.grid.GridPanel({
+					forceFit : true,
+					autoHeight: true,
+					renderTo : 'myGrid',
+					border : false,
+					store : myStore,
+					bbar : pager,
+					cm : columns,
+					sm : ctlSm,
+					enableDraDrop : false,
+					enableColumnMove : true,
+					autoScroll : true,
+					stripeRows : true,
+					loadMask : true,
+					viewConfig : {
+						deferRowRender : false,
+						forceFit : true,
+						emptyText : "没有符合条件的记录",
+						autoScroll : true,
+						scrollOffset : -10
+					},
+					stripeRows : true
+				});
+		document.getElementById("ext-gen39").style.visibility="hidden";
+		document.getElementById("jiazai").innerHTML="";
+		
+	}
+		setTimeout("yanshi()",2000)
+		function nameRender(value,cellmeta,record, rowIndex, columnIndex, taskStore){
+			cellmeta.attr = ' ext:qtip="' + value + '"';
+			return value;
+		}
+		
+		function dateRender(value,cellmeta,record, rowIndex, columnIndex, taskStore){
+			if(value!=''&&value!=undefined){
+				var date= new Date(value);
+				value=date.getFullYear()+"-"+(date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1)+"-"+(date.getDate()<10?'0'+date.getDate():date.getDate())+" "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+			}
+			return value;
+		}
+		function goBack(){
+			window.history.back();
+		}
+		
+		  /*
+	       * 智能机浏览器版本信息:
+	       */
+	  var browser = {
+	      versions: function () {
+	          var u = navigator.userAgent, app = navigator.appVersion;
+	          return {//移动终端浏览器版本信息
+	              trident: u.indexOf('Trident') > -1, //IE内核
+	              presto: u.indexOf('Presto') > -1, //opera内核
+	              webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+	              gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+	              mobile: !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/AppleWebKit/), //是否为移动终端
+	              ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+	              android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+	              iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者QQHD浏览器
+	              iPad: u.indexOf('iPad') > -1, //是否iPad
+	              weixin: u.match(/MicroMessenger/i), //微信浏览器
+	              webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+	          };
+	      }(),
+	      language: (navigator.browserLanguage || navigator.language).toLowerCase()
+	  };
+
+	
+	</script>
+</body>
+</html>

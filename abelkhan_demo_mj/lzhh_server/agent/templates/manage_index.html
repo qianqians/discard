@@ -1,0 +1,320 @@
+﻿
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+<head>
+    <link href="../static/UI/themes/default/easyui.css" rel="stylesheet" />
+    <link href="../static/UI/themes/icon.css" rel="stylesheet" />
+    <script src="../static/UI/jquery.min.js"></script>
+    <script src="../static/UI/jquery.easyui.min.js"></script>
+    <script src="../static/UI/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../static/UI/jquery-form.js"></script>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=0.5, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+    <title>代理管理平台</title>
+    <script language="javascript" src="/JSON.js"></script>
+    <script language="javascript" src="/JSONError.js"></script>
+    <script language="javascript" src="/JSONRequestError.js"></script>
+    <script language="javascript" src="/JSONRequest.js"></script>
+
+</head>
+<body>
+    <style type="text/css">
+       * {
+            font-size:20px;
+        }
+
+        a:hover {
+            color: red;
+            text-decoration: none;
+        }
+
+        #div1 {
+            width: 100%;
+            height: 100%;
+            border: 1px solid #000;
+            margin: auto auto auto auto;
+        }
+
+        #div2 {
+            clear: both;
+            width: 100%;
+            height: 80px;
+            border: 1px solid #000;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+        }
+
+        #table1 {
+            border-collapse: collapse;
+            border-left: none;
+            border-right: none;
+        }
+
+        #table2 {
+            border-collapse: collapse;
+            border-left: none;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        #table3 {
+            border-collapse: collapse;
+            border-left: none;
+            border-right: none;
+        }
+
+        input {
+            width: 160px;
+        }
+    </style>
+
+    <div id="dd" class="easyui-dialog" title="修改密码" style="width:400px;height:200px;"
+         data-options="iconCls:'icon-save',resizable:true,modal:true,closed: true">
+        <table>
+            <tr><td align="right">旧密码：</td><td><input id="oldPwd" type="password" /><br /></td></tr>
+            <tr><td align="right">新密码：</td><td><input id="newPwd" type="password" /><br /></td></tr>
+            <tr><td align="right">再次输入新密码：</td><td><input id="confirmNewPwd" type="password" /></td></tr>
+            <tr><td></td><td><button id="newPwdBut" onclick="SubmitPwd()">确认修改</button></td></tr>
+        </table>
+    </div>
+
+    <div style="margin-top: 1px" id="div1" title="赖子晃晃代理平台" class="easyui-window" collapsible="false" minimizable="false" maximizable="false" closable="false" fit="true">
+        <div id="div2"><h1 style="text-align:center">赖子晃晃代理平台欢迎 <span id="user">***</span> 代理登入使用</h1></div>
+        <div style="height:100px"><h2 style="text-align:center"><span id="prompt">代理提示信息</span></h2>
+            <b style="font-size:5px">
+                代理提交资料时请核对好:"真实姓名"、"游戏ID"、"电话号码"、"微信号"是否为同一人所有!各代理都可招收下级代理,招收成功后有一定提成！
+                每位代理每天可提取一次代理收入，每次提取金额不低于100，如有问题请联系上级代理或游戏微信公众号！
+            </b>
+        </div>
+        <div id="div3">
+            <table border="1" width="100%" height="100%s" align="center" id="table3">
+                <tr>
+                    <td><a id='proxy' class="easyui-linkbutton" data-options="iconCls:'icon-search'">我的代理</a></td>
+                    <td><a id='member' class="easyui-linkbutton" data-options="iconCls:'icon-man'" onclick='go()'>我的会员</a></td>
+                    <td><a id='detail' class="easyui-linkbutton" data-options="iconCls:'icon-sum'">充值明细</a></td>
+                    <td><a id='detail' class="easyui-linkbutton" data-options="iconCls:'icon-cut'" onclick="$('#dd').dialog({ closed :false});">修改密码</a></td>
+                </tr>
+            </table>
+        </div>
+        <div id="div4"><h2 style="text-align:center">代理基本信息</h2></div>
+        <div id="div5">
+            <table border="1" width="100%" id="table1" align="center">
+                <tr>
+                    <td align="right">游戏账号ID：</td>
+                    <td><input id="game_id" readonly="readonly" type="text" /></td>
+                    <td align="right">下级代理数：</td>
+                    <td><input readonly="readonly" type="text" id="child_agent_count"/></td>
+                    <td align="right">真实姓名：</td>
+                    <td><input id="name" readonly="readonly" type="text" /></td>
+                </tr>
+                <tr>
+                    <td align="right">手机号：  </td>
+                    <td><input id="mobile" readonly="readonly" type="text" /></td>
+
+                    <td></td>
+                    <td></td>
+
+                    <td align="right">微信号：</td>
+                    <td><input id="wechat" readonly="readonly" type="text" /></td>
+
+                </tr>
+                <tr>
+                    <td align="right">邀请码：</td>
+                    <td><input id="play_key" readonly="readonly" type="text" /></td>
+                    <td align="right">代理级别：</td>
+                    <td><input id="agent_lv" readonly="readonly" type="text" /></td>
+                    <td align="right">会员数：</td>
+                    <td><input readonly="readonly" id="player_count" type="text" /></td>
+                </tr>
+                <tr>
+                    <td align="right">注册代理时间：</td>
+                    <td><input readonly="readonly" type="text" /></td>
+
+                    <td></td>
+                    <td></td>
+
+                    <td align="right">上级代理邀请码：</td>
+                    <td><input readonly="readonly" type="text" id="ower_key"/></td>
+
+                </tr>
+                <tr>
+                    <td align="right">最近登录时间：</td>
+                    <td><input readonly="readonly" type="text" /></td>
+                    <td align="right">最近登录IP：</td>
+                    <td><input readonly="readonly" type="text" /></td>
+                    <td align="right">代理状态：</td>
+                    <td><input readonly="readonly" type="text" /></td>
+                </tr>
+                <tr>
+                    <td align="right">身份证：</td>
+                    <td><input id="identity" readonly="readonly" type="text" /></td>
+
+                    <td></td>
+                    <td></td>
+
+                    <td align="right">上级代理号：</td>
+                    <td><input  readonly="readonly" type="text" id="ower_mobile"/></td>
+                </tr>
+            </table>
+        </div>
+        <div id="div6"><h2 style="text-align:center">收入明细</h2></div>
+        <div id="div7">
+            <table border="1" width="100%" align="center" id="table2">
+                <tr>
+                    
+                    <td align="right">提成收入：</td>
+                    <td><input id="child_total_fee_commission" readonly="readonly" type="text" /></td>
+                    <td align="right">会员付费：</td>
+                    <td><input id="child_total_fee" readonly="readonly" type="text" /></td>    
+
+                   
+                </tr>
+                <tr>
+                    <td align="right">直接收入：</td>
+                    <td><input id="player_total_fee_commission" readonly="readonly" type="text" /></td>
+                    
+
+                    <td align="right">玩家付费：</td>
+                    <td><input id="player_total_fee" readonly="readonly" type="text" /></td>
+                    
+                   
+                </tr>
+                <tr>
+                    <td align="right">已提取金额：</td>
+                    <td><input id="cash_out" readonly="readonly" type="text"></td>
+                    <td align="right">总收入：</td>
+                    <td><input id="sum_total_fee" readonly="readonly" type="text" /></td>
+                    
+                </tr>
+                <tr>
+                 
+                    <td align="right">可提取金额：</td>
+                    <td><input id="surplus_total_fee" readonly="readonly" type="text" /></td>
+                    <td></td><td></td>   
+                </tr>
+                <tr>
+                    <td align="right">微信提现金额：</td>
+                    <td>
+                        <input id="amount" type="text" />
+                        <button style="width:120px; height:32px;" onclick="qukuan()">微信取款</button>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function SubmitPwd()
+        {
+            var pwd1 = document.getElementById("newPwd").value;
+            var pwd2 = document.getElementById("confirmNewPwd").value;
+            var oldPwd = document.getElementById("oldPwd").value;
+            var req = GetRequest();
+            var sid = req["sid"];
+            var params = { "sid": sid, "old_mima": oldPwd, "new_mima": pwd1 };
+            if (pwd1 !=""&&pwd2!="" && pwd1 == pwd2)
+            {
+                JSONRequest.post("/agent/change_mima", params, function (requestNumber, value, exception)
+                {
+                    if (value["error"]) {
+                        alert(value["error"]);
+                    } else
+                    {
+                        alert("修改密码成功！");
+                    }
+                });
+            }
+            else
+            {
+                alert("输入有误,请重新输入");
+            }
+        }
+
+        function GetRequest() {
+            var url = top.window.location.href;
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(url.indexOf("?") + 1);
+                strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = (strs[i].split("=")[1]);
+                }
+            }
+            return theRequest;
+        }
+	var phoneNum='';
+        var req = GetRequest();
+        var sid = req["sid"];
+        var params = { "sid": sid };
+        JSONRequest.post("/agent/base_info", params, function (requestNumber, value, exception) {
+            if (value["error"]) {
+                alert(value["error"]);
+            }
+            else {
+
+                document.getElementById("game_id").value = value["game_id"];
+                document.getElementById("name").value = value["name"];
+                document.getElementById("mobile").value = value["mobile"];
+		        phoneNum=value["mobile"];
+		        document.getElementById("wechat").value = value["wechat"];
+
+		        document.getElementById("child_agent_count").value = value["child_agent_count"];
+		        document.getElementById("child_total_fee_commission").value = value["child_total_fee_commission"];
+		        document.getElementById("player_count").value = value["player_count"];
+		        document.getElementById("player_total_fee_commission").value = value["player_total_fee_commission"];
+
+		        if (value["ower_mobile"]!=null) { 
+		        document.getElementById("ower_mobile").value = value["ower_mobile"]+"";
+		        }
+
+		        document.getElementById("surplus_total_fee").value = (Math.floor((value["surplus_total_fee"])*10))/10;
+                document.getElementById("agent_lv").value = value["agent_lv"];
+                document.getElementById("identity").value = value["identity"];
+                document.getElementById("ower_key").value = value["ower_key"]+"";
+                document.getElementById("play_key").value = value["key"];
+                document.getElementById("player_total_fee").value = value["player_total_fee"];
+                document.getElementById("child_total_fee").value = value["child_total_fee"];
+                document.getElementById("sum_total_fee").value = (Math.floor((value["sum_total_fee"]) * 10))/10;
+                //document.getElementById("surplus_total_fee").innerHTML = value["surplus_total_fee"];
+                document.getElementById("cash_out").value= value["cash_out"];
+		        document.getElementById("user").innerHTML=value["wechat"];
+                //---
+                document.getElementById("prompt").innerHTML="欢迎尊贵的"+value["agent_lv"]+"级代理使用本平台!";
+            }
+
+        });
+
+
+        function qukuan() {
+            var amount = document.getElementById("amount").value;
+            var params = { "sid": sid, "amount": amount };
+            if (confirm("您要提现的金额是人民币:" + amount + "元")) {
+                JSONRequest.post("/agent/cash_out", params, function (requestNumber, value, exception) {
+                    if (value["error"]) {
+                        alert(value["error"]);
+                    }
+                    else {
+                        alert(value["ret"]);
+						location.reload();
+                    }
+                });
+            }
+        }
+
+
+        document.getElementById('proxy').href = "/agent/manage_info?sid=" + sid + "&operation=proxy";
+	function go(){
+	 	document.getElementById('member').href = "/agent/agent_member?sid=" + sid + "&operation=member&phone="+phoneNum;
+	}
+
+        document.getElementById('detail').href = "/agent/manage_info?sid=" + sid + "&operation=detail";
+
+    </script>
+</body>
+</html>

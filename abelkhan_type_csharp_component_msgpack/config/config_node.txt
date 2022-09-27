@@ -1,0 +1,70 @@
+{
+    "center":{
+        "ip":"127.0.0.1",
+        "port":1001
+    },
+
+	"http_gate0":{
+		"name":"http_gate0",
+		"hub_type":"http_gate",
+		"ip":"127.0.0.1",
+		"port":3001,
+		"http_out_host":"0.0.0.0",
+		"http_out_port":4001,
+		"log_level":"trace",
+		"log_file":"http_gate0.txt",
+		"log_dir":"./log/"
+	},
+
+	"scene0":{
+		"name":"scene0",
+		"hub_type":"scene",
+		"ip":"127.0.0.1",
+		"port":3301,
+		"out_host":"wuming.code.mona",
+		"out_port":5001,
+		"log_level":"trace",
+		"log_file":"scene0.txt",
+		"log_dir":"./log/"
+	},
+
+	"data0":{
+		"name":"data0",
+		"hub_type":"data",
+		"ip":"127.0.0.1",
+		"port":3601,
+		"dbproxy":"dbproxy",
+		"log_level":"trace",
+		"log_file":"data0.txt",
+		"log_dir":"./log/"
+	},
+
+	"match0":{
+		"name":"match0",
+		"hub_type":"match",
+		"ip":"127.0.0.1",
+		"port":3801,
+		"dbproxy":"dbproxy",
+		"log_level":"trace",
+		"log_file":"match0.txt",
+		"log_dir":"./log/"
+	},
+	
+	"http_admin0":{
+		"name":"http_admin0",
+		"hub_type":"http_admin",
+		"ip":"127.0.0.1",
+		"port":3901,
+		"http_out_host":"0.0.0.0",
+		"http_out_port":6001,
+		"gm_ip":"127.0.0.1",
+        "gm_port":1002,
+		"dbproxy":"dbproxy",
+		"log_level":"trace",
+		"log_file":"http_admin0.txt",
+		"log_dir":"./log/"
+	},
+
+	"default_key":2215053170
+
+}

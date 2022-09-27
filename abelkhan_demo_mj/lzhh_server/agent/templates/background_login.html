@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>   
+        <link href="/static/UI/themes/default/easyui.css" rel="stylesheet" />
+        <link href="/static/UI/themes/icon.css" rel="stylesheet" />
+        <script src="/static/UI/jquery.min.js"></script>
+        <script src="/static/UI/jquery.easyui.min.js"></script>
+        <script src="/static/UI/locale/easyui-lang-zh_CN.js"></script>
+        <script src="/static/UI/jquery-form.js"></script>
+        <title>登录</title>
+        <style type="text/css">
+            div#container{ margin:20% auto auto 42%; }
+            div#nodes{ font-size:100%; margin:10px auto 10px 60px; }
+            div#repaddress{ float:left; margin:5px auto 5px auto; }
+            div#button{ margin:5px auto 5px 80px;}
+        </style>
+    </head>
+    <body style="background-image:url(/static/images/background.png);">
+        <div id="container">
+            <div style="width:250px;background-image:url(/static/images/backgroundTwo.png);">
+
+                <div id="nodes">赖子晃晃-后台登录</div>
+                <div id="repaddress">密码:</div>
+
+
+                <input id="edit" type="password" style=" height:24px;width:200px;" onkeydown="editonenterdown(this)">
+                <div id="button">
+                    <button id="searchbutton" style="clear:both; width:80px; height:30px;background-image:url(/static/images/log.png)" onclick="buttononclick(this)" type="button"></button>
+                </div>
+            </div>
+
+            </div>
+         
+    </body>
+    <script language="javascript" src="/JSON.js"></script>
+    <script language="javascript" src="/JSONError.js"></script>
+    <script language="javascript" src="/JSONRequestError.js"></script>
+    <script language="javascript" src="/JSONRequest.js"></script>
+    <script>
+        function GetRequest() {
+            var url = top.window.location.href;
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(url.indexOf("?") + 1);
+                strs = str.split("&");
+                for(var i = 0; i < strs.length; i ++) {
+                   theRequest[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
+                }
+            }
+            return theRequest;
+        }
+
+        function editonenterdown(id){
+            if (event.keyCode === 13){
+                background_logic();
+            }
+        }
+
+        function buttononclick(id){
+            background_logic();
+        }
+
+        function background_logic(){
+            if (document.getElementById("edit").value != ""){
+                var req = GetRequest();
+                var params = {"sid":req["sid"], "mima":document.getElementById("edit").value};
+                JSONRequest.post("/background/user_login", params, function (requestNumber, value, exception){
+                    url = value["url"];
+                    location.assign(url);
+                    window.location=url;
+                    location.href=url;
+                });
+            }
+        }
+    </script>
+</html>

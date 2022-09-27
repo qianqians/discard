@@ -1,0 +1,3 @@
+module uuid {
+	sync_uuid req(string uuid) rsp() err(int32 errcode);
+}

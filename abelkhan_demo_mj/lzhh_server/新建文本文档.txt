@@ -1,0 +1,7 @@
+public static String WEIXIN_APP_ID="wxafd936830b3cf60f";
+    public static String WEIXIN_APP_SECRET ="e72afcd7738d3fb3c6a6600f7a8f299f";
+    //微信统一下单接口
+    public static final String UNIFIED_ORDER ="https://api.mch.weixin.qq.com/pay/unifiedorder";
+    public static final String MCH_ID = "1449873902";// yum
+ // API密钥，在商户平台设置
+    public static final String API_KEY = "sanyuanhy15618525339l13972122637";// yu

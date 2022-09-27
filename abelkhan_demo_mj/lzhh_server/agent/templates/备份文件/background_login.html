@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>登录</title>
+        <style type="text/css">
+            div#container{ margin:20% auto auto 42%; }
+            div#nodes{ font-size:100%; margin:10px auto 10px 60px; }
+            div#repaddress{ float:left; margin:5px auto 5px auto; }
+            div#button{ margin:5px auto 5px 80px; }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+          <div id="nodes">三袁互娱-后台登录</div>
+          <div id="repaddress">密码:</div>
+          <!--<input id="edit" style=" height:24px;width:200px" onkeydown="editonenterdown(this)" type="password">-->
+            <input id="edit" style=" height:24px;width:200px;"onkeydown="editonenterdown(this)" type="password">
+          <div id="button">
+         <button id="searchbutton" style="clear:both; width:80px; height:30px;" onclick="buttononclick(this)" type="button">登录</button>
+
+          </div>
+        </div>
+    </body>
+     <script src="../javascript/JSON.javascript" ></script>
+   <script src="../javascript/JSONError.javascript" ></script>
+   <script src="../javascript/JSONRequest.javascript" ></script>
+   <script src="../javascript/JSONRequestError.javascript" ></script>
+    <script>
+        function GetRequest() {
+            var url = top.window.location.href;
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(url.indexOf("?") + 1);
+                strs = str.split("&");
+                for(var i = 0; i < strs.length; i ++) {
+                   theRequest[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
+                }
+            }
+            return theRequest;
+        }
+
+        function editonenterdown(id){
+            if (event.keyCode === 13){
+                background_logic();
+            }
+        }
+
+        function buttononclick(id){
+            background_logic();
+        }
+
+        function background_logic(){
+            if (document.getElementById("edit").value != ""){
+                var req = GetRequest();
+                var params = {"mima":document.getElementById("edit").value};
+                JSONRequest.post("http://139.199.11.173:5000/background/user_login", params, function (requestNumber, value, exception){
+                    url = value["url"];
+                    location.assign(url);
+                    window.location=url;
+                    location.href=url;
+                });
+            }
+        }
+    </script>
+</html>

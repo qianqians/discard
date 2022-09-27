@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+</head>
+
+<body>
+</body>
+
+<script language="javascript" src="/client.js"></script>
+<script language="javascript" src="/ccallhcaller.js"></script>
+<script language="javascript" src="/hcallcmodule.js"></script>
+<script language="javascript" src="/event_cb.js"></script>
+<script type="text/javascript">
+    function on_hcallc(text){
+        alert(text);
+    }
+
+    function on_ccallh_rsp(text){
+        alert(text);
+    }
+
+    function on_ccallh_err(){
+        alert("error");
+    }
+
+    var _client = new client("{{uuid}}");
+
+    var _ccallh = new ccallh(_client);
+    var _hcallc = new hcallc(_client);
+    _hcallc.add_event_listen("hcallc", on_hcallc);
+
+    _client.add_event_listen("on_connect_gate", function(){
+        _client.connect_hub("hub_server");
+        _client.connect_hub("hub_server0");
+    });
+    var con_hub = [];
+    _client.add_event_listen("on_connect_hub", function(hub_name){
+        con_hub.push(hub_name);
+        if (con_hub.indexOf("hub_server") !== -1 & con_hub.indexOf("hub_server0") !== -1)
+        {
+            _ccallh.get_hub("hub_server").ccallh().callBack(on_ccallh_rsp, on_ccallh_err);
+        }
+    });
+    _client.connect_server("ws://127.0.0.1:3236");
+
+
+
+    window.setInterval(_client.poll, 50);
+</script>
+
+</html>

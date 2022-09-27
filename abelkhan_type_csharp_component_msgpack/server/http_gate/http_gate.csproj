@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>../../bin/</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>../../bin/</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\trinityprotocol\http_protocol\account.cs" Link="account.cs" />
+    <Compile Include="..\..\trinityprotocol\http_protocol\HttpBasePacket.cs" Link="HttpBasePacket.cs" />
+    <Compile Include="..\..\trinityprotocol\http_protocol\TestCase.cs" Link="TestCase.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\component\hub\hub.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="EvHttpSharp">
+      <HintPath>..\..\bin\netcoreapp3.1\EvHttpSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,18 @@
+[submodule "engine/3rdparty/bullet3"]
+	path = engine/3rdparty/bullet3
+	url = git@github.com:bulletphysics/bullet3.git
+[submodule "engine/3rdparty/recastnavigation"]
+	path = engine/3rdparty/recastnavigation
+	url = git@github.com:recastnavigation/recastnavigation.git
+[submodule "engine/3rdparty/openal-soft"]
+	path = engine/3rdparty/openal-soft
+	url = git@github.com:kcat/openal-soft.git
+[submodule "engine/3rdparty/filament"]
+	path = engine/3rdparty/filament
+	url = git@github.com:google/filament.git
+[submodule "engine/3rdparty/bdwgc"]
+	path = engine/3rdparty/bdwgc
+	url = git@github.com:ivmai/bdwgc.git
+[submodule "engine/3rdparty/SDL"]
+	path = engine/3rdparty/SDL
+	url = git@github.com:libsdl-org/SDL.git

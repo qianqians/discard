@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=0.5, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+  <title>详细页面</title>
+	  <script language="javascript" src="/JSON.js"></script>
+	  <script language="javascript" src="/JSONError.js"></script>
+	  <script language="javascript" src="/JSONRequestError.js"></script>
+	  <script language="javascript" src="/JSONRequest.js"></script>
+</head>
+<body>
+<style type="text/css">
+	#container{width:100%;height:100%;margin:auto auto auto auto;}
+</style>
+<div style="margin-top: 1px" id="container" >
+    <div id="div1"><h1 style="text-align:center" id="title"></h1></div>
+	<div style="margin-top: 1px" id="div2" >
+                   <div  style="margin:0px; border:0px none;">
+                    <table width="100%" border="0" id="tb">
+
+                    </table>
+                </div>
+            </div>
+        <div  style="margin-top: 5px;">
+			<table width="100%"  border="0" cellspacing="0"
+				cellpadding="0">
+				<tr>
+					<td align="right">
+						总共<span id="sum"></span>条记录，当前第 1 页，共 1 页
+					</td>
+				</tr>
+			</table>
+        </div>
+</div>
+</div>
+
+<script type="text/javascript">
+
+	function GetRequest() {
+	    var url = top.window.location.href;
+	    var theRequest = new Object();
+	    if (url.indexOf("?") != -1) {
+	        var str = url.substr(url.indexOf("?") + 1);
+	        strs = str.split("&");
+	        for(var i = 0; i < strs.length; i ++) {
+	           theRequest[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
+	        }
+	    }
+	    return theRequest;
+	}
+
+	var req = GetRequest();
+	var operation=req["operation"];
+	var sid =req["sid"];
+	if(sid!=''&sid!=undefined&operation=='member'){
+		var params = {"sid":sid};
+		JSONRequest.post("/agent/player_info", params, function (requestNumber, value, exception){
+			if (value["error"])
+			{
+				alert(value["error"]);
+			}
+			else
+			{
+				document.getElementById("sum").innerHTML="";
+				document.getElementById("tb").innerHTML = "";
+				document.getElementById("title").innerHTML="我的会员";
+				document.getElementById("sum").innerHTML=value.length;
+				var trstr='<tr><td  align="center">序号</td><td align="center">玩家昵称</td><td  align="center">玩家ID</td><td  align="center">绑定时间</td><td  align="center">钻石</td></tr>';
+				for(var i=0;i<value.length;i++){
+					trstr+='<tr bgcolor="f8f8f8"><td align="center">'+i+
+					'</td><td align="center">'+""+
+					'</td><td align="center">'+value[i]["reg_key"]+
+					'</td><td align="center">'+""+
+					'</td><td align="center">'+value[i]["diamond"]+
+					'</td></tr>';
+				}
+				document.getElementById("tb").innerHTML = trstr;
+			}
+		});
+	}
+
+	if(sid!=''&sid!=undefined&operation=='proxy'){
+		var params = {"sid":sid};
+		JSONRequest.post("/agent/agent_info", params, function (requestNumber, value, exception){
+			if (value["error"])
+			{
+				alert(value["error"]);
+			}
+			else
+			{
+				document.getElementById("sum").innerHTML="";
+				document.getElementById("tb").innerHTML = "";
+				document.getElementById("title").innerHTML="我的代理";
+				document.getElementById("sum").innerHTML=value.length;
+				var trstr='<tr><td  align="center">序号</td><td align="center">姓名</td><td  align="center">电话</td><td  align="center">微信号</td><td  align="center">代理号</td>';
+				trstr+='<td  align="center">玩家ID</td><td align="center">会员数</td><td  align="center">下级代理数</td><td  align="center">可用余额</td><td  align="center">总收入</td><td  align="center">身份证</td><td  align="center">会员付费</td><td  align="center">下级代理会员付费</td></tr>';
+				for(var i=0;i<value.length;i++){
+					trstr+='<tr bgcolor="f8f8f8"><td align="center">'+i+
+					'</td><td align="center">'+value[i]["name"]+
+					'</td><td align="center">'+value[i]["mobile"]+
+					'</td><td align="center">'+value[i]["wechat"]+
+					'</td><td align="center">'+value[i]["key"]+
+					'</td><td align="center">'+value[i]["game_id"]+
+					'</td><td align="center">'+value[i]["player_count"]+
+					'</td><td align="center">'+value[i]["child_agent_count"]+
+					'</td><td align="center">'+""+
+					'</td><td align="center">'+value[i]["sum_total_fee"]+
+					'</td><td align="center">'+value[i]["identity"]+
+					'</td><td align="center">'+value[i]["player_total_fee"]+
+					'</td><td align="center">'+value[i]["child_total_fee"]+
+					'</td></tr>';
+				}
+				document.getElementById("tb").innerHTML = trstr;
+			}
+		});
+	}
+
+	if(sid!=''&sid!=undefined&operation=='detail'){
+		var params = {"sid":sid};
+		JSONRequest.post("/agent/player_pay_info", params, function (requestNumber, value, exception){
+			if (value["error"])
+			{
+				alert(value["error"]);
+			}
+			else
+			{
+				document.getElementById("sum").innerHTML="";
+				document.getElementById("tb").innerHTML = "";
+				document.getElementById("title").innerHTML="充值明细";
+				document.getElementById("sum").innerHTML=value.length;
+				var trstr='<tr><td align="center">代理昵称</td><td align="center">绑定的代理号</td><td  align="center">代理级别</td><td  align="center">玩家ID</td><td  align="center">充值昵称</td><td  align="center">充值金额</td>';
+				trstr+='<td  align="center">充值时间</td><td align="center">本次收入</td><td  align="center">收入说明</td><td  align="center">之前余额</td><td align="center">收入后所得</td></tr>';
+				for(var i=0;i<value.length;i++){
+						trstr+='<tr bgcolor="f8f8f8">'
+						'<td align="center">'+""+
+						'</td><td align="center">'+value[i]["agent_reg_key"]+
+						'</td><td align="center">'+""+
+						'</td><td align="center">'+value[i]["player_reg_key"]+
+						'</td><td align="center">'+""+
+						'</td><td align="center">'+value[i]["total_fee"]+
+						'</td><td align="center">'+value[i]["time"]+
+						'</td><td align="center">'+""+
+						'</td><td align="center">'+""+
+						'</td><td align="center">'+""+
+						'</td><td align="center">'+""+
+						'</td></tr>';
+					}
+				document.getElementById("tb").innerHTML = trstr;
+			}
+		});
+	}
+
+</script>
+</body>
+</html>

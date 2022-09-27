@@ -1,0 +1,33 @@
+module hub_call_dbproxy{
+	reg_hub ntf(string hub_name);
+	
+	create_persisted_object ntf(string db, string collection, string object_info, string callbackid);
+
+	updata_persisted_object ntf(string db, string collection, string query_json, string object_info, string callbackid);
+
+	get_object_count ntf(string db, string collection, string query_json, string callbackid);
+
+	get_object_info ntf(string db, string collection, string query_json, string callbackid);
+
+	get_object_infoex ntf(string db, string collection, string query_json, int32 skip, int32 limit, string callbackid);
+	
+	remove_object ntf(string db, string collection, string query_json, string callbackid);
+
+}
+
+module dbproxy_call_hub{
+	reg_hub_sucess ntf();
+	
+	ack_create_persisted_object ntf(string callbackid, bool is_create_sucessed);
+
+	ack_updata_persisted_object ntf(string callbackid, bool is_update_sucessed);
+
+	ack_get_object_count ntf(string callbackid, int32 count);
+
+	ack_get_object_info ntf(string callbackid, string object_info);
+
+	ack_get_object_info_end ntf(string callbackid);
+
+	ack_remove_object ntf(string callbackid, bool is_remove_sucessed);
+
+}

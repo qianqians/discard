@@ -1,0 +1,602 @@
+﻿<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <link href="../static/UI/themes/default/easyui.css" rel="stylesheet" />
+        <link href="../static/UI/themes/icon.css" rel="stylesheet" />
+        <script src="../static/UI/jquery.min.js"></script>
+        <script src="../static/UI/jquery.easyui.min.js"></script>
+        <script src="../static/UI/locale/easyui-lang-zh_CN.js"></script>
+        <script src="../static/UI/jquery-form.js"></script>
+        <title>赖子晃晃-后台管理</title>
+        <style type="text/css">
+
+            div#table_player_query{   margin:5px auto 5px auto; }
+            div#table_add{   margin:5px auto 5px 5px; }
+            div#table_query{   margin:5px auto 5px 5px; }
+			div#table_detail{   margin:5px auto 5px 5px; }
+            div#table_delete{   margin:5px auto 5px 5px; }
+            div#table_change_agent{   margin:5px auto 5px 5px; }
+            div#container_player_query{ clear:both; margin:auto auto auto auto; }
+            div#node_player_id{   margin:5px auto 10px auto;  }
+            input#edit_player_id{    }
+            div#button_player_query{ clear:both; }
+            div#container_add{ clear:both; margin:auto auto auto auto; }
+            div#node_name{   margin:10px auto 10px 45px; }
+            input#edit_name{    }
+            div#node_mobile{ clear:both;   margin:10px auto 10px 15px;  }
+            input#edit{    }
+            div#node_wechat{ clear:both;   margin:10px auto 10px 30px;  }
+            input#edit_wechat{    }
+            div#node_identity{ clear:both;   margin:10px auto 10px 30px;  }
+            input#edit_identity{    }
+            div#node_game_id{ clear:both;   margin:10px auto 10px 30px;  }
+            input#edit_game_id{    }
+            div#node_key{ clear:both;   margin:10px auto 10px 30px;  }
+            input#edit_key{    }
+            div#node_ower_key{ clear:both;   margin:10px auto 10px auto;  }
+            input#edit_ower_key{    }
+            div#node_agent_lv{ clear:both;   margin:10px auto 10px 15px;  }
+            input#edit_agent_lv{    }
+            div#node_mima{ clear:both;   margin:10px auto 10px 45px;  }
+            input#edit_mima{   }
+            div#button_add{ clear:both; }
+            div#container_query{ clear:both; margin:auto auto auto auto; }
+            div#node_agent{   margin:5px auto 10px auto;  }
+            input#edit_agent{    }
+            div#node_agent_key{   margin:5px auto 10px auto;  }
+            input#edit_agent_key{    }
+            div#button_query{ clear:both; }
+            div#container_delete{ clear:both; margin:auto auto auto auto; }
+            div#node_agent_delete{   margin:5px auto 10px auto;  }
+            input#edit_agent_delete{    }
+            div#button_delete{ clear:both; }
+            /*--------------------*/
+           
+            /*--------------------*/
+        </style>
+    </head>
+    <body  style="background-image:url(../static/images/background.png);"> 
+      
+            <div id="dd" class="easyui-dialog" title="更改绑定代理" style="width:400px;height:200px;"
+                 data-options="iconCls:'icon-save',resizable:true,modal:true,closed: true">
+                <table>
+                    <tr><td>------批量修改-----</td></tr>
+                    <tr><td align="right">旧代理号：</td><td><input id="old_agent" type="text" /><br /></td></tr>
+                    <tr><td align="right">新代理号：</td><td><input id="new_agent" type="text" /><br /></td></tr>
+                    <tr><td></td><td><button id="newPwdBut" onclick="SubmitNewAgent()">确认修改</button></td></tr>
+                    <tr><td>------单个修改-----</td></tr>
+                    <tr><td  align="right">玩家id</td><td><input id="old_playerId_only" type="text" /></td></tr>
+                    <tr><td  align="right">新代理号：</td><td><input id="new_agent_only" type="text" /></td></tr>
+                    <tr><td></td><td><button id="newPwdBut_only" onclick="SubmitNewAgentByOnly()">确认修改</button></td></tr>
+                </table>
+            </div>
+
+ 
+            <div class="easyui-window"  data-options="iconCls:'icon-save'" hcenter  title="赖子晃晃-后台管理" collapsible="false" minimizable="false" maximizable="false" closable="false" top="80px">
+
+                <div style="margin:0px auto;">
+                    <div>
+
+                        <div id="table_player_query" onclick="show_table_player_query(this)" style="float:left" class="easyui-menubutton">玩家查询</div>
+                        <div id="table_add" onclick="show_table_add(this)" style="float:left" class="easyui-menubutton">添加代理</div>
+                        <div id="table_detail" onclick="show_detail_info(this)" style="float:left" class="easyui-menubutton">查询所有代理</div>
+                        
+                        <br /><br />
+                        <div id="table_query" onclick="show_table_query(this)" style="float:left" class="easyui-menubutton">查询代理</div>
+                        <div id="table_delete" onclick="show_table_delete(this)" style="float:left" class="easyui-menubutton">删除代理</div>
+                        <div id="table_change_agent" onclick="$('#dd').dialog({ closed :false});"  class="easyui-menubutton" >更改绑定代理</div>
+
+                    </div>
+
+
+                    <div id="container_player_query">
+                        <div id="node_player_id" style="float:left">玩家ID:</div>
+                        <input class="easyui-textbox" id="edit_player_id" style="height:24px;width:200px;float:left;"type="text">
+                        <div id="button_player_query">
+                            <button style="width:80px; height:30px;" onclick="onbutton_playerqueryclick(this)" type="button">查询</button>
+                        </div>
+                    </div>
+                    <div id="container_player_query_data">
+                    </div>
+                    <div id="container_add" style="visibility:hidden; display:none;">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div id="node_name" style="float:left">姓名:</div>
+                                </td>
+                                <td><input class="easyui-textbox" id="edit_name" style="height:24px;width:170px;float:left "></td>
+
+                            </tr>
+
+                            <tr>
+                                <td><div id="node_mobile" style="float:left">手机号码:</div></td>
+                                <td> <input class="easyui-textbox" id="edit" style="height:24px;width:170px;float:left "></td>
+                            </tr>
+
+                            <tr>
+                                <td> <div id="node_wechat" style="float:left">微信号:</div></td>
+                                <td> <input class="easyui-textbox" id="edit_wechat" style="height:24px;width:170px;float:left "></td>
+                            </tr>
+
+                            <tr>
+                                <td><div id="node_identity" style="float:left">身份证:</div></td>
+                                <td><input class="easyui-textbox" id="edit_identity" style="height:24px;width:170px;float:left "></td>
+                            </tr>
+
+                            <tr>
+                                <td><div id="node_game_id" style="float:left">游戏ID:</div></td>
+                                <td> <input class="easyui-textbox" id="edit_game_id" style="height:24px;width:170px;float:left"></td>
+                            </tr>
+
+                            <tr>
+                                <td> <div id="node_key" style="float:left">代理号:</div></td>
+                                <td><input class="easyui-textbox" id="edit_key" style="height:24px;width:170px;float:left"></td>
+                            </tr>
+
+                            <tr>
+                                <td><div id="node_ower_key" style="float:left">上级代理号:</div></td>
+                                <td> <input class="easyui-textbox" id="edit_ower_key" style="height:24px;width:170px;float:left "></td>
+                            </tr>
+
+                            <tr>
+                                <td><div id="node_agent_lv" style="float:left">代理等级:</div></td>
+                                <td><input class="easyui-textbox" id="edit_agent_lv" style="height:24px;width:170px;float:left "></td>
+                            </tr>
+
+                            <tr>
+                                <td><div id="node_mima" style="float:left">密码:</div></td>
+                                <td><input class="easyui-textbox" id="edit_mima" style="height:24px;width:170px;float:left"></td>
+                            </tr>
+
+                            <tr id="button_add">
+                                <td> <button style="width:80px; height:30px;" onclick="onbutton_addclick(this)" type="button">添加</button></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="container_query" style="visibility:hidden; display:none;">
+                        <div id="node_agent" style="float:left">手机号码:</div>
+                        <input class="easyui-textbox" id="edit_agent" style="height:24px;width:170px;float:left"><br />
+                        <br />
+                        <div id="node_agent_key" style="float:left">代理号码:</div>
+                        <input class="easyui-textbox" id="edit_agent_key" style="height:24px;width:170px;float:left">
+                        <div id="button_query">
+                            <button style="width:80px; height:30px;" onclick="onbutton_queryclick(this)" type="button">查询</button>
+                        </div>
+                        
+                    </div>
+                    <div id="container_query_data" style="visibility:hidden; display:none;">
+                    </div>
+                    <div id="container_delete" style="visibility:hidden; display:none;">
+                        <div id="node_agent_delete" style="float:left">手机号码:</div>
+                        <input class="easyui-textbox" id="edit_agent_delete" style="height:24px;width:170px;float:left">
+                        <div id="button_delete">
+                            <button style="width:80px; height:30px;" onclick="onbutton_deleteclick(this)" type="button">删除</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+
+
+
+
+    </body>
+    <script language="javascript" src="/JSON.js"></script>
+    <script language="javascript" src="/JSONError.js"></script>
+    <script language="javascript" src="/JSONRequestError.js"></script>
+    <script language="javascript" src="/JSONRequest.js"></script>
+    <script>
+		function GetRequest() {
+		    var url = top.window.location.href;
+		    var theRequest = new Object();
+		    if (url.indexOf("?") != -1) {
+		        var str = url.substr(url.indexOf("?") + 1);
+		        strs = str.split("&");
+		        for(var i = 0; i < strs.length; i ++) {
+		           theRequest[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
+		        }
+		    }
+			    return theRequest;
+		}
+			req = GetRequest();
+			sid = req["sid"];
+
+			function SubmitNewAgentByOnly()
+			{
+			    var playId = document.getElementById("old_playerId_only").value;
+			    var new_agent = document.getElementById("new_agent_only").value;
+
+			    if (old_agent != "" && new_agent != "") {
+			        var params = { "player_id": playId, "new_agent": new_agent };
+
+			        JSONRequest.post("/background/change_player_agent", params, function (requestNumber, value, exception) {
+			            if (value["error"]) {
+			                alert(value["error"]);
+			            } else {
+			                alert("修改绑定代理号成功！");
+			            }
+			        });
+			    } else {
+			        alert("输入不能为空！");
+			    }
+			}
+
+        function SubmitNewAgent() {
+           
+            var old_agent = document.getElementById("old_agent").value;
+            var new_agent = document.getElementById("new_agent").value;
+
+            if (old_agent != "" && new_agent != "") {
+                var params = { "old_agent": old_agent, "new_agent": new_agent };
+
+                JSONRequest.post("/background/change_agent", params, function (requestNumber, value, exception) {
+                    if (value["error"]) {
+                        alert(value["error"]);
+                    } else {
+                        alert("修改绑定代理号成功！");
+                    }
+                });
+            } else
+            {
+                alert("输入不能为空！");
+            }
+        }
+
+        function show_table_player_query(id){
+            document.getElementById("container_query").style.visibility="hidden";//隐藏
+            document.getElementById("container_query").style.display="none";//隐藏
+            document.getElementById("container_query_data").style.visibility="hidden";//隐藏
+            document.getElementById("container_query_data").style.display="none";//隐藏
+
+            document.getElementById("container_delete").style.visibility="hidden";//隐藏
+            document.getElementById("container_delete").style.display="none";//隐藏
+
+            document.getElementById("container_add").style.visibility="hidden";//显示
+            document.getElementById("container_add").style.display="none";//显
+
+            document.getElementById("container_player_query").style.visibility="visible";//隐藏
+            document.getElementById("container_player_query").style.display="";//隐藏
+            document.getElementById("container_player_query_data").style.visibility="visible";//隐藏
+            document.getElementById("container_player_query_data").style.display="";//隐藏
+        }
+
+        function show_table_add(id){
+            document.getElementById("container_query").style.visibility="hidden";//隐藏
+            document.getElementById("container_query").style.display="none";//隐藏
+            document.getElementById("container_query_data").style.visibility="hidden";//隐藏
+            document.getElementById("container_query_data").style.display="none";//隐藏
+
+            document.getElementById("container_delete").style.visibility="hidden";//隐藏
+            document.getElementById("container_delete").style.display="none";//隐藏
+
+            document.getElementById("container_player_query").style.visibility="hidden";//隐藏
+            document.getElementById("container_player_query").style.display="none";//隐藏
+            document.getElementById("container_player_query_data").style.visibility="hidden";//隐藏
+            document.getElementById("container_player_query_data").style.display="none";//隐藏
+
+            document.getElementById("container_add").style.visibility="visible";//显示
+            document.getElementById("container_add").style.display="";//显
+        }
+
+        function show_table_query(id){
+            document.getElementById("container_add").style.visibility="hidden";//隐藏
+            document.getElementById("container_add").style.display="none";//隐藏
+
+            document.getElementById("container_delete").style.visibility="hidden";//隐藏
+            document.getElementById("container_delete").style.display="none";//隐藏
+
+            document.getElementById("container_player_query").style.visibility="hidden";//隐藏
+            document.getElementById("container_player_query").style.display="none";//隐藏
+            document.getElementById("container_player_query_data").style.visibility="hidden";//隐藏
+            document.getElementById("container_player_query_data").style.display="none";//隐藏
+
+            document.getElementById("container_query").style.visibility="visible";//显示
+            document.getElementById("container_query").style.display="";//显
+            document.getElementById("container_query_data").style.visibility="visible";//显示
+            document.getElementById("container_query_data").style.display="";//显示
+        }
+		
+		  function show_detail_info(id){
+            document.getElementById("container_add").style.visibility="hidden";//隐藏
+            document.getElementById("container_add").style.display="none";//隐藏
+
+            document.getElementById("container_delete").style.visibility="hidden";//隐藏
+            document.getElementById("container_delete").style.display="none";//隐藏
+
+            document.getElementById("container_player_query").style.visibility="hidden";//隐藏
+            document.getElementById("container_player_query").style.display="none";//隐藏
+            document.getElementById("container_player_query_data").style.visibility="hidden";//隐藏
+            document.getElementById("container_player_query_data").style.display="none";//隐藏
+
+			window.location.href="http://mj.sanyuanhy.com/background/detail?sid="+sid;
+        }
+
+        function show_table_delete(id)
+        {
+            document.getElementById("container_query").style.visibility="hidden";//隐藏
+            document.getElementById("container_query").style.display="none";//隐藏
+            document.getElementById("container_query_data").style.visibility="hidden";//隐藏
+            document.getElementById("container_query_data").style.display="none";//隐藏
+
+            document.getElementById("container_add").style.visibility="hidden";//隐藏
+            document.getElementById("container_add").style.display="none";//隐藏
+
+            document.getElementById("container_player_query").style.visibility="hidden";//隐藏
+            document.getElementById("container_player_query").style.display="none";//隐藏
+            document.getElementById("container_player_query_data").style.visibility="hidden";//隐藏
+            document.getElementById("container_player_query_data").style.display="none";//隐藏
+
+            document.getElementById("container_delete").style.visibility="visible";//显示
+            document.getElementById("container_delete").style.display="";//显
+        }
+
+        function onbutton_addclick(id){
+            var params = {"name":document.getElementById("edit_name").value,
+                          "mobile":document.getElementById("edit").value,
+                          "wechat":document.getElementById("edit_wechat").value,
+                          "identity":document.getElementById("edit_identity").value,
+                          "game_id":document.getElementById("edit_game_id").value,
+                          "key":document.getElementById("edit_key").value,
+                          "ower_key":document.getElementById("edit_ower_key").value,
+                          "agent_lv":document.getElementById("edit_agent_lv").value,
+                          "mima": document.getElementById("edit_mima").value
+            };
+            /* 定义一个对象 params*/
+
+            JSONRequest.post("/background/add_agent", params, function (requestNumber, value, exception){
+                alert(value["ret"]);
+            });
+        }
+
+        function onbutton_queryclick(id) {
+            var phone = document.getElementById("edit_agent").value;
+            var agent_Key = document.getElementById("edit_agent_key").value;
+
+            if (phone != ""&&agent_Key=="")
+            {
+                //手机号码不为空，代理号码为空
+
+                var params = { "key": phone};
+                JSONRequest.post("/background/query_agent", params, function (requestNumber, value, exception) {
+                    if (value["error"]) {
+                        alert(value["error"]);
+                    }
+                    else {
+                        document.getElementById("container_query_data").innerHTML = "";
+
+                        var name_node = document.createTextNode("姓名:");
+                        document.getElementById("container_query_data").appendChild(name_node);
+                        var name = document.createTextNode(value["name"]);
+                        document.getElementById("container_query_data").appendChild(name);
+                        var mobile_node = document.createTextNode("\n\n手机号码:");
+                        document.getElementById("container_query_data").appendChild(mobile_node);
+                        var mobile = document.createTextNode(value["mobile"]);
+                        document.getElementById("container_query_data").appendChild(mobile);
+
+                        //-----
+                        var mima_node = document.createTextNode("密码:");
+                        document.getElementById("container_query_data").appendChild(mima_node);
+                        var mima = document.createTextNode(value["mima"]);
+                        document.getElementById("container_query_data").appendChild(mima);
+
+                        //-----
+
+                        var key_node = document.createTextNode("\n\n代理码:");
+                        document.getElementById("container_query_data").appendChild(key_node);
+                        var key = document.createTextNode(value["key"]);
+                        document.getElementById("container_query_data").appendChild(key);
+                        var wechat_node = document.createTextNode("\n\n微信号:");
+                        document.getElementById("container_query_data").appendChild(wechat_node);
+                        var wechat = document.createTextNode(value["wechat"]);
+                        document.getElementById("container_query_data").appendChild(wechat);
+                        var identity_node = document.createTextNode("\n\n身份证:");
+                        document.getElementById("container_query_data").appendChild(identity_node);
+                        var identity = document.createTextNode(value["identity"]);
+                        document.getElementById("container_query_data").appendChild(identity);
+                        var game_id_node = document.createTextNode("\n\n游戏ID:");
+                        document.getElementById("container_query_data").appendChild(game_id_node);
+                        var game_id = document.createTextNode(value["game_id"]);
+                        document.getElementById("container_query_data").appendChild(game_id);
+                        var player_count_node = document.createTextNode("\n\n会员数:");
+                        document.getElementById("container_query_data").appendChild(player_count_node);
+                        var player_count = document.createTextNode(value["player_count"]);
+                        document.getElementById("container_query_data").appendChild(player_count);
+                        var player_total_fee_node = document.createTextNode("\n\n会员付费:");
+                        document.getElementById("container_query_data").appendChild(player_total_fee_node);
+                        var player_total_fee = document.createTextNode(value["player_total_fee"]);
+                        document.getElementById("container_query_data").appendChild(player_total_fee);
+                        var chlid_agent_count_node = document.createTextNode("\n\n下级代理数:");
+                        document.getElementById("container_query_data").appendChild(chlid_agent_count_node);
+                        var chlid_agent_count = document.createTextNode(value["child_agent_count"]);
+                        document.getElementById("container_query_data").appendChild(chlid_agent_count);
+                        var child_player_count_node = document.createTextNode("\n\n下级代理会员数:");
+                        document.getElementById("container_query_data").appendChild(child_player_count_node);
+                        var child_player_count = document.createTextNode(value["child_player_count"]);
+                        document.getElementById("container_query_data").appendChild(child_player_count);
+                        var child_total_fee_node = document.createTextNode("\n\n下级代理会员付费:");
+                        document.getElementById("container_query_data").appendChild(child_total_fee_node);
+                        var child_total_fee = document.createTextNode(value["child_total_fee"]);
+                        document.getElementById("container_query_data").appendChild(child_total_fee);
+                        var total_fee_node = document.createTextNode("\n\n收入:");
+                        document.getElementById("container_query_data").appendChild(total_fee_node);
+                        var sum_total_fee = document.createTextNode(value["sum_total_fee"]);
+                        document.getElementById("container_query_data").appendChild(sum_total_fee);
+
+                        for (var i in value["agent_use"]) {
+                            var table = document.createElement("div");
+
+                            var player_id_node = document.createTextNode("玩家ID:");
+                            table.appendChild(player_id_node);
+                            var player_id = document.createTextNode(value["agent_use"][i]["reg_key"]);
+                            table.appendChild(player_id);
+                            var diamond_node = document.createTextNode("\n\n钻石:");
+                            table.appendChild(diamond_node);
+                            var diamond = document.createTextNode(value["agent_use"][i]["diamond"]);
+                            table.appendChild(diamond);
+                            var total_fee_node = document.createTextNode("\n\n累计充值金额:");
+                            table.appendChild(total_fee_node);
+                            var total_fee = document.createTextNode(value["agent_use"][i]["sum_total_fee"]);
+                            table.appendChild(total_fee);
+
+                            document.getElementById("container_query_data").appendChild(table);
+                        }
+                    }
+                });
+
+            } else if (phone == "" && agent_Key != "")
+            {
+                //代理号码不为空，手机号码为空
+
+                var params = { "key": agent_Key };
+                JSONRequest.post("/background/query_agent_key", params, function (requestNumber, value, exception) {
+                    if (value["error"]) {
+                        alert(value["error"]);
+                    }
+                    else {
+                        document.getElementById("container_query_data").innerHTML = "";
+
+                        var name_node = document.createTextNode("姓名:");
+                        document.getElementById("container_query_data").appendChild(name_node);
+                        var name = document.createTextNode(value["name"]);
+                        document.getElementById("container_query_data").appendChild(name);
+                        var mobile_node = document.createTextNode("\n\n手机号码:");
+                        document.getElementById("container_query_data").appendChild(mobile_node);
+                        var mobile = document.createTextNode(value["mobile"]);
+                        document.getElementById("container_query_data").appendChild(mobile);
+
+                        //-----
+                        var mima_node = document.createTextNode("密码:");
+                        document.getElementById("container_query_data").appendChild(mima_node);
+                        var mima = document.createTextNode(value["mima"]);
+                        document.getElementById("container_query_data").appendChild(mima);
+
+                        //-----
+
+                        var key_node = document.createTextNode("\n\n代理码:");
+                        document.getElementById("container_query_data").appendChild(key_node);
+                        var key = document.createTextNode(value["key"]);
+                        document.getElementById("container_query_data").appendChild(key);
+                        var wechat_node = document.createTextNode("\n\n微信号:");
+                        document.getElementById("container_query_data").appendChild(wechat_node);
+                        var wechat = document.createTextNode(value["wechat"]);
+                        document.getElementById("container_query_data").appendChild(wechat);
+                        var identity_node = document.createTextNode("\n\n身份证:");
+                        document.getElementById("container_query_data").appendChild(identity_node);
+                        var identity = document.createTextNode(value["identity"]);
+                        document.getElementById("container_query_data").appendChild(identity);
+                        var game_id_node = document.createTextNode("\n\n游戏ID:");
+                        document.getElementById("container_query_data").appendChild(game_id_node);
+                        var game_id = document.createTextNode(value["game_id"]);
+                        document.getElementById("container_query_data").appendChild(game_id);
+                        var player_count_node = document.createTextNode("\n\n会员数:");
+                        document.getElementById("container_query_data").appendChild(player_count_node);
+                        var player_count = document.createTextNode(value["player_count"]);
+                        document.getElementById("container_query_data").appendChild(player_count);
+                        var player_total_fee_node = document.createTextNode("\n\n会员付费:");
+                        document.getElementById("container_query_data").appendChild(player_total_fee_node);
+                        var player_total_fee = document.createTextNode(value["player_total_fee"]);
+                        document.getElementById("container_query_data").appendChild(player_total_fee);
+                        var chlid_agent_count_node = document.createTextNode("\n\n下级代理数:");
+                        document.getElementById("container_query_data").appendChild(chlid_agent_count_node);
+                        var chlid_agent_count = document.createTextNode(value["child_agent_count"]);
+                        document.getElementById("container_query_data").appendChild(chlid_agent_count);
+                        var child_player_count_node = document.createTextNode("\n\n下级代理会员数:");
+                        document.getElementById("container_query_data").appendChild(child_player_count_node);
+                        var child_player_count = document.createTextNode(value["child_player_count"]);
+                        document.getElementById("container_query_data").appendChild(child_player_count);
+                        var child_total_fee_node = document.createTextNode("\n\n下级代理会员付费:");
+                        document.getElementById("container_query_data").appendChild(child_total_fee_node);
+                        var child_total_fee = document.createTextNode(value["child_total_fee"]);
+                        document.getElementById("container_query_data").appendChild(child_total_fee);
+                        var total_fee_node = document.createTextNode("\n\n收入:");
+                        document.getElementById("container_query_data").appendChild(total_fee_node);
+                        var sum_total_fee = document.createTextNode(value["sum_total_fee"]);
+                        document.getElementById("container_query_data").appendChild(sum_total_fee);
+
+                        for (var i in value["agent_use"]) {
+                            var table = document.createElement("div");
+
+                            var player_id_node = document.createTextNode("玩家ID:");
+                            table.appendChild(player_id_node);
+                            var player_id = document.createTextNode(value["agent_use"][i]["reg_key"]);
+                            table.appendChild(player_id);
+                            var diamond_node = document.createTextNode("\n\n钻石:");
+                            table.appendChild(diamond_node);
+                            var diamond = document.createTextNode(value["agent_use"][i]["diamond"]);
+                            table.appendChild(diamond);
+                            var total_fee_node = document.createTextNode("\n\n累计充值金额:");
+                            table.appendChild(total_fee_node);
+                            var total_fee = document.createTextNode(value["agent_use"][i]["sum_total_fee"]);
+                            table.appendChild(total_fee);
+
+                            document.getElementById("container_query_data").appendChild(table);
+                        }
+                    }
+                });
+
+
+            } else if (phone != "" && agent_Key != "") {
+                alert("只能接受一个输入框的值！");
+            } else {
+                alert("文本不能为空！")
+            }
+                
+
+         
+        }
+
+        function onbutton_deleteclick(id){
+            var params = {"key":document.getElementById("edit_agent_delete").value};
+            JSONRequest.post("/background/del_agent", params, function (requestNumber, value, exception){
+                alert(value["ret"]);
+            });
+        }
+
+        function onbutton_playerqueryclick(id){
+            var params = {"player_id":document.getElementById("edit_player_id").value};
+            JSONRequest.post("/background/query_player", params, function (requestNumber, value, exception){
+                if (value["error"])
+                {
+                    alert(value["error"]);
+                }
+                else
+                {
+                    document.getElementById("container_player_query_data").innerHTML = "";
+
+                    var player_id_node = document.createTextNode("玩家ID:");
+                    document.getElementById("container_player_query_data").appendChild(player_id_node);
+                    var player_id = document.createTextNode(value["reg_key"]);
+                    document.getElementById("container_player_query_data").appendChild(player_id);
+                    var diamond_node = document.createTextNode("\n\n钻石:");
+                    document.getElementById("container_player_query_data").appendChild(diamond_node);
+                    var diamond = document.createTextNode(value["diamond"]);
+                    document.getElementById("container_player_query_data").appendChild(diamond);
+
+                    for(var i in value["total_fee"])
+                    {
+                        var table = document.createElement("div");
+
+                        var total_fee_node = document.createTextNode("充值金额:");
+                        table.appendChild(total_fee_node);
+                        var total_fee = document.createTextNode(value["total_fee"][i]["total_fee"]);
+                        table.appendChild(total_fee);
+                        var time_node = document.createTextNode("\n\n充值时间:");
+                        table.appendChild(time_node);
+                        var unixtime = new Date(value["total_fee"][i]["time"]);
+                        var time = document.createTextNode(unixtime.toLocaleString());
+                        table.appendChild(time);
+
+                        document.getElementById("container_player_query_data").appendChild(table);
+                    }
+                }
+            });
+        }
+
+    </script>
+</html>

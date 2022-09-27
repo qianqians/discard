@@ -1,0 +1,1 @@
+start ./bin/netcoreapp3.1/http_admin.exe ./config/config_node.txt http_admin0

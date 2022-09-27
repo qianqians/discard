@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=0.5, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+  <title>详细页面</title>
+
+    <link href="/static/UI/themes/default/easyui.css" rel="stylesheet" />
+    <link href="/static/UI/themes/icon.css" rel="stylesheet" />
+    <script src="/static/UI/jquery.min.js"></script>
+    <script src="/static/UI/jquery.easyui.min.js"></script>
+    <script src="/static/UI/locale/easyui-lang-zh_CN.js"></script>
+    <script src="/static/UI/jquery-form.js"></script>
+	<script language="javascript" src="/JSON.js"></script>
+	<script language="javascript" src="/JSONError.js"></script>
+	<script language="javascript" src="/JSONRequestError.js"></script>
+	<script language="javascript" src="/JSONRequest.js"></script>
+
+</head>
+<body style="background-image:url(/static/images/background.png)">
+<style type="text/css">
+	#container{width:100%;height:100%;margin:auto auto auto auto;}
+</style>
+<div style="margin-top: 1px" id="container" >
+    <div id="div1"><h1 style="text-align:center" id="title"></h1></div>
+	<div style="margin-top: 1px" id="div2" >
+                   <div  style="margin:0px; border:0px none;" id="tb">
+                    
+                </div>
+            </div>
+        <div  style="margin-top: 5px;" id="countStr">
+			
+        </div>
+</div>
+
+
+
+<script type="text/javascript">
+
+
+
+	function GetRequest() {
+	    var url = top.window.location.href;
+	    var theRequest = new Object();
+	    if (url.indexOf("?") != -1) {
+	        var str = url.substr(url.indexOf("?") + 1);
+	        strs = str.split("&");
+	        for(var i = 0; i < strs.length; i ++) {
+	           theRequest[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
+	        }
+	    }
+	    return theRequest;
+	}
+
+	var req = GetRequest();
+	var operation=req["operation"];
+    	var sid = req["sid"];
+    	var trstr = '<table  style="width:100%" class="easyui-datagrid" border="0" > ';
+	var countStr='<table style="width:100%" class="easyui-datagrid"  border="0" cellspacing="0" cellpadding="0"> <tr><td align="right">总共<span id="sum"></span>条记录，当前第 1 页，共 1 页</td></tr></table>';
+	if(sid!=''&sid!=undefined&operation=='member'){
+		var params = {"sid":sid};
+		JSONRequest.post("/agent/player_info", params, function (requestNumber, value, exception){
+			if (value["error"])
+			{
+				alert(value["error"]);
+			}
+			else
+			{
+				document.getElementById("countStr").innerHTML=countStr;	
+				document.getElementById("sum").innerHTML="";
+				document.getElementById("tb").innerHTML = "";
+				document.getElementById("title").innerHTML="我的会员";
+                		document.getElementById("sum").innerHTML = value.length;
+
+                
+               trstr += '<thead><tr><th data-options="field:' + "'a'" + ',width:255" align="center">序号</th><th data-options="field:' + "'b'" + ',width:255"  align="center">玩家昵称</th><th data-options="field:' + "'c'" + ',width:255" align="center">玩家ID</th><th data-options="field:' + "'d'" + ',width:255" align="center">绑定时间</th><th data-options="field:' + "'e'" + ',width:255" align="center">钻石</th></tr></thead> ';
+
+				//var trstr='<tr><td  align="center">序号</td><td align="center">玩家昵称</td><td align="center">玩家ID</td><td  align="center">绑定时间</td><td align="center">钻石</td></tr>';
+				for(var i=0;i<value.length;i++){
+					trstr+='<tr bgcolor="f8f8f8"><td align="center">'+1+
+					'</td><td align="center">'+""+
+					'</td><td align="center">'+value[i]["reg_key"]+
+					'</td><td align="center">'+""+
+					'</td><td align="center">'+value[i]["diamond"]+
+					'</td></tr>';
+				}
+				trstr+='</table>';
+				document.getElementById("tb").innerHTML = trstr;
+			}
+		});
+	}
+
+	if(sid!=''&sid!=undefined&operation=='proxy'){
+		var params = {"sid":sid};
+		JSONRequest.post("/agent/agent_info", params, function (requestNumber, value, exception){
+			if (value["error"])
+			{
+				alert(value["error"]);
+			}
+			else
+			{
+				document.getElementById("countStr").innerHTML=countStr;	
+				document.getElementById("sum").innerHTML="";
+				document.getElementById("tb").innerHTML = "";
+				document.getElementById("title").innerHTML="我的代理";
+                		document.getElementById("sum").innerHTML = value.length;
+
+                trstr += '<thead><tr><th data-options="field:'+"'a'"+',width:140" align="center">序号</th><th data-options="field:'+"'b'"+',width:140" align="center">姓名</th><th data-options="field:'+"'c'"+',width:140" align="center">电话</th><th data-options="field:'+"'d'"+',width:140" align="center">微信号</th><th data-options="field:'+"'e'"+',width:140" align="center">代理号</th><th data-options="field:'+"'f'"+',width:140" align="center">玩家ID</th><th data-options="field:'+"'g'"+',width:140" align="center">会员数</th><th data-options="field:'+"'h'"+',width:140" align="center">下级代理数</th><th data-options="field:'+"'i'"+',width:140" align="center">可用余额</th><th data-options="field:'+"'j'"+',width:140" align="center">总收入</th><th data-options="field:'+"'k'"+',width:140" align="center">身份证</th><th data-options="field:'+"'l'"+',width:140" align="center">会员付费</th><th data-options="field:'+"'m'"+',width:140" align="center">下级代理会员付费</th></tr ></thead >';
+
+				//var trstr='<tr><td align="center">序号</td><td align="center">姓名</td><td  align="center">电话</td><td  align="center">微信号</td><td  align="center">代理号</td>';
+				//trstr+='<td  align="center">玩家ID</td><td align="center">会员数</td><td  align="center">下级代理数</td><td  align="center">可用余额</td><td  align="center">总收入</td><td  align="center">身份证</td><td  align="center">会员付费</td><td  align="center">下级代理会员付费</td></tr>';
+				for(var i=0;i<value.length;i++){
+					trstr+='<tr bgcolor="f8f8f8"><td align="center">'+i+
+					'</td><td align="center">'+value[i]["name"]+
+					'</td><td align="center">'+value[i]["mobile"]+
+					'</td><td align="center">'+value[i]["wechat"]+
+					'</td><td align="center">'+value[i]["key"]+
+					'</td><td align="center">'+value[i]["game_id"]+
+					'</td><td align="center">'+value[i]["player_count"]+
+					'</td><td align="center">'+value[i]["child_agent_count"]+
+					'</td><td align="center">'+""+
+					'</td><td align="center">'+value[i]["sum_total_fee"]+
+					'</td><td align="center">'+value[i]["identity"]+
+					'</td><td align="center">'+value[i]["player_total_fee"]+
+					'</td><td align="center">'+value[i]["child_total_fee"]+
+					'</td></tr>';
+				}
+				trstr+='</table>';
+				document.getElementById("tb").innerHTML = trstr;
+			}
+		});
+	}
+
+	if(sid!=''&sid!=undefined&operation=='detail'){
+		var params = {"sid":sid};
+		JSONRequest.post("/agent/player_pay_info", params, function (requestNumber, value, exception){
+			if (value["error"])
+			{
+				alert(value["error"]);
+			}
+			else
+			{
+				document.getElementById("countStr").innerHTML=countStr;	
+				document.getElementById("sum").innerHTML="";
+				document.getElementById("tb").innerHTML = "";
+				document.getElementById("title").innerHTML="充值明细";
+               			document.getElementById("sum").innerHTML = value.length;
+
+                trstr += '<thead><tr><th data-options="field:'+"'a'"+',width:150" align="center">代理昵称</th><th data-options="field:'+"'b'"+',width:150" align="center">绑定的代理号</th><th data-options="field:'+"'c'"+',width:150" align="center">代理级别</th><th data-options="field:'+"'e'"+',width:150" align="center">玩家ID</th><th data-options="field:'+"'d'"+',width:150" align="center">充值昵称</th><th data-options="field:'+"'f'"+',width:150" align="center">充值金额</th><th data-options="field:'+"'g'"+',width:150" align="center">充值时间</th><th data-options="field:'+"'h'"+',width:150" align="center">本次收入</th><th data-options="field:'+"'i'"+',width:150" align="center">收入说明</th><th data-options="field:'+"'j'"+',width:150" align="center">之前余额</th><th data-options="field:'+"'k'"+',width:150" align="center">收入后所得</th></tr >';
+
+				//var trstr='<tr><td align="center">代理昵称</td><td align="center">绑定的代理号</td><td  align="center">代理级别</td><td  align="center">玩家ID</td><td  align="center">充值昵称</td><td  align="center">充值金额</td>';
+				//trstr+='<td  align="center">充值时间</td><td align="center">本次收入</td><td  align="center">收入说明</td><td  align="center">之前余额</td><td align="center">收入后所得</td></tr>';
+				for(var i=0;i<value.length;i++){
+						trstr+='<tr bgcolor="f8f8f8">'
+						'<td align="center">'+""+
+						'</td><td align="center">'+value[i]["agent_reg_key"]+
+						'</td><td align="center">'+""+
+						'</td><td align="center">'+value[i]["player_reg_key"]+
+						'</td><td align="center">'+""+
+						'</td><td align="center">'+value[i]["total_fee"]+
+						'</td><td align="center">'+value[i]["time"]+
+						'</td><td align="center">'+""+
+						'</td><td align="center">'+""+
+						'</td><td align="center">'+""+
+						'</td><td align="center">'+""+
+						'</td></tr>';
+					}
+				trstr+='</table>';
+				document.getElementById("tb").innerHTML = trstr;
+			}
+		});
+	}
+
+</script>
+</body>
+</html>

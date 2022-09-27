@@ -1,0 +1,3 @@
+module xor_key{
+	refresh_xor_key ntf(uint32 xor_key);
+}

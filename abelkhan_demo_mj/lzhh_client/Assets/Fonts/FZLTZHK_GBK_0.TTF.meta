@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: eaf3253e6818f69458248e314c293522
+timeCreated: 1494915873
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: FZLanTingHei-DB-GBK
+  fontNames:
+  - FZLanTingHei-DB-GBK
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

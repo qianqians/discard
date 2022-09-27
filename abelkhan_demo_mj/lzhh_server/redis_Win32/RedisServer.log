@@ -1,0 +1,372 @@
+﻿  adlist.c
+  ae.c
+..\src\ae.c(198): warning C4244: “=”: 从“__time64_t”转换到“PORT_LONG”，可能丢失数据
+..\src\ae.c(407): warning C4244: “=”: 从“PORT_LONGLONG”转换到“long”，可能丢失数据
+  anet.c
+  aof.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+..\src\aof.c(813): warning C4244: “初始化”: 从“PORT_LONGLONG”转换到“int”，可能丢失数据
+  bio.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+  bitops.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+..\src\bitops.c(462): warning C4244: “=”: 从“PORT_LONGLONG”转换到“int”，可能丢失数据
+..\src\bitops.c(1087): warning C4244: “初始化”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+  blocked.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+  cluster.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+..\src\cluster.c(321): warning C4244: “函数”: 从“__int64”转换到“::size_t”，可能丢失数据
+..\src\cluster.c(322): warning C4244: “函数”: 从“__int64”转换到“::size_t”，可能丢失数据
+..\src\cluster.c(2278): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+..\src\cluster.c(4237): warning C4244: “函数”: 从“PORT_LONGLONG”转换到“::size_t”，可能丢失数据
+  config.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+..\src\config.c(494): warning C4244: “=”: 从“PORT_LONGLONG”转换到“::size_t”，可能丢失数据
+..\src\config.c(496): warning C4244: “=”: 从“PORT_LONGLONG”转换到“::size_t”，可能丢失数据
+..\src\config.c(506): warning C4244: “=”: 从“PORT_LONGLONG”转换到“::size_t”，可能丢失数据
+..\src\config.c(508): warning C4244: “=”: 从“PORT_LONGLONG”转换到“::size_t”，可能丢失数据
+..\src\config.c(510): warning C4244: “=”: 从“PORT_LONGLONG”转换到“::size_t”，可能丢失数据
+..\src\config.c(512): warning C4244: “=”: 从“PORT_LONGLONG”转换到“::size_t”，可能丢失数据
+..\src\config.c(920): warning C4244: “=”: 从“PORT_LONGLONG”转换到“PORT_LONG”，可能丢失数据
+..\src\config.c(979): warning C4244: “=”: 从“PORT_LONGLONG”转换到“int”，可能丢失数据
+..\src\config.c(981): warning C4244: “=”: 从“PORT_LONGLONG”转换到“int”，可能丢失数据
+..\src\config.c(983): warning C4244: “=”: 从“PORT_LONGLONG”转换到“int”，可能丢失数据
+..\src\config.c(985): warning C4244: “=”: 从“PORT_LONGLONG”转换到“int”，可能丢失数据
+..\src\config.c(989): warning C4244: “=”: 从“PORT_LONGLONG”转换到“::size_t”，可能丢失数据
+..\src\config.c(991): warning C4244: “=”: 从“PORT_LONGLONG”转换到“::size_t”，可能丢失数据
+..\src\config.c(993): warning C4244: “=”: 从“PORT_LONGLONG”转换到“int”，可能丢失数据
+..\src\config.c(995): warning C4244: “=”: 从“PORT_LONGLONG”转换到“int”，可能丢失数据
+..\src\config.c(997): warning C4244: “=”: 从“PORT_LONGLONG”转换到“::size_t”，可能丢失数据
+..\src\config.c(999): warning C4244: “=”: 从“PORT_LONGLONG”转换到“::size_t”，可能丢失数据
+..\src\config.c(1001): warning C4244: “=”: 从“PORT_LONGLONG”转换到“::size_t”，可能丢失数据
+..\src\config.c(1003): warning C4244: “=”: 从“PORT_LONGLONG”转换到“::size_t”，可能丢失数据
+..\src\config.c(1015): warning C4244: “=”: 从“PORT_LONGLONG”转换到“int”，可能丢失数据
+..\src\config.c(1017): warning C4244: “=”: 从“PORT_LONGLONG”转换到“int”，可能丢失数据
+..\src\config.c(1021): warning C4244: “=”: 从“PORT_LONGLONG”转换到“int”，可能丢失数据
+..\src\config.c(1023): warning C4244: “=”: 从“PORT_LONGLONG”转换到“int”，可能丢失数据
+..\src\config.c(1025): warning C4244: “=”: 从“PORT_LONGLONG”转换到“int”，可能丢失数据
+..\src\config.c(1028): warning C4244: “=”: 从“PORT_LONGLONG”转换到“int”，可能丢失数据
+..\src\config.c(1033): warning C4244: “=”: 从“PORT_LONGLONG”转换到“int”，可能丢失数据
+..\src\config.c(1035): warning C4244: “=”: 从“PORT_LONGLONG”转换到“int”，可能丢失数据
+..\src\config.c(1037): warning C4244: “=”: 从“PORT_LONGLONG”转换到“int”，可能丢失数据
+..\src\config.c(1045): warning C4244: “函数”: 从“PORT_LONGLONG”转换到“int”，可能丢失数据
+..\src\config.c(1812): warning C4244: “函数”: 从“__int64”转换到“::size_t”，可能丢失数据
+  crc16.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+  crc64.c
+  db.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+..\src\db.c(50): warning C4029: 声明的形参表不同于定义
+  debug.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+  dict.c
+  endianconv.c
+  geo.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+..\src\geo.c(323): warning C4244: “函数”: 从“GeoHashFix52Bits”转换到“double”，可能丢失数据
+..\src\geo.c(596): warning C4244: “函数”: 从“double”转换到“PORT_LONGLONG”，可能丢失数据
+..\src\geo.c(546): warning C4244: “初始化”: 从“PORT_LONGLONG”转换到“PORT_LONG”，可能丢失数据
+  hyperloglog.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+  intset.c
+  latency.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+  lzf_c.c
+  正在编译...
+  lzf_d.c
+  memtest.c
+..\src\memtest.c(74): warning C4091: “typedef ”: 没有声明变量时忽略“winsize”的左侧
+  multi.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+  networking.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+..\src\networking.c(976): warning C4018: “>”: 有符号/无符号不匹配
+..\src\networking.c(977): warning C4018: “>”: 有符号/无符号不匹配
+..\src\networking.c(1357): warning C4244: “函数”: 从“PORT_LONGLONG”转换到“::size_t”，可能丢失数据
+..\src\networking.c(1868): warning C4244: “return”: 从“PORT_ULONGLONG”转换到“PORT_ULONG”，可能丢失数据
+  notify.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+  object.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+..\src\object.c(75): warning C4267: “=”: 从“size_t”转换到“uint8_t”，可能丢失数据
+..\src\object.c(76): warning C4267: “=”: 从“size_t”转换到“uint8_t”，可能丢失数据
+  pqsort.c
+  pubsub.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+  quicklist.c
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(48): warning C4005: “INT8_MIN”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(142): note: 参见“INT8_MIN”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(49): warning C4005: “INT16_MIN”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(144): note: 参见“INT16_MIN”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(50): warning C4005: “INT32_MIN”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(146): note: 参见“INT32_MIN”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(51): warning C4005: “INT64_MIN”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(148): note: 参见“INT64_MIN”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(52): warning C4005: “INT8_MAX”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(143): note: 参见“INT8_MAX”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(53): warning C4005: “INT16_MAX”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(145): note: 参见“INT16_MAX”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(54): warning C4005: “INT32_MAX”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(147): note: 参见“INT32_MAX”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(55): warning C4005: “INT64_MAX”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(149): note: 参见“INT64_MAX”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(56): warning C4005: “UINT8_MAX”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(150): note: 参见“UINT8_MAX”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(57): warning C4005: “UINT16_MAX”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(151): note: 参见“UINT16_MAX”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(58): warning C4005: “UINT32_MAX”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(152): note: 参见“UINT32_MAX”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(59): warning C4005: “UINT64_MAX”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(153): note: 参见“UINT64_MAX”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(75): warning C4005: “INT_FAST16_MIN”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(172): note: 参见“INT_FAST16_MIN”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(79): warning C4005: “INT_FAST16_MAX”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(173): note: 参见“INT_FAST16_MAX”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(83): warning C4005: “UINT_FAST16_MAX”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(179): note: 参见“UINT_FAST16_MAX”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(101): warning C4005: “PTRDIFF_MIN”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(205): note: 参见“PTRDIFF_MIN”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(102): warning C4005: “PTRDIFF_MAX”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(206): note: 参见“PTRDIFF_MAX”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(108): warning C4005: “SIG_ATOMIC_MIN”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(209): note: 参见“SIG_ATOMIC_MIN”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(109): warning C4005: “SIG_ATOMIC_MAX”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(210): note: 参见“SIG_ATOMIC_MAX”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(114): warning C4005: “WINT_MIN”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(228): note: 参见“WINT_MIN”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(115): warning C4005: “WINT_MAX”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(229): note: 参见“WINT_MAX”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(117): warning C4005: “INT8_C”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(240): note: 参见“INT8_C”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(118): warning C4005: “INT16_C”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(241): note: 参见“INT16_C”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(119): warning C4005: “INT32_C”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(242): note: 参见“INT32_C”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(120): warning C4005: “INT64_C”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(243): note: 参见“INT64_C”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(122): warning C4005: “UINT8_C”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(245): note: 参见“UINT8_C”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(123): warning C4005: “UINT16_C”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(246): note: 参见“UINT16_C”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(124): warning C4005: “UINT32_C”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(247): note: 参见“UINT32_C”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(125): warning C4005: “UINT64_C”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(248): note: 参见“UINT64_C”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(127): warning C4005: “INTMAX_C”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(251): note: 参见“INTMAX_C”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(128): warning C4005: “UINTMAX_C”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(252): note: 参见“UINTMAX_C”的前一个定义
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+..\src\quicklist.c(309): warning C4018: “<”: 有符号/无符号不匹配
+..\src\quicklist.c(480): warning C4028: 形参 3 与声明不同
+..\src\quicklist.c(503): warning C4028: 形参 3 与声明不同
+..\src\quicklist.c(779): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+..\src\quicklist.c(1072): warning C4028: 形参 2 与声明不同
+..\src\quicklist.c(1265): warning C4244: “=”: 从“PORT_ULONGLONG”转换到“int”，可能丢失数据
+..\src\quicklist.c(1269): warning C4244: “=”: 从“PORT_ULONGLONG”转换到“int”，可能丢失数据
+  rand.c
+  rdb.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+..\src\rdb.c(1298): warning C4244: “=”: 从“off_t”转换到“::size_t”，可能丢失数据
+  redis-check-rdb.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+..\src\redis-check-rdb.c(615): warning C4244: “=”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+..\src\redis-check-rdb.c(633): warning C4244: “=”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+..\src\redis-check-rdb.c(717): warning C4244: “函数”: 从“off_t”转换到“::size_t”，可能丢失数据
+..\src\redis-check-rdb.c(724): warning C4244: “=”: 从“off_t”转换到“::size_t”，可能丢失数据
+..\src\redis-check-rdb.c(742): warning C4244: “函数”: 从“off_t”转换到“::size_t”，可能丢失数据
+  server.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+..\src\server.c(3630): warning C4244: “+=”: 从“PORT_LONGLONG”转换到“::size_t”，可能丢失数据
+  release.c
+  replication.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+..\src\replication.c(79): warning C4244: “函数”: 从“PORT_LONGLONG”转换到“::size_t”，可能丢失数据
+..\src\replication.c(113): warning C4244: “函数”: 从“PORT_LONGLONG”转换到“::size_t”，可能丢失数据
+..\src\replication.c(139): warning C4244: “初始化”: 从“PORT_LONGLONG”转换到“::size_t”，可能丢失数据
+..\src\replication.c(352): warning C4244: “函数”: 从“PORT_LONGLONG”转换到“::size_t”，可能丢失数据
+..\src\replication.c(1135): warning C4244: “=”: 从“off_t”转换到“ssize_t”，可能丢失数据
+  rio.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+  scripting.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+..\src\scripting.c(763): warning C4244: “=”: 从“lua_Number”转换到“int”，可能丢失数据
+..\src\scripting.c(2000): warning C4244: “函数”: 从“PORT_LONGLONG”转换到“::size_t”，可能丢失数据
+  sds.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+..\src\sds.c(350): warning C4244: “=”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+  sentinel.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+  sha1.c
+  正在编译...
+  slowlog.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+  sort.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+  sparkline.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+  syncio.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+  t_hash.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+  t_list.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+  t_set.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+  t_string.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+..\src\t_string.c(281): warning C4244: “函数”: 从“PORT_LONGLONG”转换到“::size_t”，可能丢失数据
+  t_zset.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+  util.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+  ziplist.c
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(153): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(178): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+c:\users\qianqians\downloads\redis-win-3.2.100\src\sds.h(246): warning C4244: “return”: 从“uint64_t”转换到“::size_t”，可能丢失数据
+..\src\ziplist.c(766): warning C4267: “=”: 从“size_t”转换到“uint16_t”，可能丢失数据
+  zipmap.c
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(48): warning C4005: “INT8_MIN”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(142): note: 参见“INT8_MIN”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(49): warning C4005: “INT16_MIN”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(144): note: 参见“INT16_MIN”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(50): warning C4005: “INT32_MIN”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(146): note: 参见“INT32_MIN”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(51): warning C4005: “INT64_MIN”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(148): note: 参见“INT64_MIN”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(52): warning C4005: “INT8_MAX”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(143): note: 参见“INT8_MAX”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(53): warning C4005: “INT16_MAX”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(145): note: 参见“INT16_MAX”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(54): warning C4005: “INT32_MAX”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(147): note: 参见“INT32_MAX”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(55): warning C4005: “INT64_MAX”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(149): note: 参见“INT64_MAX”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(56): warning C4005: “UINT8_MAX”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(150): note: 参见“UINT8_MAX”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(57): warning C4005: “UINT16_MAX”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(151): note: 参见“UINT16_MAX”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(58): warning C4005: “UINT32_MAX”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(152): note: 参见“UINT32_MAX”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(59): warning C4005: “UINT64_MAX”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(153): note: 参见“UINT64_MAX”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(75): warning C4005: “INT_FAST16_MIN”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(172): note: 参见“INT_FAST16_MIN”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(79): warning C4005: “INT_FAST16_MAX”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(173): note: 参见“INT_FAST16_MAX”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(83): warning C4005: “UINT_FAST16_MAX”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(179): note: 参见“UINT_FAST16_MAX”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(101): warning C4005: “PTRDIFF_MIN”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(205): note: 参见“PTRDIFF_MIN”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(102): warning C4005: “PTRDIFF_MAX”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(206): note: 参见“PTRDIFF_MAX”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(108): warning C4005: “SIG_ATOMIC_MIN”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(209): note: 参见“SIG_ATOMIC_MIN”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(109): warning C4005: “SIG_ATOMIC_MAX”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(210): note: 参见“SIG_ATOMIC_MAX”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(114): warning C4005: “WINT_MIN”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(228): note: 参见“WINT_MIN”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(115): warning C4005: “WINT_MAX”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(229): note: 参见“WINT_MAX”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(117): warning C4005: “INT8_C”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(240): note: 参见“INT8_C”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(118): warning C4005: “INT16_C”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(241): note: 参见“INT16_C”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(119): warning C4005: “INT32_C”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(242): note: 参见“INT32_C”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(120): warning C4005: “INT64_C”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(243): note: 参见“INT64_C”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(122): warning C4005: “UINT8_C”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(245): note: 参见“UINT8_C”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(123): warning C4005: “UINT16_C”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(246): note: 参见“UINT16_C”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(124): warning C4005: “UINT32_C”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(247): note: 参见“UINT32_C”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(125): warning C4005: “UINT64_C”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(248): note: 参见“UINT64_C”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(127): warning C4005: “INTMAX_C”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(251): note: 参见“INTMAX_C”的前一个定义
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(128): warning C4005: “UINTMAX_C”: 宏重定义
+  C:\Users\qianqians\Downloads\redis-win-3.2.100\deps\jemalloc-win\include\msvc_compat/stdint.h(252): note: 参见“UINTMAX_C”的前一个定义
+  zmalloc.c
+  正在生成代码
+c:\users\qianqians\downloads\redis-win-3.2.100\src\server.c(1595): warning C4723: 潜在的被 0 除
+c:\users\qianqians\downloads\redis-win-3.2.100\src\server.c(1596): warning C4723: 潜在的被 0 除
+c:\users\qianqians\downloads\redis-win-3.2.100\src\server.c(1597): warning C4723: 潜在的被 0 除
+  已完成代码的生成
+zmalloc.obj : warning LNK4049: 已导入本地定义的符号 _je_malloc
+  RedisServer.vcxproj -> C:\Users\qianqians\Downloads\redis-win-3.2.100\msvs\Win32\Release\redis-server.exe
+  RedisServer.vcxproj -> C:\Users\qianqians\Downloads\redis-win-3.2.100\msvs\Win32\Release\redis-server.pdb (Full PDB)

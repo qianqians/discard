@@ -1,0 +1,31 @@
+module center{
+	reg_server ntf(string type, string hub_type, string name, string ip, int32 port);
+}
+
+module gm_center{
+	confirm_gm ntf(string gm_name);
+
+	close_clutter ntf(string gmname);
+
+	reload ntf(string gmname);
+
+	req_cmd req(string cmd, string param) rsp(string resp) err();
+}
+
+module center_call_server{
+	reg_server_sucess ntf();
+
+	close_server ntf();
+
+	server_be_close ntf(string type, string name);
+}
+
+module center_call_hub{
+	distribute_server_address ntf(string type, string name, string ip, int32 port);
+
+	reload ntf();
+}
+
+module hub_call_center{
+    closed ntf();
+}

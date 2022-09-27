@@ -1,0 +1,3 @@
+module ccallh(client_call_hub){
+		ccallh req() rsp(string) err();
+}

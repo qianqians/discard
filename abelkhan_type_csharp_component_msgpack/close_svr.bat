@@ -1,0 +1,1 @@
+start ./bin/netcoreapp3.1/gm.exe ./config/config_base.txt gm qianqians close

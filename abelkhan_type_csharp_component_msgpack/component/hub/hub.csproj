@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\..\bin\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\bin\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\server_protocol\csharp_server\center.cs" Link="center.cs" />
+    <Compile Include="..\..\server_protocol\csharp_server\dbproxy.cs" Link="dbproxy.cs" />
+    <Compile Include="..\..\server_protocol\csharp_server\hub.cs" Link="hub.cs" />
+    <Compile Include="..\..\server_protocol\csharp_server\xor_key.cs" Link="xor_key.cs" />
+    <Compile Include="..\..\service\acceptservice.cs" Link="acceptservice.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\service\service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="EvHttpSharp">
+      <HintPath>..\..\bin\netcoreapp3.1\EvHttpSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,9 @@
+15618525339
+tet20131115
+ÔÆ
+112.74.59.245(¹«)
+172.18.212.158
+wUm@15013470639
+DB
+mongodb://root:****@dds-m5ee28b138c327a41.mongodb.rds.aliyuncs.com:3717,dds-m5ee28b138c327a42.mongodb.rds.aliyuncs.com:3717/admin?replicaSet=mgset-3174293
+sanyuan_15013470639

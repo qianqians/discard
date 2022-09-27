@@ -1,0 +1,58 @@
+struct Constants
+{
+    float4x4 ViewProjMat;
+    float4 ViewPos;
+    float4 LightPos;
+};
+
+cbuffer cbConstants 
+{
+    Constants g_Constants;
+};
+
+Texture2D    s_diffuse;
+SamplerState s_diffuse_sampler;
+
+Texture2D    s_specular;
+SamplerState s_specular_sampler;
+
+Texture2D    s_normal;
+SamplerState s_normal_sampler;
+
+struct PSInput
+{
+    float4 pos : SV_POSITION;
+    float3 v_normal : NORMAL0;
+    float3 v_tangent : TANGENT;
+    float3 v_bitangent : BINORMAL;
+    float3 v_position : POSITION0;
+    float2 v_texcoord0  : TEXCOORD0;
+};
+
+struct PSOutput
+{
+    float4 Color : SV_TARGET;
+};
+
+void main(in  PSInput  PSIn,
+          out PSOutput PSOut)
+{
+    // ambient
+    float3 color = s_diffuse.Sample(s_diffuse_sampler, PSIn.v_texcoord0).rgb;
+    float3 ambient = 0.3 * color;
+
+    // diffuse
+    float3x3 TBN = /*transpose(*/float3x3(PSIn.v_tangent, PSIn.v_bitangent, PSIn.v_normal)/*)*/;
+    float3 v_tangent_lightpos = mul(g_Constants.ViewPos.xyz, TBN);
+    float3 v_tangent_fragpos  = mul(PSIn.v_position, TBN);
+    float3 lightDir = normalize(v_tangent_lightpos - v_tangent_fragpos);
+    float3 normal = s_normal.Sample(s_normal_sampler, PSIn.v_texcoord0).rgb;
+    normal = normalize(normal * 2.0 - 1.0);  
+    float diff = max(dot(lightDir, normal), 0.0);
+    float3 diffuse = color * diff;
+
+    // specular
+    float3 specular = s_specular.Sample(s_specular_sampler, PSIn.v_texcoord0).rgb * 0.2;
+
+    PSOut.Color = float4(ambient + diffuse + specular, 1.0);
+}

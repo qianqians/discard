@@ -1,0 +1,78 @@
+LOCALAPPDATA=C:\Users\qianqians\AppData\Local
+Found with vswhere C:\Program Files (x86)\Microsoft Visual Studio\2019\Community
+Found with vswhere C:\Program Files (x86)\Microsoft Visual Studio\2019\Community
+###
+### Using 'vc142' toolset.
+###
+
+C:\Users\qianqians\Documents\abelkhan\abelkhan_cpp_hub\3rdparty\boost\tools\build\src\engine>cl /nologo /Zi /MT /TP /Feb2 /wd4996 /Ox /GL   -DNDEBUG  builtins.cpp class.cpp command.cpp compile.cpp constants.cpp cwd.cpp debug.cpp debugger.cpp execcmd.cpp execnt.cpp filent.cpp filesys.cpp frames.cpp function.cpp glob.cpp hash.cpp hcache.cpp hdrmacro.cpp headers.cpp jam.cpp jambase.cpp jamgram.cpp lists.cpp make.cpp make1.cpp md5.cpp mem.cpp modules.cpp native.cpp object.cpp option.cpp output.cpp parse.cpp pathnt.cpp pathsys.cpp regexp.cpp rules.cpp scan.cpp search.cpp strings.cpp subst.cpp sysinfo.cpp timestamp.cpp variable.cpp w32_getreg.cpp modules/order.cpp modules/path.cpp modules/property-set.cpp modules/regex.cpp modules/sequence.cpp modules/set.cpp /link kernel32.lib advapi32.lib user32.lib 
+builtins.cpp
+class.cpp
+command.cpp
+compile.cpp
+constants.cpp
+cwd.cpp
+debug.cpp
+debugger.cpp
+execcmd.cpp
+execnt.cpp
+filent.cpp
+filent.cpp(490): warning C4477: “sprintf”: 格式字符串“%.*s”需要类型“int”的参数，但可变参数 1 拥有了类型“__int64”
+filent.cpp(490): note: 此参数用作精度
+filesys.cpp
+frames.cpp
+function.cpp
+glob.cpp
+hash.cpp
+hcache.cpp
+hdrmacro.cpp
+headers.cpp
+jam.cpp
+正在编译...
+jambase.cpp
+jamgram.cpp
+lists.cpp
+make.cpp
+make1.cpp
+md5.cpp
+mem.cpp
+modules.cpp
+native.cpp
+object.cpp
+option.cpp
+output.cpp
+parse.cpp
+pathnt.cpp
+pathsys.cpp
+regexp.cpp
+rules.cpp
+scan.cpp
+search.cpp
+strings.cpp
+正在编译...
+subst.cpp
+sysinfo.cpp
+timestamp.cpp
+variable.cpp
+w32_getreg.cpp
+order.cpp
+path.cpp
+property-set.cpp
+regex.cpp
+sequence.cpp
+set.cpp
+正在生成代码
+已完成代码的生成
+
+C:\Users\qianqians\Documents\abelkhan\abelkhan_cpp_hub\3rdparty\boost\tools\build\src\engine>dir *.exe 
+ 驱动器 C 中的卷是 Windows
+ 卷的序列号是 E034-61A0
+
+ C:\Users\qianqians\Documents\abelkhan\abelkhan_cpp_hub\3rdparty\boost\tools\build\src\engine 的目录
+
+2020/01/23  11:59         1,213,440 b2.exe
+               1 个文件      1,213,440 字节
+               0 个目录 343,210,344,448 可用字节
+
+C:\Users\qianqians\Documents\abelkhan\abelkhan_cpp_hub\3rdparty\boost\tools\build\src\engine>copy /b .\b2.exe .\bjam.exe 
+已复制         1 个文件。
