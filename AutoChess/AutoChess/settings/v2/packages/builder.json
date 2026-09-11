@@ -1,0 +1,106 @@
+{
+  "__version__": "1.3.9",
+  "bundleConfig": {
+    "custom": {
+      "default": {
+        "displayName": "i18n:builder.asset_bundle.defaultConfig",
+        "configs": {
+          "native": {
+            "preferredOptions": {
+              "isRemote": false,
+              "compressionType": "merge_dep"
+            }
+          },
+          "web": {
+            "preferredOptions": {
+              "isRemote": false,
+              "compressionType": "merge_dep"
+            },
+            "fallbackOptions": {
+              "compressionType": "merge_dep"
+            }
+          },
+          "miniGame": {
+            "fallbackOptions": {
+              "isRemote": true,
+              "compressionType": "merge_dep"
+            },
+            "configMode": "fallback"
+          }
+        }
+      },
+      "1bJ11ixABAyLN9Bvcciclb": {
+        "displayName": "Local Bundle",
+        "configs": {
+          "native": {
+            "preferredOptions": {
+              "isRemote": false,
+              "compressionType": "merge_dep"
+            }
+          },
+          "web": {
+            "preferredOptions": {
+              "isRemote": false,
+              "compressionType": "merge_dep"
+            },
+            "fallbackOptions": {
+              "compressionType": "merge_dep"
+            }
+          },
+          "miniGame": {
+            "fallbackOptions": {
+              "isRemote": false,
+              "compressionType": "merge_dep"
+            },
+            "configMode": "overwrite"
+          }
+        }
+      }
+    }
+  },
+  "splash-setting": {
+    "logo": {
+      "type": "none"
+    },
+    "background": {
+      "type": "color"
+    }
+  },
+  "textureCompressConfig": {
+    "customConfigs": {},
+    "userPreset": {
+      "12+DKyVoJPS551nbjlcHwk": null,
+      "2eqySBjk5NsoiTLTXbGNe9": {
+        "name": "Main Loading UI Compress",
+        "options": {
+          "miniGame": {
+            "png": {
+              "quality": 60
+            }
+          }
+        }
+      },
+      "24uvT4bhtNHpfMj+pOOCZQ": null,
+      "ed9i7jXb9JnYWIJkWPOsfc": {
+        "name": "Role Compress",
+        "options": {
+          "miniGame": {
+            "astc_12x12": {
+              "quality": "fast"
+            },
+            "etc2_rgba": {
+              "quality": "fast"
+            },
+            "pvrtc_4bits_rgba": {
+              "quality": "fast"
+            },
+            "png": {
+              "quality": 80
+            }
+          }
+        }
+      }
+    },
+    "genMipmaps": false
+  }
+}

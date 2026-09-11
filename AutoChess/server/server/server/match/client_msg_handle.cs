@@ -1,0 +1,615 @@
+﻿using Abelkhan;
+using Amazon.Runtime.Internal.Util;
+using Amazon.SecurityToken.Model;
+using battle_shop;
+using InfluxData.Net.Common.Helpers;
+using InfluxData.Net.InfluxDb.Models.Responses;
+using MsgPack;
+using MsgPack.Serialization;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Match
+{
+    class client_msg_handle
+    {
+        private plan_module plan_Module = new plan_module();
+        private battle_revive_module battle_revive_Module = new battle_revive_module();
+        private peak_strength_module peak_Strength_Module = new peak_strength_module();
+        private gm_module gm_Module = new gm_module();
+
+        public client_msg_handle()
+        {
+            plan_Module.on_buy += Plan_Module_on_buy;
+            plan_Module.on_sale_role += Plan_Module_on_sale_role;
+            plan_Module.on_move += Plan_Module_on_move;
+            plan_Module.on_refresh += Plan_Module_on_refresh;
+            plan_Module.on_start_round1 += Plan_Module_on_start_round1;
+            plan_Module.on_confirm_round_victory += Plan_Module_on_confirm_round_victory;
+            plan_Module.on_freeze += Plan_Module_on_freeze;
+            plan_Module.on_start_round += Plan_Module_on_start_round;
+            plan_Module.on_get_battle_data += Plan_Module_on_get_battle_data;
+            plan_Module.on_end_round += Plan_Module_on_end_round;
+
+            battle_revive_Module.on_battle_failed_back += Battle_revive_Module_on_battle_failed_back;
+
+            peak_Strength_Module.on_start_peak_strength += Peak_Strength_Module_on_start_peak_strength;
+            peak_Strength_Module.on_confirm_peak_strength_victory += Peak_Strength_Module_on_confirm_peak_strength_victory;
+
+            gm_Module.on_set_formation += Gm_Module_on_set_formation;
+        }
+
+        private void Battle_revive_Module_on_battle_failed_back()
+        {
+            var rsp = battle_revive_Module.rsp as battle_revive_battle_failed_back_rsp;
+            var uuid = Hub.Hub._gates.current_client_uuid;
+
+            try
+            {
+                var _player = Match.battle_Mng.get_battle_player(uuid);
+                _player.battle_failed_back();
+                rsp.rsp(_player.BattleShopPlayer.BattleData, _player.BattleShopPlayer.ShopData);
+            }
+            catch (System.Exception ex)
+            {
+                Log.Log.err("Battle_revive_Module_on_battle_failed_back error:{0}", ex);
+                rsp.err((int)em_error.db_error);
+            }
+        }
+
+        private void Plan_Module_on_end_round()
+        {
+            var rsp = plan_Module.rsp as plan_end_round_rsp;
+            var uuid = Hub.Hub._gates.current_client_uuid;
+
+            try
+            {
+                var _player = Match.battle_Mng.get_battle_player(uuid);
+                _player.end_round();
+                rsp.rsp();
+            }
+            catch (System.Exception ex)
+            {
+                Log.Log.err("Plan_Module_on_end_round error:{0}", ex);
+                rsp.err((int)em_error.db_error);
+            }
+        }
+
+        private async void Peak_Strength_Module_on_confirm_peak_strength_victory(BattleVictory is_victory, int addCoin)
+        {
+            var rsp = peak_Strength_Module.rsp as peak_strength_confirm_peak_strength_victory_rsp;
+            var uuid = Hub.Hub._gates.current_client_uuid;
+            // to do
+
+            try
+            {
+                var _player = Match.peak_strength_mng.get_battle_player(uuid);
+                var formation = await Match._redis_handle.GetData<UserBattleData>(RedisHelp.BuildPlayerPeakStrengthFormationCache(_player.GUID));
+                var player_proxy = Match._player_proxy_mng.get_player(_player.PlayerHubName);
+                player_proxy.peak_strength_victory(is_victory, formation).callBack(async (userRankInfo) =>
+                {
+                    Log.Log.trace("Peak_Strength_Module_on_confirm_peak_strength_victory peak_strength_victory begin!");
+
+                    /*var battle_data = await Match._redis_handle.GetData<UserBattleData>(RedisHelp.BuildPlayerPeakStrengthFormationCache(_player.GUID));
+                    userRankInfo.battle_data = new UserSharedData()
+                    {
+                        User = battle_data.User,
+                        round = battle_data.round,
+                        victory = battle_data.victory,
+                        faild = 5 - battle_data.faild,
+                    };
+                    using var st = MemoryStreamPool.mstMgr.GetStream();
+                    var _serializer = MessagePackSerializer.Get<MessagePackObjectDictionary>();
+                    _serializer.Pack(st, UserRankInfo.UserRankInfo_to_protcol(userRankInfo));
+
+                    var r = new rank_item
+                    {
+                        guid = _player.GUID,
+                        score = userRankInfo.score,
+                        item = st.ToArray()
+                    };
+                    Match._rank_proxy.update_rank_item(r);*/
+                }, (err) =>
+                {
+                    Log.Log.err("peak_strength_victory err:{0}", err);
+                    rsp.err();
+                }).timeout(1500, () =>
+                {
+                    Log.Log.err("peak_strength_victory timeout!");
+                    rsp.err();
+                });
+
+                rsp.rsp();
+            }
+            catch (System.Exception ex)
+            {
+                Log.Log.err("Peak_Strength_Module_on_del_peak_strength_formation error:{0}", ex);
+                rsp.err();
+            }
+        }
+
+        private async void Peak_Strength_Module_on_start_peak_strength()
+        {
+            var rsp = peak_Strength_Module.rsp as peak_strength_start_peak_strength_rsp;
+            var uuid = Hub.Hub._gates.current_client_uuid;
+            // to do
+
+            try
+            {
+                var _player = Match.peak_strength_mng.get_battle_player(uuid);
+                var formation = await Match._redis_handle.GetData<UserBattleData>(RedisHelp.BuildPlayerPeakStrengthFormationCache(_player.GUID));
+                var target = await Match._redis_handle.RandomList<UserBattleData>(RedisHelp.BuildPeakStrengthCache());
+                rsp.rsp(formation, target);
+            }
+            catch (System.Exception ex)
+            {
+                Log.Log.err("Peak_Strength_Module_on_start_peak_strength error:{0}", ex);
+                rsp.err((int)em_error.db_error);
+            }
+        }
+
+        private void Plan_Module_on_get_battle_data()
+        {
+            var rsp = plan_Module.rsp as plan_get_battle_data_rsp;
+            var uuid = Hub.Hub._gates.current_client_uuid;
+
+            try
+            {
+                var _player = Match.battle_Mng.get_battle_player(uuid);
+
+                rsp.rsp(_player.BattleShopPlayer.BattleData, _player.BattleShopPlayer.ShopData, _player.BattleShopPlayer.check_fetters());
+            }
+            catch (System.Exception ex)
+            {
+                Log.Log.err("Plan_Module_on_get_battle_data error:{0}", ex);
+                rsp.err();
+            }
+        }
+
+        private void Plan_Module_on_freeze(ShopIndex shop_index, int index, bool is_freeze)
+        {
+            var rsp = plan_Module.rsp as plan_freeze_rsp;
+            var uuid = Hub.Hub._gates.current_client_uuid;
+
+            try
+            {
+                var _player = Match.battle_Mng.get_battle_player(uuid);
+                _player.BattleShopPlayer.freeze(shop_index, index, is_freeze);
+
+                rsp.rsp(_player.BattleShopPlayer.ShopData);
+            }
+            catch (System.Exception ex)
+            {
+                Log.Log.err("Plan_Module_on_freeze error:{0}", ex);
+                rsp.err((int)em_error.db_error);
+            }
+        }
+
+        private void Plan_Module_on_move(int role_index1, int role_index2)
+        {
+            var rsp = plan_Module.rsp as plan_move_rsp;
+            var uuid = Hub.Hub._gates.current_client_uuid;
+
+            try
+            {
+                var _player = Match.battle_Mng.get_battle_player(uuid);
+                _player.BattleShopPlayer.move(role_index1, role_index2);
+
+                rsp.rsp(_player.BattleShopPlayer.BattleData);
+            }
+            catch (System.Exception ex)
+            {
+                Log.Log.err("Plan_Module_on_move error:{0}", ex);
+                rsp.err((int)em_error.db_error);
+            }
+        }
+
+        private async void Plan_Module_on_confirm_round_victory(BattleVictory is_victory, int addCoin, List<Role> roles)
+        {
+            var rsp = plan_Module.rsp as plan_confirm_round_victory_rsp;
+            var uuid = Hub.Hub._gates.current_client_uuid;
+
+            try
+            {
+                var _player = Match.battle_Mng.get_battle_player(uuid);
+
+                var len = await Match._redis_handle.PushList(RedisHelp.BuildAutoChessBattleCache(_player.BattleShopPlayer.BattleData.round), _player.BattleShopPlayer.BattleData);
+                if (len > 1100)
+                {
+                    Match._redis_handle.PopList(RedisHelp.BuildAutoChessBattleCache(_player.BattleShopPlayer.BattleData.round), 100);
+                }
+
+                _player.BattleShopPlayer.lastBattleResults = is_victory;
+                _player.BattleShopPlayer.BattleData.stage = (_player.BattleShopPlayer.BattleData.round + 1) / 2;
+
+                if (is_victory == BattleVictory.victory)
+                {
+                    _player.BattleShopPlayer.BattleData.victory++;
+                }
+                else if (is_victory == BattleVictory.faild)
+                {
+                    if (_player.BattleShopPlayer.BattleData.faild > 0)
+                    {
+                        _player.BattleShopPlayer.BattleData.faild--;
+                        _player.BattleShopPlayer.BattleData.totalFaild++;
+                    }
+                }
+
+                var formation = _player.BattleShopPlayer.BattleData;
+                if (_player.BattleShopPlayer.BattleData.round <= 32)
+                {
+                    await Match._redis_handle.PushList(RedisHelp.BuildPeakStrengthCache(), _player.BattleShopPlayer.BattleData);
+                    await Match._redis_handle.SetData(RedisHelp.BuildPlayerPeakStrengthFormationCache(_player.BattleShopPlayer.BattleData.User.UserGuid), formation);
+                }
+
+                var player_proxy = Match._player_proxy_mng.get_player(_player.PlayerHubName);
+                if (_player.BattleShopPlayer.BattleData.victory >= 8)
+                {
+                    _player.BattleClientCaller.get_client(_player.ClientUUID).battle_victory(_player.mod, true);
+                    player_proxy.battle_victory(_player.mod, true, _player.BattleShopPlayer.BattleData, new()); // _player.BattleShopPlayer.UnlockRoles);
+
+                    if (_player.BattleShopPlayer.BattleData.round < 20 && _player.BattleShopPlayer.BattleData.victory < 20)
+                    {
+                        player_proxy.peak_strength_victory(is_victory, formation).callBack(async (userRankInfo) =>
+                        {
+                            Log.Log.trace("Plan_Module_on_confirm_round_victory peak_strength_victory begin! userRankInfo:{0}", userRankInfo);
+
+                            userRankInfo.battle_data = new UserSharedData()
+                            {
+                                User = _player.BattleShopPlayer.BattleData.User,
+                                round = _player.BattleShopPlayer.BattleData.round + 1,
+                                victory = _player.BattleShopPlayer.BattleData.victory,
+                                faild = _player.BattleShopPlayer.BattleData.totalFaild,
+                            };
+
+                            using var st = MemoryStreamPool.mstMgr.GetStream();
+                            var _serializer = MessagePackSerializer.Get<MessagePackObjectDictionary>();
+                            _serializer.Pack(st, UserRankInfo.UserRankInfo_to_protcol(userRankInfo));
+
+                            var r = new rank_item
+                            {
+                                guid = _player.BattleShopPlayer.BattleData.User.UserGuid,
+                                score = userRankInfo.score,
+                                item = st.ToArray()
+                            };
+                            Match._rank_proxy.update_rank_item(r);
+                        }, (err) =>
+                        {
+                            Log.Log.err("confirm_round_victory err:{0}", err);
+                            rsp.err();
+                        }).timeout(1500, () =>
+                        {
+                            Log.Log.err("confirm_round_victory timeout!");
+                            rsp.err();
+                        });
+                    }
+                }
+                else
+                {
+                    if (_player.BattleShopPlayer.BattleData.faild <= 0)
+                    {
+                        _player.BattleClientCaller.get_client(_player.ClientUUID).battle_victory(_player.mod, false);
+                        player_proxy.battle_victory(_player.mod, false, _player.BattleShopPlayer.BattleData, new()); // _player.BattleShopPlayer.UnlockRoles);
+                    }
+                    else
+                    {
+                        _player.start_round(_player.baseStage(), addCoin);
+                        _player.BattleShopPlayer.do_skill(_player.baseStage());
+
+                        _player.BattleClientCaller.get_client(_player.ClientUUID).battle_plan_refresh(_player.BattleShopPlayer.BattleData, _player.BattleShopPlayer.ShopData, _player.BattleShopPlayer.check_fetters());
+                    }
+                }
+
+                _player.BattleShopPlayer.BattleData.round++;
+                rsp.rsp();
+            }
+            catch (System.Exception ex)
+            {
+                Log.Log.err("Plan_Module_on_confirm_round_victory error:{0}", ex);
+                rsp.err();
+            }
+        }
+
+        private int countRoleList(List<Role> roleList)
+        {
+            var count = 0;
+            foreach(var r in roleList)
+            {
+                if (r != null)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        private int baseCount(int round)
+        {
+            int count;
+            if (round <= 1)
+            {
+                count = 3;
+            }
+            else if (round <= 2)
+            {
+                count = 4;
+            }
+            else if (round <= 3)
+            {
+                count = 5;
+            }
+            else
+            {
+                count = 6;
+            }
+
+            return count;
+        }
+
+        private async Task<UserBattleData> getCacheBattleData(int round)
+        {
+            var count = baseCount(round);
+
+            var cache = RedisHelp.BuildAutoChessBattleCache(round);
+            var target = await Match._redis_handle.RandomList<UserBattleData>(cache);
+            if (target == null)
+            {
+                return null;
+            }
+
+            for(var i = 0; i < 3; i++)
+            {
+                if (countRoleList(target.RoleList) < count)
+                {
+                    break;
+                }
+                target = await Match._redis_handle.RandomList<UserBattleData>(cache);
+            }
+
+            return target;
+        }
+
+        private async void Plan_Module_on_start_round1()
+        {
+            Log.Log.trace("Plan_Module_on_start_round1 begin!");
+
+            var rsp = plan_Module.rsp as plan_start_round1_rsp;
+            var uuid = Hub.Hub._gates.current_client_uuid;
+
+            try
+            {
+                var _player = Match.battle_Mng.get_battle_player(uuid);
+
+                var target = await getCacheBattleData(_player.BattleShopPlayer.BattleData.round);
+                if (target == null)
+                {
+                    target = getRandomBattleData(_player.BattleShopPlayer.BattleData.round);
+                }
+
+                Log.Log.trace("Plan_Module_on_start_round1 round:{1} target:{0}", target.ToJson(), _player.BattleShopPlayer.BattleData.round);
+                rsp.rsp(_player.BattleShopPlayer.BattleData, target);
+            }
+            catch (System.Exception ex)
+            {
+                Log.Log.err("Plan_Module_on_start_round1 error:{0}", ex);
+                rsp.err((int)em_error.db_error);
+            }
+        }
+
+        private List<RoleSetUp> selfSetUp;
+        private List<RoleSetUp> targetSetUp;
+        private void Gm_Module_on_set_formation(List<RoleSetUp> self, List<RoleSetUp> target)
+        {
+            var rsp = gm_Module.rsp as gm_set_formation_rsp;
+
+            selfSetUp = self;
+            targetSetUp = target;
+
+            rsp.rsp();
+        }
+
+        private UserBattleData getRandomBattleData(int round, List<RoleSetUp> setUp)
+        {
+            var data = new UserBattleData();
+            data.User = new UserInformation();
+            data.RoleList = new List<Role>();
+
+            var count = (round+2) > 6 ? 6 : (round+2);
+            var stage = (count/3) > 1 ? (count/3) : 1;
+            
+            while (data.RoleList.Count < count)
+            {
+                config.RoleConfig rolec;
+                int level;
+                if (setUp != null && setUp.Count > 0)
+                {
+                    var r = setUp[data.RoleList.Count];
+                    rolec = config.Config.RoleConfigs[r.RoleID];
+                    level = r.Level;
+                }
+                else
+                {
+                    var index = RandomHelper.RandomInt(config.Config.RoleConfigs.Values.Count);
+                    rolec = config.Config.RoleConfigs.Values.ElementAt(index);
+
+                    if (rolec.Stage > 1 && rolec.Stage > stage)
+                    {
+                        continue;
+                    }
+
+                    level = RandomHelper.RandomInt(3) + 1;
+                    if (count < 6)
+                    {
+                        level = 1;
+                    }
+                }
+
+                var role = new Role()
+                {
+                    RoleID = rolec.Id,
+                    Level = level,
+                    HP = rolec.Hp + 2 * (level-1),
+                    Attack = rolec.Attack + 2 * (level - 1),
+                    TempAdditionBuffer = new List<int>(),
+                    additionBuffer = new List<int>(),
+                };
+
+                var indexBuffer = RandomHelper.RandomInt(config.Config.BufferConfigs.Values.Count);
+                var bufferc = config.Config.BufferConfigs.Values.ElementAt(indexBuffer);
+                role.additionBuffer.Add(bufferc.Id);
+
+                data.RoleList.Add(role);
+            }
+
+            return data;
+        }
+
+        private UserBattleData getRandomBattleData(int round)
+        {
+            var data = new UserBattleData();
+            data.User = new UserInformation();
+            data.RoleList = new List<Role>();
+
+            var count = (round + 2) > 6 ? 6 : (round + 2);
+            var stage = (count / 3) > 1 ? (count / 3) : 1;
+
+            while (data.RoleList.Count < count)
+            {
+                var index = RandomHelper.RandomInt(config.Config.RoleConfigs.Values.Count);
+                var rolec = config.Config.RoleConfigs.Values.ElementAt(index);
+
+                Log.Log.trace("getRandomBattleData rolec.Stage:{0} stage:{1} ", rolec.Stage, stage);
+                if (rolec.Stage > 1 && rolec.Stage > stage)
+                {
+                    continue;
+                }
+
+                int level = RandomHelper.RandomInt(3) + 1;
+                if (count < 6)
+                {
+                    level = 1;
+                }
+
+                var role = new Role()
+                {
+                    RoleID = rolec.Id,
+                    Level = level,
+                    HP = rolec.Hp + 2 * (level - 1),
+                    Attack = rolec.Attack + 2 * (level - 1),
+                    TempAdditionBuffer = new List<int>(),
+                    additionBuffer = new List<int>(),
+                };
+
+                var indexBuffer = RandomHelper.RandomInt(config.Config.BufferConfigs.Values.Count);
+                var bufferc = config.Config.BufferConfigs.Values.ElementAt(indexBuffer);
+                role.additionBuffer.Add(bufferc.Id);
+
+                data.RoleList.Add(role);
+            }
+
+            return data;
+        }
+
+        private void Plan_Module_on_start_round()
+        {
+            var rsp = plan_Module.rsp as plan_start_round_rsp;
+            var uuid = Hub.Hub._gates.current_client_uuid;
+
+            try
+            {
+                var self = getRandomBattleData(3, selfSetUp);
+                var target = getRandomBattleData(3, targetSetUp);
+                rsp.rsp(self, target);
+            }
+            catch(System.Exception ex)
+            {
+                Log.Log.err("Plan_Module_on_start_round error:{0}", ex);
+                rsp.err((int)em_error.db_error);
+            }
+        }
+
+        private void Plan_Module_on_refresh()
+        {
+            var rsp = plan_Module.rsp as plan_refresh_rsp;
+            var uuid = Hub.Hub._gates.current_client_uuid;
+
+            try
+            {
+                var self = Match.battle_Mng.get_battle_player(uuid);
+                if (self.BattleShopPlayer.BattleData.coin <= 0)
+                {
+                    rsp.err((int)em_error.no_enough_coin);
+                }
+                else
+                {
+                    self.BattleShopPlayer.BattleData.coin--;
+
+                    self.BattleShopPlayer.refresh(self.baseStage());
+                    self.BattleShopPlayer.do_skill(self.baseStage());
+
+                    rsp.rsp(self.BattleShopPlayer.ShopData, self.BattleShopPlayer.BattleData);
+                }
+            }
+            catch(System.Exception ex)
+            {
+                Log.Log.err("Plan_Module_on_refresh error:{0}", ex);
+                rsp.err((int)em_error.db_error);
+            }
+        }
+
+        private void Plan_Module_on_sale_role(int index)
+        {
+            var rsp = plan_Module.rsp as plan_sale_role_rsp;
+            var uuid = Hub.Hub._gates.current_client_uuid;
+
+            try
+            {
+                var self = Match.battle_Mng.get_battle_player(uuid);
+                var stage = self.baseStage();
+                if (self.BattleShopPlayer.sale_role(index, stage))
+                {
+                    rsp.rsp(self.BattleShopPlayer.BattleData);
+                }
+                else
+                {
+                    rsp.err((int)em_error.no_role_in_index_to_sale);
+                }
+            }
+            catch (System.Exception ex)
+            {
+                Log.Log.err("Plan_Module_on_sale_role error:{0}", ex);
+                rsp.err((int)em_error.db_error);
+            }
+        }
+
+        private void Plan_Module_on_buy(ShopIndex shop_index, int index, int role_index)
+        {
+            var rsp = plan_Module.rsp as plan_buy_rsp;
+            var uuid = Hub.Hub._gates.current_client_uuid;
+
+            try
+            {
+                var self = Match.battle_Mng.get_battle_player(uuid);
+                var err = self.buy(shop_index, index, role_index);
+                if (err == em_error.success)
+                {
+                    self.BattleShopPlayer.do_skill(self.baseStage());
+                    rsp.rsp(self.BattleShopPlayer.BattleData, self.BattleShopPlayer.ShopData);
+                }
+                else
+                {
+                    rsp.err((int)err);
+                }
+            }
+            catch (System.Exception ex)
+            {
+                Log.Log.err("Plan_Module_on_buy error:{0}", ex);
+                rsp.err((int)em_error.db_error);
+            }
+        }
+
+        
+    }
+}

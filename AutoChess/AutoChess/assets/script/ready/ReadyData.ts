@@ -1,0 +1,252 @@
+/*
+ * Ready.ts
+ * author: Hotaru
+ * 2023/11/11
+ */
+import { _decorator, Component, error, Node } from 'cc';
+import * as skill from '../battle/AutoChessBattle/skill/skill_base'
+import * as common from "../serverSDK/common"
+import { ShopProp, ShopRole } from '../serverSDK/common';
+import * as player_login from '../serverSDK/ccallplayer'
+import * as singleton from '../netDriver/netSingleton';
+import { sleep } from '../other/sleep';
+import * as enmus from '../other/enums';
+const { ccclass, property } = _decorator;
+
+/*
+ * 修改类名
+ * Editor: Hotaru
+ * 2024/04/02
+ */
+@ccclass('ReadyData')
+export class ReadyData
+{
+    public static roles:common.Role[]=[];
+    //游戏模式
+    public gameMode:enmus.GameMode=null;
+    //pve事件
+    public evnets:player_login.QuestRogueRole[]=[];
+
+    private heath:number=0;
+    private stage:number=0;
+    private props:ShopProp[]=[];
+    private shopRoles:ShopRole[]=[];
+
+    private fetters_info:common.Fetters[]=[];
+
+    private coin:number=0;
+
+    public constructor(battle_info:common.UserBattleData, self:common.ShopData , gameMode:enmus.GameMode , fetters_info?:common.Fetters[] , events?:player_login.QuestRogueRole[]) 
+    {
+        ReadyData.roles=[];
+        this.coin = battle_info.coin;
+
+        console.log("Current player stage:"+battle_info.stage+" gameMode:"+gameMode);
+        this.stage=battle_info.stage;
+        this.shopRoles=self.SaleRoleList;
+        this.props=self.SalePropList;
+        this.gameMode=gameMode;
+        if(fetters_info)
+        {
+            this.fetters_info=fetters_info;
+        }
+        if(events)
+        {
+            this.evnets=events;
+        }
+    }
+
+    public SetStage(_stage:number)
+    {
+        this.stage=_stage;
+    }
+
+    public GetStage():number{
+        return this.stage;
+    }
+
+    public SetHeath(_heath:number)
+    {   
+        this.heath=_heath;
+    }
+
+    public GetHeath()
+    {
+        return this.heath;
+    }
+
+    public GetShopRoles():ShopRole[]
+    {
+        return this.shopRoles;
+    }
+
+    public GetShopProps():ShopProp[]
+    {
+        console.log("商店传来的道具列表长度："+this.props.length);
+        return this.props;
+    }
+
+    public setFetters(_fetters_info:common.Fetters[])
+    {
+        this.fetters_info = _fetters_info;
+    }
+
+    public GetFetters():common.Fetters[]
+    {
+        if(this.fetters_info)
+        {
+            return this.fetters_info;
+        }
+    }
+
+    public SetCoins(count:number)
+    {
+        //console.log(`SetCoins coin:${count}`);
+        if(count)
+        {
+            this.coin=count;
+        }
+    }
+
+    public GetCoins()
+    {
+        if(this.coin)
+        {
+            return this.coin
+        }
+    }
+
+    public SetRoles(data:common.Role[])
+    {
+        console.log("设置角色信息 SetRoles",data);
+        if(data)
+        {
+            ReadyData.roles=data.slice();
+        }
+    }
+/*
+ * 修改参数
+ * Editor: Hotaru
+ * 2024/08/24
+ */
+    public GetRole(_index:number)
+    {
+        try
+        {
+            console.log("获取角色信息 GetRole",ReadyData.roles);
+            if(ReadyData.roles[_index])
+            {
+                return ReadyData.roles[_index];
+            }
+        }
+        catch(error)
+        {
+            console.error("ReadyData 下的 GetRole 错误：",error);
+            return null;
+        }
+    }
+
+    public GetRolesNumber()
+    {
+        let num=0;
+        if(ReadyData.roles)
+        {
+            for(let i=0;i<ReadyData.roles.length;i++)
+            {
+                if(null!=ReadyData.roles[i])
+                {
+                    num++;
+                }
+            }
+        }
+        return num;
+    }
+
+    public SetShopData(data:common.ShopData)
+    {
+        if(data)
+        {
+            this.shopRoles=data.SaleRoleList;
+            this.props=data.SalePropList;
+        }
+    } 
+
+    public async StartBattle()
+    {
+        await singleton.netSingleton.game.end_round(this.gameMode);
+    }
+
+    public async Buy(shop_index: common.ShopIndex,index:number,role_index:number)
+    {
+        console.log(`shop_index:${shop_index}, index:${index}, role_index:${role_index}`);
+        if(enmus.GameMode.PVP == this.gameMode)
+        {
+            await singleton.netSingleton.game.match_buy(shop_index,index,role_index);
+        }
+        if(enmus.GameMode.PVE == this.gameMode)
+        {
+            await singleton.netSingleton.game.quest_buy(shop_index,index,role_index);
+        }
+    }
+
+    public async Sale(role_index:number)
+    {
+        if(enmus.GameMode.PVP == this.gameMode)
+        {
+            await singleton.netSingleton.game.match_sale_role(role_index);
+        }
+        if (enmus.GameMode.PVE == this.gameMode)
+        {
+            await singleton.netSingleton.game.quest_sale_role(role_index);
+        }
+
+        // let ev = new skill.Event();
+        // ev.type=EventType.Sold;
+        // ev.value=[];
+        // ev.value.push(this.coin);
+    }
+
+    public async Refresh()
+    {
+        if(enmus.GameMode.PVP == this.gameMode)
+        {
+            await singleton.netSingleton.game.match_refresh();
+        }
+        if(enmus.GameMode.PVE == this.gameMode)
+        {
+            await singleton.netSingleton.game.quest_refresh();
+        }
+    }
+
+    public async Move(index_befor:number,index_after:number)
+    {
+        if(enmus.GameMode.PVP == this.gameMode)
+        {
+            await singleton.netSingleton.game.match_move(index_befor,index_after);
+        }
+        if (enmus.GameMode.PVE == this.gameMode)
+        {
+            await singleton.netSingleton.game.quest_move(index_befor,index_after);
+        }
+    }
+
+    public async Freeze(shop_index: common.ShopIndex,index:number,_isFreeze:boolean)
+    {
+        if(enmus.GameMode.PVP == this.gameMode)
+        {
+            await singleton.netSingleton.game.match_freeze(shop_index,index, _isFreeze);
+        }
+        if (enmus.GameMode.PVE == this.gameMode)
+        {
+            await singleton.netSingleton.game.quest_freeze(shop_index,index, _isFreeze);
+        }
+    }
+
+    public ChooseTag(_tag:number)
+    {
+        singleton.netSingleton.game.select_quest_event(_tag);
+    }
+
+}
+
+

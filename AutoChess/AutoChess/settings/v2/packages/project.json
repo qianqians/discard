@@ -1,0 +1,33 @@
+{
+  "__version__": "1.0.6",
+  "layer": [
+    {
+      "name": "RenderTexture",
+      "value": 2
+    },
+    {
+      "name": "Role",
+      "value": 1
+    }
+  ],
+  "general": {
+    "designResolution": {
+      "width": 900,
+      "height": 1600
+    },
+    "downloadMaxConcurrency": 20
+  },
+  "physics": {
+    "collisionGroups": [
+      {
+        "index": 1,
+        "name": "Role"
+      }
+    ],
+    "collisionMatrix": {
+      "0": 3,
+      "1": 1
+    }
+  },
+  "custom_joint_texture_layouts": []
+}

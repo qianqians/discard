@@ -1,0 +1,158 @@
+import { AudioClip, SpriteFrame, Texture2D, sp } from "cc";
+import { BundleManager } from "./BundleManager";
+
+export class loadAssets 
+{
+    // SpriteFrame缓存，避免同一图片重复创建Texture2D/SpriteFrame导致内存泄漏
+    private static imgCache: Map<string, SpriteFrame> = new Map();
+
+    /**
+     * 释放图片缓存，场景切换或内存压力时调用
+     * @param _address 指定地址，不传则释放全部
+     */
+    public static ReleaseCachedImg(_address?: string)
+    {
+        if (_address)
+        {
+            let cached = loadAssets.imgCache.get(_address);
+            if (cached)
+            {
+                cached.destroy();
+                loadAssets.imgCache.delete(_address);
+            }
+        }
+        else
+        {
+            for (let [key, sf] of loadAssets.imgCache)
+            {
+                if (sf) sf.destroy();
+            }
+            loadAssets.imgCache.clear();
+        }
+    }
+
+    public static LoadImg(_address:string):Promise<SpriteFrame>
+    {
+        return new Promise(async (resolve)=>
+        {
+            try
+            {
+                if(!_address)
+                {
+                    resolve(null);
+                    return;
+                }
+                // 命中缓存直接返回，避免重复创建Texture2D/SpriteFrame
+                let cached = loadAssets.imgCache.get(_address);
+                if (cached && cached.isValid)
+                {
+                    resolve(cached);
+                    return;
+                }
+
+                let ads:string[]=null;
+                ads=_address.split('/');
+                let temp=null;
+                if(ads.length<3)
+                {
+                    temp=await BundleManager.Instance.LoadImgsFromBundle(ads[0], ads[1]);
+                }
+                else
+                {
+                    temp=await BundleManager.Instance.LoadImgsFromBundle(ads[0], `${ads[1]}/${ads[2]}`);
+                }
+                
+                if(null==temp)
+                {
+                    console.warn(`loadAssets 里的 LoadImg 异常 : 路径${_address}下没有此图片,替换为默认图片`);
+                    resolve(null);
+                    return;
+                }
+                let texture=new Texture2D();
+                texture.image=temp;
+                let sp=new SpriteFrame();
+                sp.texture=texture;
+                loadAssets.imgCache.set(_address, sp);
+                resolve(sp);
+            }
+            catch(error)
+            {
+                console.error('loadAssets 下 LoadImg 错误 err: ',error);
+                resolve(null);
+            }
+            
+        });
+    }
+
+    
+    public static LoadSkeletonData(_address:string,_callBack:(data)=>void):Promise<void>
+    {
+        return new Promise((resolve)=>
+        {
+            try
+            {
+                let ads: string[] = null;
+                let path:string="";
+                if (_address)
+                {
+                    ads = _address.split('/');
+                    for(let i=1;i<ads.length-1;i++)
+                    {
+                        path=path+ads[i]+"/";
+                    }
+                    path=path+ads[ads.length-1];
+                    BundleManager.Instance.loadAssetsFromBundleSync(sp.SkeletonData, ads[0], path,(data)=>
+                    {
+                        if(data)
+                        {
+                            _callBack(data);
+                            resolve();
+                        }
+                        else
+                        {
+                            console.warn(`loadAssets 里的 LoadSkeletonData 异常 : 路径${_address}下没有相对应资源,替换为默认`);
+                            //temp=await BundleManager.Instance.loadAssetsFromBundle("RoleSpine", "Role_100004/kuangfeng_moshushi.skel") as sp.SkeletonData;
+                            _callBack(null);
+                            resolve();
+                        }
+                    });
+                }
+            }
+            catch (error)
+            {
+                console.error('loadAssets 下 LoadSkeletonData 错误 err: ', error);
+            }
+        });
+    }
+
+    public static LoadAudio(_address:string):Promise<AudioClip>
+    {
+        return new Promise(async (resolve)=>
+        {
+            try
+            {
+                let ads:string[]=null;
+                if(_address)
+                {
+                    ads=_address.split('/');
+                    let temp=await BundleManager.Instance.loadAssetsFromBundle(ads[0], ads[1]) as AudioClip;
+                    if(null==temp)
+                    {
+                        console.warn(`loadAssets 里的 LoadAudio 异常 : 路径${_address}下没有相对应资源`);
+                        resolve(null);
+                    }
+                    else
+                    {
+                        resolve(temp);
+                    }
+                }
+                resolve(null);
+            }
+            catch(error)
+            {
+                console.error('loadAssets 下 LoadAudio 错误 err: ',error);
+                resolve(null);
+            }
+        });
+    }
+}

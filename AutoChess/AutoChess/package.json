@@ -1,0 +1,15 @@
+{
+  "name": "AutoChess",
+  "uuid": "04caff1d-c53a-4b54-a4c8-d8631fa30783",
+  "creator": {
+    "version": "3.8.7"
+  },
+  "dependencies": {
+    "fairygui-cc": "^1.1.1",
+    "minigame-api-typings": "^3.8.7",
+    "miniprogram-api-typings": "^3.12.2"
+  },
+  "devDependencies": {
+    "@types/wechat-miniprogram": "^3.4.10"
+  }
+}

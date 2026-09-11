@@ -1,0 +1,22 @@
+{
+  "package_version": 2,
+  "name": "taptap-minigame-tools",
+  "version": "1.2.2",
+  "description": "一键构建微信小游戏并自动转换为Tap小游戏格式，附带 tap API 类型定义和 AI Skills",
+  "main": "./dist/main.js",
+  "author": "TapTap",
+  "editor": ">=3.8.0",
+  "contributions": {
+    "builder": "./dist/builder.js"
+  },
+  "devDependencies": {
+    "@types/archiver": "^5.3.0",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^16.0.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "archiver": "^5.3.2",
+    "fs-extra": "^11.3.3"
+  }
+}

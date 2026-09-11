@@ -1,0 +1,90 @@
+
+flash.png
+size: 1769,1769
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+flas_00000
+  rotate: false
+  xy: 2, 1457
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+flas_00001
+  rotate: false
+  xy: 2, 1145
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+flas_00002
+  rotate: false
+  xy: 2, 833
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+flas_00003
+  rotate: false
+  xy: 2, 521
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+flas_00004
+  rotate: false
+  xy: 2, 209
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+flas_00005
+  rotate: false
+  xy: 314, 1457
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+flas_00006
+  rotate: false
+  xy: 314, 1145
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+flas_00007
+  rotate: false
+  xy: 314, 833
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+flas_00008
+  rotate: false
+  xy: 314, 521
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+flas_00009
+  rotate: false
+  xy: 314, 209
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+quan
+  rotate: false
+  xy: 2, 2
+  size: 205, 205
+  orig: 205, 205
+  offset: 0, 0
+  index: -1
+shuidi
+  rotate: true
+  xy: 209, 177
+  size: 30, 69
+  orig: 30, 69
+  offset: 0, 0
+  index: -1

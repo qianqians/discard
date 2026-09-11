@@ -1,0 +1,100 @@
+{
+    "1": {
+        "Id": 1,
+        "FetterName": "fetters_1_name",
+        "Introductory": "fetters_1_introductory",
+        "EffectTime": "休整开始时",
+        "Text": "fetters_1_text"
+    },
+    "2": {
+        "Id": 2,
+        "FetterName": "fetters_2_name",
+        "Introductory": "fetters_2_introductory",
+        "EffectTime": "受伤时",
+        "Text": "fetters_2_text"
+    },
+    "3": {
+        "Id": 3,
+        "FetterName": "fetters_3_name",
+        "Introductory": "fetters_3_introductory",
+        "EffectTime": "晕厥时",
+        "Text": "fetters_3_text"
+    },
+    "4": {
+        "Id": 4,
+        "FetterName": "fetters_4_name",
+        "Introductory": "fetters_4_introductory",
+        "EffectTime": "释放技能后",
+        "Text": "fetters_4_text"
+    },
+    "5": {
+        "Id": 5,
+        "FetterName": "fetters_5_name",
+        "Introductory": "fetters_5_introductory",
+        "EffectTime": "晕厥时",
+        "Text": "fetters_5_text"
+    },
+    "6": {
+        "Id": 6,
+        "FetterName": "fetters_6_name",
+        "Introductory": "fetters_6_introductory",
+        "EffectTime": "休整开始时",
+        "Text": "fetters_6_text"
+    },
+    "7": {
+        "Id": 7,
+        "FetterName": "fetters_7_name",
+        "Introductory": "fetters_7_introductory",
+        "EffectTime": "受到强化时",
+        "Text": "fetters_7_text"
+    },
+    "8": {
+        "Id": 8,
+        "FetterName": "fetters_8_name",
+        "Introductory": "fetters_8_introductory",
+        "EffectTime": "休整开始时",
+        "Text": "fetters_8_text"
+    },
+    "9": {
+        "Id": 9,
+        "FetterName": "fetters_9_name",
+        "Introductory": "fetters_9_introductory",
+        "EffectTime": "其他角色出售时",
+        "Text": "fetters_9_text"
+    },
+    "10": {
+        "Id": 10,
+        "FetterName": "fetters_10_name",
+        "Introductory": "fetters_10_introductory",
+        "EffectTime": "休整开始时",
+        "Text": "fetters_10_text"
+    },
+    "11": {
+        "Id": 11,
+        "FetterName": "fetters_11_name",
+        "Introductory": "fetters_11_introductory",
+        "EffectTime": "战斗开始时",
+        "Text": "fetters_11_text"
+    },
+    "12": {
+        "Id": 12,
+        "FetterName": "fetters_12_name",
+        "Introductory": "fetters_12_introductory",
+        "EffectTime": "休整开始时",
+        "Text": "fetters_12_text"
+    },
+    "13": {
+        "Id": 13,
+        "FetterName": "fetters_13_name",
+        "Introductory": "fetters_13_introductory",
+        "EffectTime": "受伤时",
+        "Text": "fetters_13_text"
+    },
+    "14": {
+        "Id": 14,
+        "FetterName": "fetters_14_name",
+        "Introductory": "fetters_14_introductory",
+        "EffectTime": "休整开始时",
+        "Text": "fetters_14_text"
+    }
+}

@@ -1,0 +1,324 @@
+struct UserInformation
+{
+	string UserName; // 用户名
+	int64 UserGuid;  // 用户uid
+	string Avatar;   // 用户头像
+}
+
+struct RoleCardInfo {
+	int32 roleID;
+	bool isTatter;
+	int32 Number;
+}
+
+struct Bag {
+	RoleCardInfo[] ItemList;
+}
+
+enum BattleVictory {
+    faild = -1;
+    tie = 0;
+    victory = 1;
+}
+
+enum BattleMod {
+	Battle = 1;
+	RankBattle = 2;
+	PeakStrength = 3;
+}
+
+enum GuideStep {
+	/*ClickMatch = 1;
+	ClickMatchGame = 2;
+	BattleBuyRole = 3;
+	BattleQuest = 4;*/
+	EnterGameGuide = 5;
+	BattleGuide = 6;
+}
+
+struct BattleInfo {
+	BattleMod mod;
+	BattleVictory isVictory;
+	bool isStreakVictory;
+	Role[] RoleList;
+}
+
+struct AchievementReward {
+	int32 gold;
+}
+
+enum Achievement {
+	EMSuccessiveFiveVictory = 1;      // 连续5次胜利     
+	EMFullLevelVictory = 2;           // 全员满级获得胜利
+	EMStreakVictory = 3;              // 10局连胜获得战斗胜利
+	EMFiveHundredGame = 4;			  // 500次游戏
+	EMMachinistlVictory = 5;          // 全员机械师获得胜利
+	EMPeakStrengthVictory = 6;        // 巅峰挑战冠军
+	EMGold25 = 7;			          // 成就 开局25枚金币
+	EMFullAttributesVictory = 8;      // 全员满属性获得胜利
+	EMNoneEquipmentVictory = 9;       // 全员无装备获得胜利
+	EMNotGivenAllYet = 10;			  // 获胜时还有空位
+
+	EMWeekOneGameVictory = 101;       	// 周成就 获取一次游戏胜利
+	EMWeekOpenCardPack = 102;		  	// 周成就 开启一次卡包
+	EMWeekTotalAnnihilation =103;	  	// 周成就 消灭80个角色
+	EMWeekWizardAnnihilation = 104;   	// 周成就 使用巫师消灭100个角色
+	EMWeekBerserkerAnnihilation = 105;	// 周成就 使用狂战士消灭100个角色
+	EMWeekCorsairAnnihilation = 106;  	// 周成就 使用海盗获消灭100个角色
+	EMWeekBuyTenBeforeRound = 107;	  	// 周成就 购买十位效果在“回合开始前”触发的角色
+	EMWeekBuyBeHurted = 108;		  	// 周成就 购买十位效果在“受伤时”触发的角色
+	EMWeekBuyBeDead = 109;			  	// 周成就 购买十位效果在“晕厥时”触发的角色
+	EMWeekBuyTenEquip =110;			  	// 周成就 购买十件装备
+	EMWeekOneFullLevelRole = 111;	  	// 周成就 拥有一个满级角色
+}
+
+struct RankReward {
+	int32 rank;
+	int32 gold;
+	int64 timetmp;
+}
+
+enum AchievementAwardStatus {
+	EMNotComplete = 0;             // 未达成
+	EMComplete = 1;				   // 达成
+	EMRecv = -1;				   // 已领取
+}
+
+struct AchievementData {
+	Achievement emAchievement;
+	AchievementAwardStatus status;
+	int32 count;
+}
+
+struct UserAchievement {
+	AchievementData[] achievData;     // 成就数据
+	BattleInfo[] battleInfo;          // 战绩记录
+}
+
+struct UserWeekAchievement {
+	AchievementData[] wAchievData;     // 周成就数据
+	BattleInfo[] battleInfo;          // 周成就 战绩记录
+	int64 timeout;                    // 周成就超时时间
+}
+
+enum UserRank {
+	BlackIron = 1;
+	Bronze = 2;
+	Silver = 3;
+	Gold = 4;
+	Diamond = 5;
+	Master = 6;
+	King = 7;
+}
+
+struct UserData
+{
+	UserInformation User;	     // 用户信息
+	UserAchievement Achiev;	     // 成就
+	UserWeekAchievement wAchiev; // 周成就
+	int32 Strength;			     // 体力
+	int32 gold;				     // 金币
+	int32 diamond;			     // 钻石
+	int32 score;			     // 积分
+	UserRank rank;				 // 段位
+	int64 rankTimeTmp;			 // last计算段位时间，每周刷新
+	int32 quest;				 // 主线任务进度
+	int32 PVELevelIndex;		 // 任务关卡进度
+	Bag bag;				     // 背包
+	Role[] RoleList; 		     // 已有角色列表
+	GuideStep[] GuideSteps;		 // 新手引导完成数组
+}
+
+struct Fetters {
+    int32 fetters_id;
+	int32 fetters_level;
+    int32 number;
+}
+
+struct Role {
+	int32 RoleID;
+	int32 BuyRound;
+	int32 Level;
+	int32 SkillID;
+	int32 TempSkillID;
+	int32 TempSkillLevel;
+	Fetters FettersSkillID;
+	int32 equipID;
+	int32 Number;
+	int32 HP;
+	int32 Attack;
+	int32 TempHP;
+	int32 TempAttack;
+	int32[] additionBuffer;
+	int32[] TempAdditionBuffer;
+}
+
+enum Priority
+{
+    Low = 1;
+    Normal = 2;
+    Hight = 3;
+}
+
+enum Direction
+{
+    None = 0;
+    Forward = 1;
+    Back = 2;
+    Rigiht = 3;
+    Left = 4;
+    Self = 5;
+	Cross = 6;
+	Summon=7;
+	Trigger = 8;
+}
+
+enum BufferAndEquipEffect
+{
+    AddHP = 1;
+    AddAttack = 2;
+    AddBuffer = 3;
+    Syncope = 4;
+}
+
+enum EffectScope
+{
+    SingleBattle = 1;
+    WholeGame = 2;
+}
+
+enum EMSkillEvent
+{
+    start_round = 1;     		//休整开始时
+    end_round = 2;       		//休整结束时
+    start_battle = 3;    		//战斗开始时
+    buy = 4;             		//购买时
+    sales = 5;           		//出售时
+    camp_sales = 6;      		//友方出售时
+    upgrade = 7;          		//升级后
+    syncope = 8;         		//晕厥时
+    camp_syncope = 9;    		//伙伴晕厥时
+    strengthen = 10;     		//受到强化时
+    use_skill = 11;      		//释放技能后
+    eat_food = 12;       		//吃掉食物时
+    camp_eat_food = 13;  		//友方吃掉食物时
+    kill = 14;           		//击倒后
+    front_attack = 15;   		//前方伙伴攻击时
+    camp_attack3 = 16;   		//友方攻击三次后
+    front_attack3 = 17;  		//前方攻击三次后
+    be_hurt = 18;        		//受伤时
+    camp_be_hurt = 19;   		//友方受伤时
+    enemy_summon = 20;   		//敌人被召唤或推动时
+    camp_summon = 21;    		//伙伴被召唤时
+    front_be_hurt = 22;  		//前方伙伴受伤时
+    before_attack = 23;  		//攻击前
+	all_mechanic_syncope = 24;  //所有机械师晕厥时
+	after_attack=25;			//攻击后
+    change_self_location=26;	//我方位置改变
+    change_enemy_location=27;	//敌方位置改变
+	self_front_null=28;			//前排为空
+	enemy_front_null=29;		//敌方前排为空
+	start_round_vacancy = 30;   //休整开始时有空位
+	start_round_victory = 31;	//休整开始时上局战斗胜利
+	self_upgrade = 32;          //自己升级后
+}
+
+enum SkillEffectEM {
+	AddProperty = 1;
+	RecoverHP = 2;
+	RemoteAttack = 3;
+	SummonBattle = 4;
+	AddCoin = 5;
+	ExchangeProperty = 6;
+	GainShield = 7;
+	RefreshShop = 8;
+	ChangePosition = 9;
+	AddEquipment = 10;
+	ReductionHurt = 11;
+	UpdateLevel = 12;
+	SummonShop = 13;
+	AddBuffer = 14;
+	AddBuildValue = 15;
+	AttackAll = 16;
+	AddTmpExp = 17;
+	ItemReduced = 18;
+	CoinsAddProperty = 19;
+	CounterAttack = 20;
+	DeAttGain = 21;
+	ForcedAttack = 22;
+	RefreshEquipment = 23;
+	AddAllPropertyByBattleRound = 24;
+	AddPropertyShopLeft = 25;
+	BankCoin = 26;
+	AddPropertyLevel3 = 27;
+	CopySkill = 28;
+	NextRoundCoin = 29;
+	AttackCoin = 30;
+	AddPropertyCoin5 = 31;
+	AddPropertyMoreCoin = 32;
+	AddPropertyHasEquip = 33;
+}
+
+struct UserBattleData
+{
+	UserInformation User; // 用户信息
+	int32 coin;
+	int32 round;
+	int32 stage;
+	int32 victory;
+	int32 faild;
+	int32 totalFaild;
+	int32 buildValue;
+	Fetters[] FettersList;
+	Role[] RoleList; // 角色列表
+}
+
+struct UserSharedData
+{
+	UserInformation User; // 用户信息
+	int32 round;
+	int32 victory;
+	int32 faild;
+}
+
+struct UserRankInfo
+{
+	int32 score;
+	string nick_name;
+	string avatar;
+	UserSharedData battle_data;
+}
+
+enum ShopIndex {
+	Role = 0;
+	Prop = 1;
+}
+
+struct ShopRole {
+	int32 RoleID;
+	int32 Price;
+	int32 SkillID;
+	int32 HP;
+	int32 Attack;
+	int32 Level;
+	int32 equipID;
+	bool IsFreeze;
+}
+
+struct ShopProp {
+	int32 PropID;
+	int32 Price;
+	bool IsFreeze;
+}
+
+struct ShopData
+{
+	ShopRole[] SaleRoleList;
+	ShopProp[] SalePropList;
+}
+
+struct svr_info
+{
+	int32 tick_time;
+	int32 player_num;
+}

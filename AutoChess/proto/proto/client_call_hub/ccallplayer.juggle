@@ -1,0 +1,57 @@
+import common
+
+module player_login {
+	player_login req(string token, string nick_name, string avatar) rsp(UserData info) err(int32 err);
+	create_role req(string token, string name, string nick_name, string avatar) rsp(UserData info) err(int32 err);
+
+	reconnect req(int64 guid) rsp(UserData info, string match_name) err(int32 err);
+
+	guide_step ntf(GuideStep step);
+}
+
+struct CardPacket {
+	RoleCardInfo[] ItemList;
+}
+
+module player_shop {
+    buy_card_packet req() rsp(CardPacket infoCardPacket, Bag infoBag) err(int32 err);
+	buy_card_merge req(int32 roleID) rsp(int32 roleID, UserData info) err(int32 err);
+
+	get_user_data req() rsp(UserData info) err(int32 err);
+}
+
+module player_battle {
+	start_battle req(BattleMod mod) rsp(string match_name, UserBattleData battle_info, ShopData shop_info) err(int32 err);
+	start_peak_strength req() rsp(string match_name, UserBattleData self) err(int32 err);
+
+	achievement_gold25 ntf();
+    kill_role ntf(Role self);
+	check_achievement req(Achievement achievement) rsp(AchievementReward reward) err(int32 err);
+}
+
+enum em_quest_state {
+	next_level = 0;
+	next_quest = 1;
+	failed = 2;
+	finish_pve_level = 3;
+	finish_tmp_level = 4;
+}
+
+struct QuestRogueRole {
+	Role r;
+	int32 index;
+}
+
+module player_quest {
+	start_quest_shop_ready req() rsp(UserBattleData self, ShopData shop_info, QuestRogueRole[] events) err(int32 err);
+	start_quest_shop_ready1 req(int32 quest) rsp(UserBattleData self, ShopData shop_info, QuestRogueRole[] events) err(int32 err);
+	select_quest_event req(int32 eventID) rsp(UserBattleData self, ShopData shop_info) err(int32 err);
+	get_quest_shop_data req() rsp(UserBattleData self, ShopData shop_info, QuestRogueRole[] events) err(int32 err);
+	start_quest_battle req() rsp(UserBattleData self, UserBattleData target) err(int32 err);
+    confirm_quest_victory req(BattleVictory is_victory, int32 addCoin) rsp(em_quest_state state) err();
+	check_finish_pve_level req() rsp(bool is_finish_pve_level) err(int32 err);
+}
+
+module battle_revive {
+	battle_failed_back req() rsp(UserBattleData self, ShopData shop) err(int32 err);
+}
