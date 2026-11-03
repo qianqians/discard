@@ -1,0 +1,15 @@
+enum em_error{
+	timeout = -2;
+	db_error = -1;
+	success = 0;
+	scene_in_other_server = 1;
+	fence_is_exist = 2;
+	role_is_import = 3;
+	have_role_protect = 4;
+	cultivated_is_grow = 5;
+	scene_sales_vegetable_failed = 6;
+}
+
+module error_code_ntf{
+	error_code ntf(em_error err_code);
+}

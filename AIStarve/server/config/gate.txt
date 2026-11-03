@@ -1,0 +1,26 @@
+{
+	"center":{
+		"name":"center_starve",
+        "gm_ip":"127.0.0.1",
+        "gm_port":1001,
+		"log_level":"trace",
+		"log_file":"center.txt",
+		"log_dir":"./log/"
+    },
+
+    "gate":{
+		"name":"gate",
+		"websocket_listen":true,
+		"websocket_outside_host":"ws://127.0.0.1",
+		"websocket_outside_port":3001,
+		"is_ssl":false,
+		"log_level":"trace",
+		"log_file":"gate.txt",
+		"log_dir":"./log/"
+    },
+
+	"redismq_listen": true,
+	"redismq_is_cluster": false,
+	"redis_for_mq": "127.0.0.1:6379",
+	"redis_for_cache": "127.0.0.1:6379"
+}

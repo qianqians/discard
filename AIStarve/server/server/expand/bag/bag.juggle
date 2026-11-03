@@ -1,0 +1,21 @@
+struct item_def {
+	string uuid;
+	int64 perfab_id;
+	int64 desc_id;
+	int32 type;
+	int32 subtype;
+	int32 limit_amount;
+	int32 amount;
+}
+
+struct bag_def {
+	int32 capacity;
+	item_def[] items;
+}
+
+
+module bag_service {
+	get_bag req() rsp(bag_def _bag) err();
+	add_item req(item_def item) rsp(bag_def _bag) err();
+	use_item req(string uuid, string argv) rsp() err();
+}

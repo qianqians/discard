@@ -1,0 +1,171 @@
+struct scene_hub_info {
+    string scene_name;
+    string scene_guid;
+    string scene_hub_id;
+}
+
+enum Direction {
+	None = 0;
+	Up = 1;
+	Down = 2;
+	Left = 3;
+	Right = 4;
+}
+
+struct Pos {
+	float X;
+	float Y;
+}
+
+struct Building {
+	string data_type = "UserBuilding";
+	string UserGuid;  // 所属用户uid
+	string SceneID;
+	string BuildingGuid; // 建筑uid
+	int32 BuildingId; // 建筑id
+	string BuildingResource; // 建筑图片资源
+	Pos topLeft;
+	Pos bottomRight;
+}
+
+enum FenceType {
+	Fence = 1;
+	FenceGate = 2;
+	FenceGatePWD = 3;
+}
+
+struct Fence {
+	string data_type = "UserFence";
+	string UserGuid; // 所属用户uid
+	string SceneID;
+	string FenceGuid; // 围栏uid
+	int32 FenceId; // 围栏id
+	string FenceName; // 围栏名称
+	FenceType FenceType;
+	string pwd;
+	Pos topLeft;
+	Pos bottomRight;
+}
+
+struct Cultivated {
+	string data_type = "UserCultivated";
+	string UserGuid; // 所属用户uid
+	string SceneID;
+	string CultivatedGuid; // 耕地uid
+	string VegetableGuid; // 建筑uid
+	Pos topLeft;
+	Pos bottomRight;
+}
+
+struct Vegetable {
+	string data_type = "UserVegetable";
+	string UserGuid; // 所属用户uid
+	string SceneID;  // 场景ID
+	string VegetableGuid; // 菜的uid
+	int32 perfabId; // 菜的id
+	string VegetableResource; // 菜的资源
+	TimeInfo growiTime; //种植时间
+	int64 ripenTime; //成熟所需要的成长时间 以秒为单位
+	int32 count;     //菜的数量
+	int32 subtype;
+	Pos topLeft;     //位置
+	Pos bottomRight; //位置 
+}
+
+struct Role {
+	string data_type = "UserRole";
+	string SceneID;
+	string UserGuid; // 所属用户uid
+	string RoleGuid; // 角色Guid
+	int32 RoleId; // 角色id
+	string RoleResource; // 角色图片资源
+}
+
+struct SceneChange {
+	Building[] remove_buildings;
+	Building[] add_buildings;
+	Cultivated[] remove_cultivated;
+	Cultivated[] add_cultivated;
+	Fence old_fences;
+	Fence new_fences;
+}
+
+struct UserInformation
+{
+	string data_type = "UserInformation";
+	string SceneID;
+	string UserName; // 用户名
+	string UserTableID; // 用户资源ID
+	string UserGuid; // 用户uid
+	string Avatar;   // 用户头像
+	int32 Gender;    // 用户性别
+	int32 Level;     // 用户等级
+	int32 coin;		 // 金币
+	Pos Pos;         // 用户位置
+	Direction dir;   // 用户移动状态
+}
+
+enum AvatarType {
+	Self = 0;
+	Friend = 1;
+	Enemy = 2;
+	Npc = 3;
+	unknow = 4;
+}
+
+struct UserSceneInfo {
+	AvatarType type;
+	UserInformation info;
+}
+
+struct NPCInformation {
+	string data_type = "NPCInformation";
+	string NPCName; 	// NPC名
+	string NPCTableID;  // NPC资源ID
+	string NPCGuid; 	// NPC uid
+	string ownerGuid;	// NPC 主人uuid
+	string Avatar;   	// NPC头像
+	int32 Gender;    	// NPC性别
+	int32 Level;     	// NPC等级
+	Pos Pos;         	// NPC位置
+	Direction dir;   	// NPC移动状态
+}
+
+struct NPCSceneInfo {
+	AvatarType type;
+	NPCInformation info;
+}
+
+struct SceneInfo {
+	string subscene_name;
+	Building[] buildings;
+	Fence[] fences;
+	Cultivated[] Cultivateds;
+	Vegetable[] Vegetables;
+	UserSceneInfo[] users;
+	NPCSceneInfo[] npcs;
+}
+
+struct UserMoveInfo {
+	AvatarType type;
+	string UserGuid;   // 兼容npc和玩家
+	string NPCTableID; 
+	Pos Pos; 
+	Direction dir;
+}
+
+struct TimeInfo {
+	int32 year;
+	int32 months;
+	int32 day;
+	int32 hour;
+	int32 minute;
+	int32 second;
+}
+
+struct QuestInfo {
+	int32 id;
+	string chat;
+	int32[] reward;
+	int32[] next;
+}

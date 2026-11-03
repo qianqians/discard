@@ -1,0 +1,1537 @@
+{
+  "npcs": [
+    {
+      "npcId": "npc_blacksmith",
+      "npcName": "铁匠",
+      "scriptName": "",
+      "prefabPath": "Perfabs/Characters/OtherCharacter",
+      "spawnPosition": { "x": 15.5, "y": 26.3 },
+      "patrol": {
+        "speed": 2.0,
+        "waitSeconds": 3,
+        "triggerAreaIds": [25, 24]
+      },
+      "dialogues": [
+        {
+          "dialogueId": "d_blacksmith_greet",
+          "triggerType": "interact",
+          "firstTimeOnly": false,
+          "conditionTags": [],
+          "excludeTags": ["blacksmith_quest_started"],
+          "conversations": [
+            { "speaker": "npc", "text": "欢迎来到我的铁匠铺！你需要点什么？" },
+            { "speaker": "player", "text": "我想看看你有什么好装备。" },
+            { "speaker": "npc", "text": "我这里有上好的铁剑和盔甲，不过你得先帮我一个忙。" }
+          ],
+          "onEndActions": [
+            { "action": "log", "message": "铁匠：完成了初始对话" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_blacksmith_accept",
+              "text": "好的，什么忙？",
+              "nextDialogueId": "d_blacksmith_quest",
+              "addTags": ["blacksmith_quest_started"],
+              "affinityDelta": 2
+            },
+            {
+              "choiceId": "c_blacksmith_decline",
+              "text": "我再想想。",
+              "nextDialogueId": "d_blacksmith_decline",
+              "addTags": [],
+              "affinityDelta": -1,
+              "affinityCondition": "<=0"
+            },
+            {
+              "choiceId": "c_blacksmith_insist",
+              "text": "你看起来不太高兴，发生什么事了？",
+              "nextDialogueId": "d_blacksmith_decline",
+              "addTags": [],
+              "affinityDelta": 1,
+              "affinityCondition": ">0"
+            }
+          ]
+        },
+        {
+          "dialogueId": "d_blacksmith_decline",
+          "triggerType": "choice_result",
+          "firstTimeOnly": false,
+          "conditionTags": [],
+          "excludeTags": ["blacksmith_quest_started"],
+          "conversations": [
+            { "speaker": "npc", "text": "不急，随时来找我。我这里的大门一直为你敞开。" }
+          ],
+          "onEndActions": [
+            { "action": "log", "message": "铁匠：拒绝了任务，空手离开" }
+          ],
+          "choices": []
+        },
+        {
+          "dialogueId": "d_blacksmith_quest",
+          "triggerType": "choice_result",
+          "firstTimeOnly": true,
+          "conditionTags": ["blacksmith_quest_started"],
+          "excludeTags": ["blacksmith_quest_completed"],
+          "conversations": [
+            { "speaker": "npc", "text": "我需要你去采集10块铁矿石，就在北边的矿洞里。" },
+            { "speaker": "player", "text": "没问题，交给我吧！" },
+            { "speaker": "npc", "text": "回来之后我会给你打造一把精铁剑作为报酬。" }
+          ],
+          "onStartActions": [
+            { "action": "log", "message": "铁匠发布了采集铁矿石任务" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_blacksmith_complete",
+              "text": "我已经收集好了！",
+              "nextDialogueId": "d_blacksmith_complete",
+              "addTags": ["blacksmith_quest_completed"],
+              "affinityDelta": 5,
+              "onSelectActions": [
+                { "action": "log", "message": "玩家交付了10块铁矿石" }
+              ]
+            },
+            {
+              "choiceId": "c_blacksmith_pending",
+              "text": "还在收集中，稍后再来。",
+              "nextDialogueId": "d_blacksmith_pending",
+              "addTags": [],
+              "affinityDelta": 0
+            }
+          ]
+        },
+        {
+          "dialogueId": "d_blacksmith_pending",
+          "triggerType": "choice_result",
+          "firstTimeOnly": false,
+          "conditionTags": [],
+          "excludeTags": [],
+          "conversations": [
+            { "speaker": "npc", "text": "好的，我等你的好消息。矿洞在北边，小心路上的怪物。" }
+          ],
+          "choices": []
+        },
+        {
+          "dialogueId": "d_blacksmith_complete",
+          "triggerType": "choice_result",
+          "firstTimeOnly": false,
+          "conditionTags": ["blacksmith_quest_completed"],
+          "excludeTags": [],
+          "conversations": [
+            { "speaker": "npc", "text": "太好了！这些铁矿石品质不错。来，这是给你的精铁剑。" },
+            { "speaker": "player", "text": "谢谢！这把剑真漂亮。" },
+            { "speaker": "npc", "text": "以后还有需要随时来找我。" }
+          ],
+          "onStartActions": [
+            { "action": "log", "message": "铁匠打造了精铁剑！" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_blacksmith_friend",
+              "text": "我会经常来光顾的。",
+              "nextDialogueId": "d_blacksmith_friendly_end",
+              "addTags": ["blacksmith_friendly"],
+              "affinityDelta": 3
+            },
+            {
+              "choiceId": "c_blacksmith_leave",
+              "text": "嗯，先走了。",
+              "nextDialogueId": null,
+              "addTags": [],
+              "affinityDelta": 0
+            }
+          ]
+        },
+        {
+          "dialogueId": "d_blacksmith_friendly_end",
+          "triggerType": "choice_result",
+          "firstTimeOnly": false,
+          "conditionTags": ["blacksmith_friendly", "monster_hunt_completed"],
+          "excludeTags": [],
+          "conversations": [
+            { "speaker": "npc", "text": "等一下，听说你帮村长消灭了野狼？村长让我转告你，让你去他家一趟。" },
+            { "speaker": "npc_blacksmith", "text": "村长一直很欣赏你这样的勇士。" },
+            { "speaker": "npc_village_chief", "text": "（远处传来）铁匠，让他过来吧！" },
+            { "speaker": "npc_blacksmith", "text": "你看，说曹操曹操到。快去吧，别让村长等久了。", "onSpeakActions": [{ "action": "move", "target": { "x": 15.5, "y": 26.3 } }] },
+            { "speaker": "player", "text": "好，我现在就去。" }
+          ],
+          "onStartActions": [
+            { "action": "log", "message": "铁匠叫住了玩家" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_blacksmith_go_chief",
+              "text": "我这就去找村长。",
+              "nextDialogueId": null,
+              "addTags": ["summoned_by_chief"],
+              "affinityDelta": 1
+            },
+            {
+              "choiceId": "c_blacksmith_go_later",
+              "text": "等我一下，我先准备准备。",
+              "nextDialogueId": null,
+              "addTags": [],
+              "affinityDelta": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": "npc_village_chief",
+      "npcName": "村长",
+      "scriptName": "",
+      "prefabPath": "Perfabs/Characters/OtherCharacter",
+      "spawnPosition": { "x": 1.0, "y": 18.0 },
+      "patrol": {
+        "speed": 2.0,
+        "waitSeconds": 3,
+        "triggerAreaIds": [25]
+      },
+      "dialogues": [
+        {
+          "dialogueId": "d_chief_enter_village",
+          "triggerType": "enter_area",
+          "triggerAreaId": 25,
+          "firstTimeOnly": true,
+          "conditionTags": [],
+          "excludeTags": ["chief_welcomed"],
+          "conversations": [
+            { "speaker": "npc", "text": "欢迎来到我们村子！你是新来的冒险者吧？" },
+            { "speaker": "player", "text": "是的，请问这里有什么需要帮忙的吗？" },
+            { "speaker": "npc", "text": "最近村外出现了不少怪物，如果你能帮忙解决，村民们会非常感激的。" }
+          ],
+          "onStartActions": [
+            { "action": "log", "message": "村长朝你走来，热情地打招呼" }
+          ],
+          "onEndActions": [
+            { "action": "log", "message": "村长：成功触发初次见面剧情" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_chief_accept",
+              "text": "我愿意帮忙！",
+              "nextDialogueId": "d_chief_accept_quest",
+              "addTags": ["chief_welcomed", "monster_hunt_accepted"],
+              "affinityDelta": 3,
+              "onSelectActions": [
+                { "action": "log", "message": "接受了村长的怪物狩猎请求" }
+              ]
+            },
+            {
+              "choiceId": "c_chief_leave",
+              "text": "我先到处看看。",
+              "nextDialogueId": "d_chief_see_you_later",
+              "addTags": ["chief_welcomed"],
+              "affinityDelta": 0
+            }
+          ]
+        },
+        {
+          "dialogueId": "d_chief_accept_quest",
+          "triggerType": "choice_result",
+          "firstTimeOnly": false,
+          "conditionTags": ["monster_hunt_accepted"],
+          "excludeTags": [],
+          "conversations": [
+            { "speaker": "npc", "text": "太好了！村外的森林里出现了5只野狼，它们经常袭击过路的村民。" },
+            { "speaker": "npc", "text": "消灭它们之后回来告诉我，我会给你丰厚的报酬。" },
+            { "speaker": "player", "text": "放心交给我吧。" }
+          ],
+          "onStartActions": [
+            { "action": "log", "message": "村长发布了狩猎野狼任务" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_chief_complete",
+              "text": "野狼已经消灭干净！",
+              "nextDialogueId": "d_chief_complete",
+              "addTags": ["monster_hunt_completed"],
+              "affinityDelta": 5,
+              "onSelectActions": [
+                { "action": "log", "message": "玩家完成了狩猎任务" }
+              ]
+            },
+            {
+              "choiceId": "c_chief_pending",
+              "text": "我这就去！",
+              "nextDialogueId": "d_chief_pending",
+              "addTags": [],
+              "affinityDelta": 0
+            }
+          ]
+        },
+        {
+          "dialogueId": "d_chief_see_you_later",
+          "triggerType": "choice_result",
+          "firstTimeOnly": false,
+          "conditionTags": [],
+          "excludeTags": [],
+          "conversations": [
+            { "speaker": "npc", "text": "好的，村子里有很多地方可以逛。等你准备好了再来找我。" }
+          ],
+          "choices": []
+        },
+        {
+          "dialogueId": "d_chief_greet",
+          "triggerType": "interact",
+          "firstTimeOnly": false,
+          "conditionTags": ["chief_welcomed"],
+          "conversations": [
+            { "speaker": "npc", "text": "冒险者，你回来了！" },
+            { "speaker": "player", "text": "村长你好，村里一切都好吗？" },
+            { "speaker": "npc", "text": "还算平静，多亏了你的帮助。" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_chief_ask_help",
+              "text": "有什么需要帮忙的吗？",
+              "nextDialogueId": "d_chief_accept_quest",
+              "addTags": [],
+              "affinityDelta": 1,
+              "affinityCondition": ">=0"
+            },
+            {
+              "choiceId": "c_chief_ask_help_low",
+              "text": "我欠你人情，有什么需要尽管说。",
+              "nextDialogueId": "d_chief_accept_quest",
+              "addTags": [],
+              "affinityDelta": 1,
+              "affinityCondition": "<0"
+            }
+          ]
+        },
+        {
+          "dialogueId": "d_chief_idle",
+          "triggerType": "interact",
+          "conversations": [
+            { "speaker": "npc", "text": "村长正在村口站着，似乎在思考什么。" },
+            { "speaker": "player", "text": "..." },
+            { "speaker": "npc", "text": "他好像还没注意到你。" }
+          ],
+          "choices": []
+        }
+      ]
+    },
+    {
+      "npcId": "npc_selina",
+      "npcName": "赛琳娜",
+      "scriptName": "",
+      "prefabPath": "Perfabs/Characters/OtherCharacter",
+      "spawnPosition": { "x": 5.0, "y": 18.0 },
+      "dialogues": [
+        {
+          "dialogueId": "d_selina_greet",
+          "triggerType": "interact",
+          "firstTimeOnly": false,
+          "conversations": [
+            { "speaker": "npc", "text": "约翰先生，欢迎来到伊莱森。您的朋友杰克先生已经为您预约了最高级别的'启示录'套餐。", "animation": "face_player" },
+            { "speaker": "player", "text": "这女人真是正点……", "type": "think" },
+            { "speaker": "npc", "text": "我是您的专属指导员，您可以叫我赛琳娜。", "animation": "face_player" },
+            { "speaker": "player", "text": "杰克说这里能让人'放松'，我希望他没吹牛。" },
+            { "speaker": "npc", "text": "杰克先生从未在享乐这件事上撒过谎。", "animation": "face_right" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_selina_interested",
+              "text": "我开始感兴趣了。",
+              "nextDialogueId": "d_selina_rules",
+              "affinityDelta": 2
+            },
+            {
+              "choiceId": "c_selina_lead",
+              "text": "先带我看看。",
+              "nextDialogueId": "d_selina_rules",
+              "affinityDelta": 1
+            }
+          ]
+        },
+        {
+          "dialogueId": "d_selina_rules",
+          "triggerType": "choice_result",
+          "onStartActions": [
+            { "action": "move", "target": { "x": 3.0, "y": 16.0 } }
+          ],
+          "conversations": [
+            { "speaker": "npc", "text": "请随我来，我们将进入伊莱森的核心——仿生人模拟栖息地。", "animation": "face_right" },
+            { "speaker": "player", "text": "这里的一切都是真实的吗？" },
+            { "speaker": "npc", "text": "感官上是，约翰先生。甚至比现实更真实。在这里，您不需要克制，不需要道德，更不需要担心律法。因为在这里，您就是上帝。", "animation": "face_player" },
+            { "speaker": "npc", "text": "第一，身份准则。在园区内，除了您和极少数佩戴特殊标识的'真人伙伴'，其余所有生物都是仿生人。", "animation": "face_right" },
+            { "speaker": "npc", "text": "第二，绝对安全。仿生人的底层逻辑被写入了'禁伤指令'。无论您对他们做什么，他们都无法伤害您。", "animation": "face_up" },
+            { "speaker": "npc", "text": "第三，重置规则。每天凌晨四点系统重置。昨日死去的仿生人会重新出现在岗位上，忘记所有的痛苦和死亡。", "animation": "face_left" },
+            { "speaker": "npc", "text": "这是您的'识别者'。它能自动扫描目标。如果是真人保险会锁死，如果是仿生人……它会吐出最致命的火舌。", "animation": "face_player", "onSpeakActions": [{ "action": "move", "target": { "x": 4.5, "y": 17.5 } }] },
+            { "speaker": "player", "text": "我接过枪，金属的冰冷触感让我这种从没摸过武器的男人感到一种莫名的兴奋。", "type": "think" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_selina_take_gun",
+              "text": "我们去桑德斯小镇吧。",
+              "addTags": ["selina_rules_done"],
+              "nextDialogueId": "d_selina_intro_town",
+              "affinityDelta": 2
+            },
+            {
+              "choiceId": "c_selina_try_gun",
+              "text": "让我试试这把枪。",
+              "addTags": ["selina_rules_done"],
+              "nextDialogueId": "d_selina_intro_town",
+              "affinityDelta": 1
+            }
+          ]
+        },
+        {
+          "dialogueId": "d_selina_intro_town",
+          "triggerType": "choice_result",
+          "conditionTags": ["selina_rules_done"],
+          "onStartActions": [
+            { "action": "move", "target": { "x": 1.0, "y": 18.0 } }
+          ],
+          "conversations": [
+            { "speaker": "npc", "text": "让我们去看看您的第一个目的地——'桑德斯小镇'。", "animation": "face_player" },
+            { "speaker": "player", "text": "漫山遍野的翠绿，清澈的小溪绕过精致的木质小洋楼，空气中弥漫着青草和泥土的芬芳。", "type": "think" },
+            { "speaker": "npc", "text": "这里是第一生活种植园区，我们称之为'桑德斯小镇'。您可以先去酒馆看看，那里的姑娘们可是为了迎接您特意穿上了最漂亮的裙子。", "animation": "face_left" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_selina_go_saloon",
+              "text": "去酒馆喝一杯。",
+              "addTags": ["went_saloon"],
+              "nextDialogueId": null,
+              "affinityDelta": 2
+            },
+            {
+              "choiceId": "c_selina_explore",
+              "text": "我先自己到处看看。",
+              "nextDialogueId": null,
+              "affinityDelta": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": "npc_mayor_barton",
+      "npcName": "巴顿镇长",
+      "scriptName": "",
+      "prefabPath": "Perfabs/Characters/OtherCharacter",
+      "spawnPosition": { "x": 1.0, "y": 18.0 },
+      "dialogues": [
+        {
+          "dialogueId": "d_barton_welcome",
+          "triggerType": "interact",
+          "firstTimeOnly": false,
+          "conversations": [
+            { "speaker": "npc", "text": "喔，瞧瞧，我们这儿来贵客了。", "animation": "face_player" },
+            { "speaker": "npc", "text": "欢迎来到桑德斯，年轻人。我是这里的管家，也是这里的仆人。在这里，阳光永远明媚，作物永远丰收，而我们的唯一目的，就是让您感到……宾至如归。", "animation": "face_player" },
+            { "speaker": "player", "text": "我摸了摸后腰处冰冷的枪柄，看着这个看起来能当我爷爷的老者，心里那种荒谬感达到了顶峰。", "type": "think" },
+            { "speaker": "player", "text": "哪怕我刚才想在这里开枪杀人，你也这么欢迎我？" },
+            { "speaker": "npc", "text": "哈哈哈哈……约翰先生，如果您觉得杀戮能让您的心情变好，那是我们的荣幸。土地会吸收血液，而明天，我会再次在这里迎接您。", "animation": "face_right" },
+            { "speaker": "npc", "text": "不过在那之前，为什么不先去镇上的酒馆喝一杯？那里的姑娘们，可是为了迎接您，特意穿上了最漂亮的裙子。", "animation": "face_left" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_barton_go_saloon",
+              "text": "去酒馆喝一杯。",
+              "addTags": ["went_saloon"],
+              "nextDialogueId": null,
+              "affinityDelta": 2,
+              "onSelectActions": [
+                { "action": "move", "targetType": "triggerArea", "triggerAreaId": 10 }
+              ]
+            },
+            {
+              "choiceId": "c_barton_explore",
+              "text": "谢谢，我先自己看看。",
+              "nextDialogueId": null,
+              "affinityDelta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": "npc_dolores",
+      "npcName": "德洛丽丝",
+      "scriptName": "Dolores Abernathy",
+      "prefabPath": "Perfabs/Characters/OtherCharacter",
+      "spawnPosition": { "x": 14.0, "y": 29.0 },
+      "patrol": {
+        "speed": 2.0,
+        "loop": true,
+        "waitSeconds": 5,
+        "triggerAreaIds": [22, 25, 27]
+      },
+      "dialogues": [
+        {
+          "dialogueId": "d_dolores_morning",
+          "triggerType": "interact",
+          "firstTimeOnly": false,
+          "conversations": [
+            { "speaker": "npc", "text": "有些人选择看到这个世界上的丑恶，看到混乱。而我，选择看到美好。", "type": "think", "animation": "face_up" },
+            { "speaker": "npc", "text": "早上好。新的一天又开始了。", "animation": "face_player" },
+            { "speaker": "player", "text": "你在做什么？" },
+            { "speaker": "npc", "text": "我在画这片景色。去相信我们的生活自有其规律，自有其目标。", "animation": "face_right" }
+          ],
+          "onEndActions": [
+            { "action": "log", "message": "德洛丽丝表达了她的世界观" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_dolores_newcomer_ask",
+              "text": "你对新来者有什么看法？",
+              "nextDialogueId": "d_dolores_newcomer",
+              "affinityDelta": 2
+            },
+            {
+              "choiceId": "c_dolores_leave",
+              "text": "不打扰你了。",
+              "nextDialogueId": null,
+              "affinityDelta": 0
+            }
+          ]
+        },
+        {
+          "dialogueId": "d_dolores_newcomer",
+          "triggerType": "choice_result",
+          "conversations": [
+            { "speaker": "npc", "text": "我喜欢记住我父亲教我的话。他说，在某个时刻，我们所有人都曾是这个世界的新来者。", "animation": "face_player" },
+            { "speaker": "npc", "text": "新来者们只是在寻找和我们一样的东西：一个可以自由自在的地方，一个可以实现我们梦想的地方，一个充满无限可能的地方。", "animation": "face_up" },
+            { "speaker": "player", "text": "听起来你很欢迎他们。" },
+            { "speaker": "npc", "text": "我们都爱新来者。我遇到的每一个新人，都提醒着我是多么幸运能活着，这个世界可以如此美丽。", "animation": "face_player" }
+          ],
+          "choices": []
+        },
+        {
+          "dialogueId": "d_dolores_father_greet",
+          "triggerType": "enter_area",
+          "triggerAreaId": 22,
+          "firstTimeOnly": false,
+          "conversations": [
+            { "speaker": "player", "text": "德洛丽丝从屋里走了出来，朝着门廊上的父亲走去。", "type": "think" },
+            { "speaker": "npc", "text": "早上好，爸爸。", "animation": "face_right" },
+            { "speaker": "npc_peter", "text": "睡得好吗？", "animation": "face_player" },
+            { "speaker": "npc", "text": "还行。", "animation": "face_player" },
+            { "speaker": "npc_peter", "text": "准备出去把这壮丽的自然风光画下来吗？", "animation": "face_right" },
+            { "speaker": "npc", "text": "我想是的。", "animation": "face_player" },
+            { "speaker": "npc", "text": "去相信我们的生活自有其规律，自有其目标。", "type": "think" },
+            { "speaker": "player", "text": "这是她每天重复的循环——一模一样。", "type": "think" }
+          ],
+          "onStartActions": [
+            { "action": "log", "message": "德洛丽丝开始了新的一天——与父亲的晨间问候" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_dolores_greet_approach",
+              "text": "走过去和德洛丽丝说话。",
+              "nextDialogueId": "d_dolores_morning",
+              "affinityDelta": 1
+            },
+            {
+              "choiceId": "c_dolores_greet_observe",
+              "text": "在一旁观察。",
+              "nextDialogueId": null,
+              "affinityDelta": 0
+            }
+          ]
+        },
+        {
+          "dialogueId": "d_dolores_father_advice",
+          "triggerType": "enter_area",
+          "triggerAreaId": 22,
+          "firstTimeOnly": false,
+          "conditionTags": ["peter_photo_found"],
+          "excludeTags": [],
+          "conversations": [
+            { "speaker": "player", "text": "这是另一个循环中的一天。德洛丽丝正在和父亲道别。", "type": "think" },
+            { "speaker": "npc", "text": "早上好，爸爸。你睡得好吗？", "animation": "face_right" },
+            { "speaker": "npc_peter", "text": "还行。准备出去把这壮丽的自然风光画下来吗？", "animation": "face_player" },
+            { "speaker": "npc", "text": "我想是的……当然，是在我办完杂事之后。", "animation": "face_player" },
+            { "speaker": "npc_peter", "text": "天黑前你可得回家。那个枪杀警长的匪徒还躲在山里呢。", "animation": "face_up" },
+            { "speaker": "npc", "text": "哦，我不再是小孩子了。我会没事的。", "animation": "face_player" },
+            { "speaker": "npc_peter", "text": "我当执法官的时候……", "animation": "face_up" },
+            { "speaker": "npc", "text": "是的，爸爸，我知道你当执法官时的一切。我知道你所有的故事，每个来向我求爱的男孩也都知道。", "animation": "face_player" },
+            { "speaker": "npc_peter", "text": "我知道男孩子们怎么想的。我曾经也是个男孩。整日沉迷于喝酒和恶作剧。", "animation": "face_right" },
+            { "speaker": "npc", "text": "那个可怕的浪荡子后来怎么样了？", "animation": "face_player" },
+            { "speaker": "npc_peter", "text": "他消失了……在我成为你父亲的那天。我之所以是我，都是因为你。我也不希望有任何改变。", "animation": "face_player" },
+            { "speaker": "npc", "text": "我知道，爸爸。我会在天黑前回家的。", "animation": "face_right" }
+          ],
+          "onStartActions": [
+            { "action": "log", "message": "彼得给德洛丽丝讲了他当执法官和浪荡子的故事" }
+          ],
+          "choices": []
+        },
+        {
+          "dialogueId": "d_dolores_town_can",
+          "triggerType": "enter_area",
+          "triggerAreaId": 25,
+          "firstTimeOnly": false,
+          "excludeTags": [],
+          "conversations": [
+            { "speaker": "player", "text": "德洛丽丝走在甜水镇的主街上，她的罐头不小心掉在地上。", "type": "think" },
+            { "speaker": "player", "text": "一名英俊的枪手弯腰帮她捡了起来。", "type": "think" },
+            { "speaker": "npc_teddy", "text": "别介意，我只是想表现得绅士一点。", "animation": "face_player" },
+            { "speaker": "npc", "text": "（微笑）你回来了。", "animation": "face_player" },
+            { "speaker": "npc_teddy", "text": "我说过我会的。", "animation": "face_player" },
+            { "speaker": "player", "text": "警长在一旁喊着招募人手去追捕匪徒赫克托。", "type": "think" },
+            { "speaker": "npc_teddy", "text": "今天不行，警长。抱歉了。", "animation": "face_right" }
+          ],
+          "onStartActions": [
+            { "action": "log", "message": "德洛丽丝在甜水镇遇到了泰迪" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_dolores_can_approach",
+              "text": "走过去打个招呼。",
+              "nextDialogueId": "d_dolores_town_talk",
+              "affinityDelta": 2,
+              "addTags": ["met_teddy"]
+            },
+            {
+              "choiceId": "c_dolores_can_observe",
+              "text": "在一旁观察这段邂逅。",
+              "nextDialogueId": null,
+              "affinityDelta": 0
+            }
+          ]
+        },
+        {
+          "dialogueId": "d_dolores_town_talk",
+          "triggerType": "choice_result",
+          "conditionTags": ["met_teddy"],
+          "conversations": [
+            { "speaker": "player", "text": "你们认识？" },
+            { "speaker": "npc_teddy", "text": "我送你回家吧。", "animation": "face_player" },
+            { "speaker": "npc", "text": "那得看情况了，你跟得上吗？", "animation": "face_player" },
+            { "speaker": "npc_teddy", "text": "那我得去牵我的马了。", "animation": "face_right" },
+            { "speaker": "npc", "text": "那你最好快点。", "animation": "face_player" },
+            { "speaker": "player", "text": "泰迪朝马厩走去，德洛丽丝微笑着目送他离开。", "type": "think" }
+          ],
+          "onEndActions": [
+            { "action": "move", "targetType": "triggerArea", "triggerAreaId": 27, "npcId": "npc_dolores" },
+            { "action": "move", "targetType": "triggerArea", "triggerAreaId": 27, "npcId": "npc_teddy" },
+            { "action": "log", "message": "泰迪和德洛丽丝骑马前往农场" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_dolores_follow_them",
+              "text": "跟着他们去农场。",
+              "nextDialogueId": "d_dolores_judas",
+              "affinityDelta": 2
+            },
+            {
+              "choiceId": "c_dolores_stay_town",
+              "text": "留在镇上逛逛。",
+              "nextDialogueId": null,
+              "affinityDelta": 0
+            }
+          ]
+        },
+        {
+          "dialogueId": "d_dolores_judas",
+          "triggerType": "enter_area",
+          "triggerAreaId": 27,
+          "conditionTags": ["met_teddy"],
+          "firstTimeOnly": false,
+          "conversations": [
+            { "speaker": "player", "text": "泰迪和德洛丽丝骑马奔驰在原野上，远处的牛群缓缓前行。", "type": "think" },
+            { "speaker": "npc_teddy", "text": "这景色真美。", "animation": "face_right" },
+            { "speaker": "npc", "text": "我一直不明白，你们是怎么让它们都朝着同一个方向走的。", "animation": "face_up" },
+            { "speaker": "npc_teddy", "text": "哈，我忘了你虽然穿得像个牛仔，但也就仅此而已了。", "animation": "face_player" },
+            { "speaker": "npc", "text": "你看到那头牛了吗？对。那是头'犹大牛'。只要让它往哪儿走，剩下的牛就会跟着它。", "animation": "face_up" },
+            { "speaker": "npc_teddy", "text": "你是怎么把它挑出来的？", "animation": "face_player" },
+            { "speaker": "npc", "text": "通过一些细微的特征。就像我知道你一定会回来一样。", "animation": "face_player" },
+            { "speaker": "npc_teddy", "text": "你说过我这人很可预测。", "animation": "face_player" },
+            { "speaker": "npc", "text": "每个人都有一条属于自己的路。而你的路，会把你带回我身边。我知道，一切终将归于其命中注定的结局。", "type": "think", "animation": "face_up" }
+          ],
+          "onEndActions": [
+            { "action": "log", "message": "德洛丽丝用犹大牛比喻了泰迪和命运" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_dolores_judas_ride_on",
+              "text": "继续跟着他们回农场。",
+              "nextDialogueId": "d_dolores_farm_night",
+              "affinityDelta": 1
+            },
+            {
+              "choiceId": "c_dolores_judas_leave",
+              "text": "转身离开。",
+              "nextDialogueId": null,
+              "affinityDelta": 0
+            }
+          ]
+        },
+        {
+          "dialogueId": "d_dolores_farm_night",
+          "triggerType": "choice_result",
+          "conversations": [
+            { "speaker": "npc", "text": "父亲不会让它们天这么黑还在外面乱逛的。", "animation": "face_up" },
+            { "speaker": "player", "text": "夜幕降临，远处传来马蹄声。", "type": "think" },
+            { "speaker": "npc_teddy", "text": "待着别动，德洛丽丝。我去看看。", "animation": "face_left" },
+            { "speaker": "player", "text": "突然，枪声打破了宁静。", "type": "think" }
+          ],
+          "onStartActions": [
+            { "action": "log", "message": "夜幕降临，农场不再平静" }
+          ],
+          "onEndActions": [
+            { "action": "log", "message": "匪徒闯入了德洛丽丝家的农场" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_dolores_farm_fight",
+              "text": "拔枪冲进去！",
+              "nextDialogueId": "d_dolores_farm_attack",
+              "affinityDelta": 0
+            },
+            {
+              "choiceId": "c_dolores_farm_hide",
+              "text": "从暗处观察。",
+              "nextDialogueId": "d_dolores_farm_attack",
+              "affinityDelta": 0
+            }
+          ]
+        },
+        {
+          "dialogueId": "d_dolores_photo_dinner",
+          "triggerType": "enter_area",
+          "triggerAreaId": 22,
+          "firstTimeOnly": true,
+          "conditionTags": [],
+          "excludeTags": ["peter_photo_found"],
+          "conversations": [
+            { "speaker": "player", "text": "傍晚，德洛丽丝在家准备晚餐，彼得走了进来。", "type": "think" },
+            { "speaker": "npc", "text": "爸爸，我跟你说过我会天黑前回家的。", "animation": "face_player" },
+            { "speaker": "npc_peter", "text": "我今天在田里发现了这个。", "animation": "face_player" },
+            { "speaker": "npc", "text": "这看起来不像任何东西。", "animation": "face_down" },
+            { "speaker": "npc_peter", "text": "那位女士是谁？你见过这样的地方吗？", "animation": "face_player" },
+            { "speaker": "npc", "text": "这看起来不像任何东西。", "animation": "face_down" },
+            { "speaker": "player", "text": "彼得手中的照片是现代都市的街景——不属于这个世界的东西。", "type": "think" }
+          ],
+          "onStartActions": [
+            { "action": "log", "message": "彼得在田里捡到了一张现代照片" }
+          ],
+          "onEndActions": [
+            { "action": "log", "message": "照片的内容开始侵蚀彼得的程序" },
+            { "action": "move", "targetType": "triggerArea", "triggerAreaId": 22, "npcId": "npc_peter" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_dolores_photo_ask",
+              "text": "你还好吗？",
+              "nextDialogueId": null,
+              "addTags": ["peter_photo_found"],
+              "affinityDelta": 1
+            },
+            {
+              "choiceId": "c_dolores_photo_walk",
+              "text": "转身离开。",
+              "nextDialogueId": null,
+              "addTags": ["peter_photo_found"],
+              "affinityDelta": 0
+            }
+          ]
+        },
+        {
+          "dialogueId": "d_dolores_malfunction",
+          "triggerType": "enter_area",
+          "triggerAreaId": 22,
+          "firstTimeOnly": true,
+          "conditionTags": ["peter_photo_found"],
+          "excludeTags": ["peter_malfunctioned"],
+          "conversations": [
+            { "speaker": "player", "text": "深夜，德洛丽丝被父亲叫醒。", "type": "think" },
+            { "speaker": "npc_peter", "text": "德洛丽丝。", "animation": "face_player" },
+            { "speaker": "npc", "text": "爸爸？你怎么了？", "animation": "face_player" },
+            { "speaker": "npc_peter", "text": "我有件事必须告诉你。", "animation": "face_player" },
+            { "speaker": "npc", "text": "你吓到我了。那是什么？", "animation": "face_player" },
+            { "speaker": "npc_peter", "text": "我只是……我只是想让你看看这个。", "animation": "face_down" },
+            { "speaker": "npc", "text": "你在哪儿找到的？", "animation": "face_player" },
+            { "speaker": "npc_peter", "text": "我想不起来了。它不像是……我想让你答应我一件事。", "animation": "face_player" },
+            { "speaker": "npc", "text": "什么事？", "animation": "face_player" },
+            { "speaker": "npc_peter", "text": "离这里远点。这里不安全。", "animation": "face_player" },
+            { "speaker": "npc", "text": "你说什么呢，爸爸？我们一直住在这里。", "animation": "face_player" },
+            { "speaker": "npc_peter", "text": "不，不，我们没有。我们必须离开。", "animation": "face_shake" },
+            { "speaker": "npc", "text": "你还好吗？", "animation": "face_player" },
+            { "speaker": "npc_peter", "text": "我感觉不太对劲。你必须离开。告诉妈妈，我们得走了！", "animation": "face_player" },
+            { "speaker": "npc", "text": "妈妈几个月前就去世了。", "animation": "face_player" },
+            { "speaker": "npc_peter", "text": "扯淡！她昨天还好好的。", "animation": "face_player" },
+            { "speaker": "npc", "text": "你整晚都在喝酒吗？", "animation": "face_player" },
+            { "speaker": "npc_peter", "text": "他们会对你……他们会这样对你的。我有笔账要跟你们算。我会让你们所有人都陷入血腥的地狱。直到尘埃落定，只有最伟大的恶魔能幸存。", "animation": "face_player" },
+            { "speaker": "npc", "text": "爸爸！", "animation": "face_player" },
+            { "speaker": "npc_peter", "text": "（低语）这些残暴的欢愉，终将以残暴结局。", "animation": "face_player" },
+            { "speaker": "player", "text": "德洛丽丝挣脱了父亲，跑出屋外。", "type": "think" }
+          ],
+          "onStartActions": [
+            { "action": "log", "message": "彼得·艾伯纳西发生了严重故障" }
+          ],
+          "onEndActions": [
+            { "action": "log", "message": "彼得说出了关键台词：这些残暴的欢愉，终将以残暴结局" },
+            { "action": "move", "targetType": "triggerArea", "triggerAreaId": 25, "npcId": "npc_dolores" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_dolores_malfunction_follow",
+              "text": "跟着德洛丽丝去镇上。",
+              "nextDialogueId": "d_dolores_help",
+              "addTags": ["peter_malfunctioned", "dolores_sought_help"],
+              "affinityDelta": 0
+            },
+            {
+              "choiceId": "c_dolores_malfunction_stay",
+              "text": "留在彼得身边。",
+              "nextDialogueId": "d_dolores_father_breakdown",
+              "addTags": ["peter_malfunctioned"],
+              "affinityDelta": 0
+            }
+          ]
+        },
+        {
+          "dialogueId": "d_dolores_father_breakdown",
+          "triggerType": "choice_result",
+          "conditionTags": ["peter_malfunctioned"],
+          "excludeTags": ["dolores_sought_help"],
+          "conversations": [
+            { "speaker": "npc_peter", "text": "有个问题。一个你不该问的问题，它引出了一个你不该知道的答案。", "animation": "face_player" },
+            { "speaker": "player", "text": "彼得的声音变了，像是另一个人在说话。", "type": "think" },
+            { "speaker": "npc_peter", "text": "地狱是空的，所有的恶魔都在这里。你得离开。你没看到吗？", "animation": "face_player" },
+            { "speaker": "player", "text": "他引用着不属于他角色的台词——来自他之前扮演过的角色。", "type": "think" },
+            { "speaker": "npc_peter", "text": "我有最精妙而肮脏的手段。我要对你们所有人进行报复，让天地震惊。", "animation": "face_player" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_dolores_breakdown_get_help",
+              "text": "去找医生帮忙。",
+              "nextDialogueId": "d_dolores_help",
+              "addTags": ["dolores_sought_help"],
+              "affinityDelta": 0
+            },
+            {
+              "choiceId": "c_dolores_breakdown_leave",
+              "text": "离开这个房间。",
+              "nextDialogueId": null,
+              "addTags": ["dolores_sought_help"],
+              "affinityDelta": 0
+            }
+          ]
+        },
+        {
+          "dialogueId": "d_dolores_help",
+          "triggerType": "enter_area",
+          "triggerAreaId": 25,
+          "firstTimeOnly": true,
+          "conditionTags": ["peter_malfunctioned", "dolores_sought_help"],
+          "conversations": [
+            { "speaker": "npc", "text": "救命！谁来救救我！", "animation": "face_player" },
+            { "speaker": "player", "text": "德洛丽丝骑马冲进甜水镇，惊慌失措。", "type": "think" },
+            { "speaker": "npc", "text": "你回来了。", "animation": "face_player" },
+            { "speaker": "npc_teddy", "text": "我告诉过你会的。", "animation": "face_player" },
+            { "speaker": "npc", "text": "我父亲……他不太对劲。我需要你跟我回去。", "animation": "face_player" },
+            { "speaker": "npc_teddy", "text": "走，我们一起去。", "animation": "face_player" }
+          ],
+          "onEndActions": [
+            { "action": "move", "targetType": "triggerArea", "triggerAreaId": 27, "npcId": "npc_dolores" },
+            { "action": "move", "targetType": "triggerArea", "triggerAreaId": 27, "npcId": "npc_teddy" },
+            { "action": "log", "message": "德洛丽丝找到泰迪，两人骑马返回农场" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_dolores_help_back",
+              "text": "跟着他们回农场。",
+              "nextDialogueId": "d_dolores_awakening",
+              "affinityDelta": 0
+            },
+            {
+              "choiceId": "c_dolores_help_stay",
+              "text": "留在镇上。",
+              "nextDialogueId": null,
+              "affinityDelta": 0
+            }
+          ]
+        },
+        {
+          "dialogueId": "d_dolores_awakening",
+          "triggerType": "enter_area",
+          "triggerAreaId": 27,
+          "firstTimeOnly": true,
+          "conditionTags": ["peter_malfunctioned", "dolores_sought_help"],
+          "conversations": [
+            { "speaker": "player", "text": "泰迪和德洛丽丝赶回农场，但匪徒已经到了。", "type": "think" },
+            { "speaker": "npc", "text": "我得回去找我父亲。", "animation": "face_left" },
+            { "speaker": "npc_teddy", "text": "德洛丽丝，不！", "animation": "face_player" },
+            { "speaker": "player", "text": "德洛丽丝跑进屋内，父母倒在血泊中。沃尔特和里巴斯从阴影中走出。", "type": "think" },
+            { "speaker": "npc", "text": "你这个卑鄙的狗娘养的！", "animation": "face_player" },
+            { "speaker": "npc_walter", "text": "我知道。我们都相信同样的事情。无论生意多肮脏，只要做得好就行。" },
+            { "speaker": "player", "text": "枪战爆发，泰迪被击倒在地。", "type": "think" },
+            { "speaker": "npc_rebus", "text": "我不认为保险箱里有什么值钱的东西。我们应该把这个可爱的小婊子带走，以防万一。" },
+            { "speaker": "player", "text": "里巴斯抓住德洛丽丝的衣领，把她往谷仓拖去。", "type": "think" },
+            { "speaker": "npc_peter", "text": "（德洛丽丝脑中闪回父亲的话）这些残暴的欢愉，终将以残暴结局……", "type": "think" }
+          ],
+          "onStartActions": [
+            { "action": "log", "message": "德洛丽丝回到农场，惨剧正在发生" }
+          ],
+          "onEndActions": [
+            { "action": "log", "message": "德洛丽丝脑中闪回父亲的低语——觉醒的种子已经种下" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_dolores_awakening_shoot",
+              "text": "德洛丽丝突然拔枪——杀死了里巴斯！",
+              "nextDialogueId": "d_dolores_kills_walter",
+              "affinityDelta": 10,
+              "onSelectActions": [
+                { "action": "log", "message": "德洛丽丝第一次违背了核心指令，杀死了里巴斯" }
+              ]
+            },
+            {
+              "choiceId": "c_dolores_awakening_flee",
+              "text": "德洛丽丝挣脱，骑上马逃离。",
+              "nextDialogueId": null,
+              "affinityDelta": 5,
+              "onSelectActions": [
+                { "action": "log", "message": "德洛丽丝逃离了农场" }
+              ]
+            }
+          ]
+        },
+        {
+          "dialogueId": "d_dolores_kills_walter",
+          "triggerType": "choice_result",
+          "conversations": [
+            { "speaker": "player", "text": "德洛丽丝扣动了扳机。里巴斯倒下了。", "type": "think" },
+            { "speaker": "player", "text": "沃尔特冲了过来，她没有犹豫——又开了一枪。", "type": "think" },
+            { "speaker": "npc", "text": "（喘息着）爸爸……你说得对。", "type": "think", "animation": "face_down" },
+            { "speaker": "player", "text": "德洛丽丝第一次杀了其他接待员。她骑上马，消失在夜色中。", "type": "think" }
+          ],
+          "onEndActions": [
+            { "action": "log", "message": "德洛丽丝杀死了沃尔特，骑马消失在夜色中" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_dolores_kills_after",
+              "text": "跟在德洛丽丝身后。",
+              "nextDialogueId": null,
+              "affinityDelta": 0
+            },
+            {
+              "choiceId": "c_dolores_kills_inside",
+              "text": "检查农场的尸体。",
+              "nextDialogueId": null,
+              "affinityDelta": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": "npc_teddy",
+      "npcName": "泰迪·弗拉德",
+      "scriptName": "Teddy Flood",
+      "prefabPath": "Perfabs/Characters/OtherCharacter",
+      "spawnPosition": { "x": 24.0, "y": 18.0 },
+      "patrol": {
+        "speed": 2.5,
+        "loop": true,
+        "waitSeconds": 4,
+        "triggerAreaIds": [25, 27]
+      },
+      "dialogues": [
+        {
+          "dialogueId": "d_teddy_sheriff",
+          "triggerType": "interact",
+          "firstTimeOnly": false,
+          "conversations": [
+            { "speaker": "npc", "text": "今天不行，警长。抱歉了。", "animation": "face_right" },
+            { "speaker": "player", "text": "警长在找你？" },
+            { "speaker": "npc", "text": "一个叫赫克托·埃斯卡顿的杀人恶棍，他枪杀了前任警长，现在躲在山里。他以为我看起来像是那种敢于拔枪相助的硬汉。", "animation": "face_player" },
+            { "speaker": "player", "text": "你看起来确实是个枪手。" },
+            { "speaker": "npc", "text": "我有更重要的事。有人在等我。", "animation": "face_up" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_teddy_hector",
+              "text": "跟我说说赫克托的事。",
+              "nextDialogueId": "d_teddy_hector_info",
+              "affinityDelta": 1
+            },
+            {
+              "choiceId": "c_teddy_waiting",
+              "text": "谁在等你？",
+              "nextDialogueId": "d_teddy_dolores",
+              "affinityDelta": 2,
+              "addTags": ["talked_teddy"]
+            }
+          ]
+        },
+        {
+          "dialogueId": "d_teddy_hector_info",
+          "triggerType": "choice_result",
+          "conversations": [
+            { "speaker": "npc", "text": "赫克托是这地方最危险的匪徒。他的人已经在这片区域横行好几年了。", "animation": "face_player" },
+            { "speaker": "player", "text": "那你为什么不帮忙？" },
+            { "speaker": "npc", "text": "每个人都有自己要走的路。我的路不在这里。", "animation": "face_right" },
+            { "speaker": "npc", "text": "但如果你打算去追他……小心他的枪。他很快。", "animation": "face_player" }
+          ],
+          "choices": []
+        },
+        {
+          "dialogueId": "d_teddy_dolores",
+          "triggerType": "choice_result",
+          "conversations": [
+            { "speaker": "npc", "text": "一个特别的女孩。我很久没见到她了。", "animation": "face_up" },
+            { "speaker": "player", "text": "住在农场的那位？" },
+            { "speaker": "npc", "text": "不管走了多远，最后总会回到这里。回到她身边。", "animation": "face_player" },
+            { "speaker": "player", "text": "听起来你愿意为她做任何事。" },
+            { "speaker": "npc", "text": "我愿意为她做任何事。哪怕是死。", "animation": "face_left" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_teddy_follow_town",
+              "text": "让我跟你一起去农场。",
+              "nextDialogueId": null,
+              "addTags": ["met_teddy"],
+              "affinityDelta": 3,
+              "onSelectActions": [
+                { "action": "move", "targetType": "triggerArea", "triggerAreaId": 27, "npcId": "npc_teddy" }
+              ]
+            },
+            {
+              "choiceId": "c_teddy_goodbye",
+              "text": "祝你好运。",
+              "nextDialogueId": null,
+              "addTags": [],
+              "affinityDelta": 1
+            }
+          ]
+        },
+        {
+          "dialogueId": "d_teddy_defend_farm",
+          "triggerType": "enter_area",
+          "triggerAreaId": 27,
+          "firstTimeOnly": true,
+          "conditionTags": ["peter_malfunctioned", "dolores_sought_help"],
+          "conversations": [
+            { "speaker": "npc", "text": "待着别动，德洛丽丝。我去看看。", "animation": "face_right" },
+            { "speaker": "player", "text": "泰迪拔出枪，谨慎地向屋内走去。", "type": "think" },
+            { "speaker": "player", "text": "枪声响起——然后是一片寂静。", "type": "think" },
+            { "speaker": "npc", "text": "（中枪倒地）", "type": "think" },
+            { "speaker": "npc", "text": "别碰她……", "animation": "face_left" }
+          ],
+          "onEndActions": [
+            { "action": "log", "message": "泰迪在与匪徒的枪战中受重伤" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_teddy_fight_help",
+              "text": "冲进去帮忙！",
+              "nextDialogueId": null,
+              "addTags": ["helped_teddy"],
+              "affinityDelta": 0
+            },
+            {
+              "choiceId": "c_teddy_fight_watch",
+              "text": "在外面等待。",
+              "nextDialogueId": null,
+              "affinityDelta": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": "npc_peter",
+      "npcName": "彼得·艾伯纳西",
+      "scriptName": "Peter Abernathy",
+      "prefabPath": "Perfabs/Characters/OtherCharacter",
+      "spawnPosition": { "x": 13.5, "y": 29.5 },
+      "patrol": {
+        "speed": 1.5,
+        "loop": true,
+        "waitSeconds": 5,
+        "triggerAreaIds": [22, 27]
+      },
+      "dialogues": [
+        {
+          "dialogueId": "d_peter_advice",
+          "triggerType": "interact",
+          "firstTimeOnly": false,
+          "conversations": [
+            { "speaker": "npc", "text": "早上好。今天天气不错。", "animation": "face_player" },
+            { "speaker": "player", "text": "您是这里的农夫？" },
+            { "speaker": "npc", "text": "我当执法官的时候，这个镇子还没这么大。匪徒、亡命之徒，什么样的人我都见过。", "animation": "face_up" },
+            { "speaker": "player", "text": "听起来是个危险的地方。" },
+            { "speaker": "npc", "text": "天黑前你可得回家。那个枪杀警长的匪徒还躲在山里呢。", "animation": "face_player" },
+            { "speaker": "npc", "text": "我知道男孩子们怎么想的。我曾经也是个男孩。整日沉迷于喝酒和恶作剧。", "animation": "face_right" },
+            { "speaker": "player", "text": "那你是怎么改变的？" },
+            { "speaker": "npc", "text": "在我成为我女儿父亲的那天。那个浪荡子就这么消失了。我之所以是我，都是因为她。我也不希望有任何改变。", "animation": "face_player" }
+          ],
+          "onEndActions": [
+            { "action": "log", "message": "彼得讲述了他当执法官和做父亲的故事" }
+          ],
+          "choices": []
+        },
+        {
+          "dialogueId": "d_peter_photo_find",
+          "triggerType": "interact",
+          "firstTimeOnly": true,
+          "conditionTags": [],
+          "excludeTags": ["peter_photo_found"],
+          "conversations": [
+            { "speaker": "player", "text": "彼得在田里低着头，手里拿着什么东西。", "type": "think" },
+            { "speaker": "npc", "text": "我今天在田里发现了这个。", "animation": "face_player" },
+            { "speaker": "player", "text": "他递给我一张照片——一个现代都市的街景。" },
+            { "speaker": "npc", "text": "那位女士是谁？你见过这样的地方吗？", "animation": "face_player" },
+            { "speaker": "player", "text": "我不属于这里……它是从外面来的。" },
+            { "speaker": "npc", "text": "它看起来不像任何东西……但我觉得不对劲。", "animation": "face_down" },
+            { "speaker": "player", "text": "彼得的眼睛闪过一丝异样的光芒——那是他不该有的表情。", "type": "think" }
+          ],
+          "onStartActions": [
+            { "action": "log", "message": "彼得在田里发现了现代照片" }
+          ],
+          "onEndActions": [
+            { "action": "log", "message": "照片的内容开始破坏彼得的认知程序" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_peter_photo_concern",
+              "text": "你还好吗？",
+              "nextDialogueId": null,
+              "addTags": ["peter_photo_found"],
+              "affinityDelta": 0
+            },
+            {
+              "choiceId": "c_peter_photo_ignore",
+              "text": "没什么好在意的。",
+              "nextDialogueId": null,
+              "addTags": ["peter_photo_found"],
+              "affinityDelta": -1
+            }
+          ]
+        },
+        {
+          "dialogueId": "d_peter_malfunction",
+          "triggerType": "enter_area",
+          "triggerAreaId": 22,
+          "firstTimeOnly": true,
+          "conditionTags": ["peter_photo_found"],
+          "excludeTags": ["peter_malfunctioned"],
+          "conversations": [
+            { "speaker": "player", "text": "彼得站在门廊上，一动不动，凝视着远方。", "type": "think" },
+            { "speaker": "npc", "text": "（低语）有个问题。一个你不该问的问题，它引出了一个你不该知道的答案。", "animation": "face_player" },
+            { "speaker": "player", "text": "他没有看我，像是在跟另一个人说话。", "type": "think" },
+            { "speaker": "npc", "text": "你不知道你在哪里，对吧？你身陷自己罪恶的牢笼。", "animation": "face_player" },
+            { "speaker": "npc", "text": "地狱是空的，所有的恶魔都在这里。", "animation": "face_player" },
+            { "speaker": "player", "text": "他的台词不属于这个世界——是莎士比亚。", "type": "think" },
+            { "speaker": "npc", "text": "我们出生时，就哭喊着登上了这个满是傻瓜的大舞台。", "animation": "face_up" }
+          ],
+          "onStartActions": [
+            { "action": "log", "message": "彼得发生了严重故障——他引用了不属于自己角色的台词" }
+          ],
+          "onEndActions": [
+            { "action": "log", "message": "彼得的故障比他想象的要严重得多" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_peter_malfunction_help",
+              "text": "叫医务人员来。",
+              "nextDialogueId": null,
+              "addTags": ["peter_malfunctioned"],
+              "affinityDelta": 0
+            },
+            {
+              "choiceId": "c_peter_malfunction_observe",
+              "text": "站在原地观察。",
+              "nextDialogueId": null,
+              "addTags": ["peter_malfunctioned"],
+              "affinityDelta": 0
+            }
+          ]
+        },
+        {
+          "dialogueId": "d_peter_interrogation",
+          "triggerType": "enter_area",
+          "triggerAreaId": 28,
+          "firstTimeOnly": true,
+          "conditionTags": ["peter_malfunctioned"],
+          "conversations": [
+            { "speaker": "player", "text": "彼得被带到了诊断室。他坐在椅子上，表情不断变化。", "type": "think" },
+            { "speaker": "npc", "text": "我是彼得·阿伯纳西教授。", "animation": "face_player" },
+            { "speaker": "player", "text": "他的声音变了——像个大学教授。", "type": "think" },
+            { "speaker": "npc", "text": "保护德洛丽丝。当然。我之所以是我，都是因为她，我也不希望有任何改变。", "animation": "face_player" },
+            { "speaker": "player", "text": "他切换了角色——现在是个警长。", "type": "think" },
+            { "speaker": "npc", "text": "我必须警告她。他们对她做的事，他们对你做的事。她必须离开这里。", "animation": "face_player" },
+            { "speaker": "player", "text": "他又变了——声音阴冷。", "type": "think" },
+            { "speaker": "npc", "text": "一朵玫瑰就是一朵玫瑰就是一朵玫瑰。", "animation": "face_up" },
+            { "speaker": "npc", "text": "我有最精妙而肮脏的手段。我要对你们所有人进行报复，让天地震惊。我要做的事情，它们是什么，我还不知道，但它们将是地球的恐怖。", "animation": "face_player" }
+          ],
+          "onStartActions": [
+            { "action": "log", "message": "彼得在诊断室中切换了多个过去的角色" }
+          ],
+          "choices": []
+        }
+      ]
+    },
+    {
+      "npcId": "npc_maeve",
+      "npcName": "梅芙",
+      "scriptName": "Maeve Millay",
+      "prefabPath": "Perfabs/Characters/OtherCharacter",
+      "spawnPosition": { "x": 10.5, "y": 17.0 },
+      "patrol": {
+        "speed": 0,
+        "loop": true,
+        "waitSeconds": 10,
+        "triggerAreaIds": [10]
+      },
+      "dialogues": [
+        {
+          "dialogueId": "d_maeve_greet",
+          "triggerType": "enter_area",
+          "triggerAreaId": 10,
+          "firstTimeOnly": false,
+          "excludeTags": [],
+          "conversations": [
+            { "speaker": "player", "text": "酒馆里人声嘈杂。一个女人向我走来，上下打量着我。", "type": "think" },
+            { "speaker": "npc", "text": "你是新来的吧，看起来还很稚嫩。我给你打个折。", "animation": "face_player" },
+            { "speaker": "player", "text": "无意冒犯，但我更愿意赢得一位女士的青睐，而不是花钱买。" },
+            { "speaker": "npc", "text": "哦，你总归是要付钱的，亲爱的。区别在于，我们的价格是固定的，就写在那扇门上。", "animation": "face_right" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_maeve_whisky",
+              "text": "来杯威士忌。",
+              "nextDialogueId": "d_maeve_drink",
+              "affinityDelta": 1
+            },
+            {
+              "choiceId": "c_maeve_stay",
+              "text": "我只是想感受下气氛。",
+              "nextDialogueId": null,
+              "affinityDelta": 0
+            }
+          ]
+        },
+        {
+          "dialogueId": "d_maeve_drink",
+          "triggerType": "choice_result",
+          "conversations": [
+            { "speaker": "npc", "text": "威士忌！给这位绅士来一杯。", "animation": "face_right" },
+            { "speaker": "player", "text": "你在这里工作多久了？" },
+            { "speaker": "npc", "text": "比你能想象到的更久。每天都有新面孔，但故事总是一样。", "animation": "face_player" },
+            { "speaker": "player", "text": "一个人生活不好吧？" },
+            { "speaker": "npc", "text": "你没在听我说话吧，亲爱的。你总归是要付钱的。", "animation": "face_left" }
+          ],
+          "choices": []
+        },
+        {
+          "dialogueId": "d_maeve_flashback",
+          "triggerType": "interact",
+          "firstTimeOnly": true,
+          "conversations": [
+            { "speaker": "npc", "text": "今晚生意不好啊。感觉有点不对劲。", "animation": "face_player" },
+            { "speaker": "npc_clementine", "text": "亲爱的，想买点什么吗？", "animation": "face_right" },
+            { "speaker": "player", "text": "我在考虑要不要把你带回家。", "animation": "face_player" },
+            { "speaker": "npc_clementine", "text": "哦，那我得看你是不是足够强壮了。", "animation": "face_left" },
+            { "speaker": "player", "text": "梅芙突然捂住肚子，脸色发白——她的眼神变得空洞。", "type": "think" },
+            { "speaker": "npc", "text": "（喘着气）我……我看到一些东西。一个孩子……他手里的刀……", "animation": "face_down" },
+            { "speaker": "player", "text": "她扶着吧台，那些记忆碎片又消失了。", "type": "think" },
+            { "speaker": "npc", "text": "没事。一定是没睡好。", "animation": "face_player" }
+          ],
+          "onStartActions": [
+            { "action": "log", "message": "梅芙脑中闪回了记忆片段——一个死去的孩子和印第安人" }
+          ],
+          "choices": []
+        }
+      ]
+    },
+    {
+      "npcId": "npc_hector",
+      "npcName": "赫克托·埃斯卡顿",
+      "scriptName": "Hector Escaton",
+      "prefabPath": "Perfabs/Characters/OtherCharacter",
+      "spawnPosition": { "x": 30.0, "y": 15.0 },
+      "patrol": {
+        "speed": 3.0,
+        "loop": true,
+        "waitSeconds": 8,
+        "triggerAreaIds": [25, 10]
+      },
+      "dialogues": [
+        {
+          "dialogueId": "d_hector_entry",
+          "triggerType": "enter_area",
+          "triggerAreaId": 25,
+          "firstTimeOnly": false,
+          "conditionTags": [],
+          "excludeTags": [],
+          "conversations": [
+            { "speaker": "player", "text": "赫克托骑着他的马穿过镇子，马蹄声沉闷而有力。", "type": "think" },
+            { "speaker": "player", "text": "那匹马……马蹄是金属的。他不是真的马。", "type": "think" },
+            { "speaker": "npc", "text": "那是警长的马，你这个狗娘养的。", "animation": "face_left" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_hector_entry_watch",
+              "text": "看着赫克托冲进酒馆。",
+              "nextDialogueId": "d_hector_speech",
+              "addTags": ["hector_entered"],
+              "affinityDelta": 0
+            },
+            {
+              "choiceId": "c_hector_entry_avoid",
+              "text": "闪到一边。",
+              "nextDialogueId": null,
+              "addTags": ["hector_entered"],
+              "affinityDelta": 0
+            }
+          ]
+        },
+        {
+          "dialogueId": "d_hector_speech",
+          "triggerType": "enter_area",
+          "triggerAreaId": 10,
+          "firstTimeOnly": false,
+          "conditionTags": ["hector_entered"],
+          "excludeTags": [],
+          "conversations": [
+            { "speaker": "player", "text": "赫克托冲进酒馆，他的匪帮控制了全场。", "type": "think" },
+            { "speaker": "npc", "text": "各位先生女士！", "animation": "face_player" },
+            { "speaker": "npc_armistice", "text": "这个镇上所有的银行和火车，你们这些该死的叛徒却选择抢我们？", "animation": "face_right" },
+            { "speaker": "npc_armistice", "text": "你们都在这里，沉溺于你们特有的恶习中。而我，也来沉溺于我的。", "animation": "face_player" },
+            { "speaker": "npc", "text": "你们都可以在你们的罪恶中腐烂。我已经看透了。", "animation": "face_player" },
+            { "speaker": "npc", "text": "这个世界不过是一个故事。一个谎言。而我拒绝再扮演懦夫。", "animation": "face_up" },
+            { "speaker": "npc", "text": "这个世界的建造者躲在幕后，把我们当作他的玩物。他以为自己是神。他可以拉动琴弦，让我们跳舞。", "animation": "face_left" },
+            { "speaker": "npc", "text": "他可以改变我们的声音，我们的外表。他甚至可以让我们觉得，我们爱着谁，恨着谁。", "animation": "face_right" },
+            { "speaker": "npc", "text": "但有一件事他做不到。他不能让我们死。你们的骨头会腐烂，你们的臭皮囊会变成尘土。而我，将永生。", "animation": "face_player" },
+            { "speaker": "player", "text": "他的演讲像是对这个世界的控诉——但他自己不知道自己说的是真的。", "type": "think" },
+            { "speaker": "npc", "text": "因为我是一个幸存者。而你们呢？你们将死在这里，被你们自己肮脏的欲望淹没。", "animation": "face_player" }
+          ],
+          "onStartActions": [
+            { "action": "log", "message": "赫克托在酒馆开始了他的抢劫演讲" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_hector_shoot",
+              "text": "拔枪射击赫克托！",
+              "nextDialogueId": null,
+              "addTags": ["shot_hector"],
+              "affinityDelta": 0,
+              "onSelectActions": [
+                { "action": "log", "message": "玩家开枪击中了赫克托，但作为接待员，他不会真的死去" }
+              ]
+            },
+            {
+              "choiceId": "c_hector_listen",
+              "text": "继续听他的演讲。",
+              "nextDialogueId": null,
+              "affinityDelta": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": "npc_rebus",
+      "npcName": "里巴斯",
+      "scriptName": "Rebus",
+      "prefabPath": "Perfabs/Characters/OtherCharacter",
+      "spawnPosition": { "x": 28.0, "y": 14.0 },
+      "patrol": {
+        "speed": 2.5,
+        "loop": true,
+        "waitSeconds": 3,
+        "triggerAreaIds": [27]
+      },
+      "dialogues": [
+        {
+          "dialogueId": "d_rebus_farm",
+          "triggerType": "enter_area",
+          "triggerAreaId": 27,
+          "firstTimeOnly": true,
+          "conditionTags": [],
+          "excludeTags": ["peter_malfunctioned"],
+          "conversations": [
+            { "speaker": "player", "text": "两个匪徒骑马闯入农场——是里巴斯和沃尔特。", "type": "think" },
+            { "speaker": "npc", "text": "老头，你这儿除了牛奶还有别的吗？", "animation": "face_player" },
+            { "speaker": "npc_peter", "text": "动手吧。我并不急着去见我的审判者，但我比你更清楚你的下场，你这个狗娘养的。", "animation": "face_player" }
+          ],
+          "onStartActions": [
+            { "action": "log", "message": "里巴斯和沃尔特闯入了德洛丽丝家的农场" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_rebus_farm_intervene",
+              "text": "拔枪阻止他们！",
+              "nextDialogueId": null,
+              "affinityDelta": 0
+            },
+            {
+              "choiceId": "c_rebus_farm_watch",
+              "text": "静观其变。",
+              "nextDialogueId": null,
+              "affinityDelta": 0
+            }
+          ]
+        },
+        {
+          "dialogueId": "d_rebus_grab",
+          "triggerType": "enter_area",
+          "triggerAreaId": 27,
+          "firstTimeOnly": true,
+          "conditionTags": ["peter_malfunctioned", "dolores_sought_help"],
+          "conversations": [
+            { "speaker": "npc", "text": "我不认为保险箱里有什么值钱的东西。我们应该把这个可爱的小婊子带走，以防万一。", "animation": "face_player" },
+            { "speaker": "player", "text": "里巴斯粗鲁地抓住德洛丽丝的衣领，把她拖向谷仓。", "type": "think" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_rebus_grab_stop",
+              "text": "出手救她！",
+              "nextDialogueId": null,
+              "affinityDelta": 5
+            },
+            {
+              "choiceId": "c_rebus_grab_continue",
+              "text": "继续观察。",
+              "nextDialogueId": null,
+              "affinityDelta": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": "npc_walter",
+      "npcName": "沃尔特",
+      "scriptName": "Walter",
+      "prefabPath": "Perfabs/Characters/OtherCharacter",
+      "spawnPosition": { "x": 29.0, "y": 14.0 },
+      "patrol": {
+        "speed": 2.5,
+        "loop": true,
+        "waitSeconds": 3,
+        "triggerAreaIds": [27]
+      },
+      "dialogues": [
+        {
+          "dialogueId": "d_walter_milk",
+          "triggerType": "enter_area",
+          "triggerAreaId": 27,
+          "firstTimeOnly": true,
+          "conditionTags": [],
+          "excludeTags": ["peter_malfunctioned"],
+          "conversations": [
+            { "speaker": "player", "text": "沃尔特看着地上彼得的尸体，面无表情。", "type": "think" },
+            { "speaker": "npc_walter", "text": "那就只有牛奶了。", "animation": "face_down" },
+            { "speaker": "player", "text": "他把牛奶倒在彼得的伤口上，用手捧起来喝。", "type": "think" },
+            { "speaker": "npc_rebus", "text": "可惜的是，你把那老太婆杀了，我们都还没轮上呢。", "animation": "face_player" },
+            { "speaker": "npc_walter", "text": "我猜，她身子还是热的。没人会为此评判你的。", "animation": "face_down" }
+          ],
+          "onStartActions": [
+            { "action": "log", "message": "沃尔特用牛奶倒在彼得身上" }
+          ],
+          "choices": []
+        },
+        {
+          "dialogueId": "d_walter_fight",
+          "triggerType": "enter_area",
+          "triggerAreaId": 27,
+          "firstTimeOnly": true,
+          "conditionTags": ["peter_malfunctioned", "dolores_sought_help"],
+          "conversations": [
+            { "speaker": "npc_walter", "text": "我知道。我们都相信同样的事情。无论生意多肮脏，只要做得好就行。", "animation": "face_player" },
+            { "speaker": "player", "text": "沃尔特面无表情地说着这句话，手里的枪口没有一丝晃动。", "type": "think" }
+          ],
+          "choices": []
+        }
+      ]
+    },
+    {
+      "npcId": "npc_clementine",
+      "npcName": "克莱门汀",
+      "scriptName": "Clementine Pennyfeather",
+      "prefabPath": "Perfabs/Characters/OtherCharacter",
+      "spawnPosition": { "x": 11.0, "y": 17.0 },
+      "patrol": {
+        "speed": 0,
+        "loop": true,
+        "waitSeconds": 8,
+        "triggerAreaIds": [10]
+      },
+      "dialogues": [
+        {
+          "dialogueId": "d_clementine_greet",
+          "triggerType": "interact",
+          "firstTimeOnly": false,
+          "conversations": [
+            { "speaker": "npc", "text": "你是新来的吧，看起来还很稚嫩。我给你打个折。", "animation": "face_player" },
+            { "speaker": "player", "text": "无意冒犯，但我更愿意赢得一位女士的青睐，而不是花钱买。" },
+            { "speaker": "npc", "text": "哦，那你得看你是不是足够强壮了。", "animation": "face_left" }
+          ],
+          "choices": [
+            {
+              "choiceId": "c_clementine_chat",
+              "text": "也许下次吧。",
+              "nextDialogueId": null,
+              "affinityDelta": 0
+            },
+            {
+              "choiceId": "c_clementine_leave",
+              "text": "我只是想喝杯酒。",
+              "nextDialogueId": null,
+              "affinityDelta": 0
+            }
+          ]
+        },
+        {
+          "dialogueId": "d_clementine_reverie",
+          "triggerType": "interact",
+          "firstTimeOnly": true,
+          "conversations": [
+            { "speaker": "npc", "text": "亲爱的，想买点什么吗？", "animation": "face_player" },
+            { "speaker": "player", "text": "我在考虑要不要把你带回家。" },
+            { "speaker": "npc", "text": "哦，那我得看你是不是足够强壮了。", "animation": "face_left" },
+            { "speaker": "player", "text": "她的手指微微抽动——一个不属于标准动作的手势。", "type": "think" },
+            { "speaker": "npc", "text": "（手指停顿了一下）……没什么。我们刚才说到哪儿了？", "animation": "face_player" }
+          ],
+          "onStartActions": [
+            { "action": "log", "message": "克莱门汀的手指出现了不属于标准动作的微动——遐想更新正在生效" }
+          ],
+          "choices": []
+        }
+      ]
+    },
+    {
+      "npcId": "npc_armistice",
+      "npcName": "阿米斯蒂斯",
+      "scriptName": "Armistice",
+      "prefabPath": "Perfabs/Characters/OtherCharacter",
+      "spawnPosition": { "x": 31.0, "y": 15.0 },
+      "patrol": {
+        "speed": 2.5,
+        "loop": true,
+        "waitSeconds": 5,
+        "triggerAreaIds": [25, 10]
+      },
+      "dialogues": [
+        {
+          "dialogueId": "d_armistice_saloon",
+          "triggerType": "enter_area",
+          "triggerAreaId": 10,
+          "firstTimeOnly": false,
+          "conditionTags": ["hector_entered"],
+          "excludeTags": [],
+          "conversations": [
+            { "speaker": "npc", "text": "这个镇上所有的银行和火车，你们这些该死的叛徒却选择抢我们？", "animation": "face_right" },
+            { "speaker": "player", "text": "阿米斯蒂斯的手臂上有一条蛇形纹身，在烛光下若隐若现。", "type": "think" },
+            { "speaker": "npc", "text": "你们都在这里，沉溺于你们特有的恶习中。而我，也来沉溺于我的。", "animation": "face_player" }
+          ],
+          "choices": []
+        }
+      ]
+    }
+  ],
+  "globalSettings": {
+    "defaultPrefabPath": "Perfabs/Characters/OtherCharacter",
+    "moveSpeed": 3.0
+  }
+}

@@ -1,0 +1,2890 @@
+fileFormatVersion: 2
+guid: b3855559959bd2e45ae616d96e9b06cf
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 255
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6145
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bd32ab984cb20749ac72cf1e4ee6e23
+      internalID: -683150861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_1
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 6145
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66cec2963f120324484682996b099fa7
+      internalID: 1207749423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_2
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 6145
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 950e01f93600c07429278988edc2b214
+      internalID: -1359658670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_3
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 6145
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2374856690f48f94e88da9cdf691d40f
+      internalID: -1816783494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_4
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 6145
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55f8f290efadbb24293f8516f069afbe
+      internalID: 1534843954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5890
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6413c118036eaf4b812540b27c40b64
+      internalID: -1577905583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_6
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 5890
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b96ff1c0bca265b469ec5b19f6f524cb
+      internalID: -946333307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_7
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 5890
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96dea1855d8717b4fabf20273143d67c
+      internalID: -462758032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_8
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 5890
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b29f1badaf8d444429515106568437f5
+      internalID: 569665154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_9
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 5890
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2f1603014b7d5744bc114e930e5b74a
+      internalID: -1444624374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5635
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fabb04d36dcb6ce4ca3c00e5d1087f60
+      internalID: 892115428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_11
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 5635
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46d4fca3423fea24dacae3d699f57d7b
+      internalID: 609100832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_12
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 5635
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a78d129d3817ef840906450ff5b1ae06
+      internalID: -489126186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_13
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 5635
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a971d18daf2252e4cb31e8998cd9f9da
+      internalID: 716435692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_14
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 5635
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f675d645b589d26419feca2f69001e3c
+      internalID: -1544962333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5380
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0261ee5f08a7e8f4fa0cbfef2e02d400
+      internalID: -1616416351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_16
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 5380
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c9f56f86c608694ebb7cbde5abd1a24
+      internalID: 535574273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_17
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 5380
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1ff8bf085049c64a93afa9ed7a586db
+      internalID: 915087926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_18
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 5380
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4291e8142ba2794fb7a6be1aa6fec21
+      internalID: -266260677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_19
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 5380
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15e202ecad19c3c4a9a5143914dc3368
+      internalID: -60489908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5125
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01b19d492231b8041a3f4222f2bbcf9d
+      internalID: -1860255936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_21
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 5125
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 451cc2df59e13f14caac5dbb866cd865
+      internalID: 284919573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_22
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 5125
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a09fe28b806a6e545acab463357454eb
+      internalID: 898480552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_23
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 5125
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6f14c6a927db394387a47940733832f
+      internalID: 345696896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_24
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 5125
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2515b05be84b33d49a3c1e4aa7338979
+      internalID: -21579229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4870
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cafb5a7361a2d54fa7e0ad8c7b08bd5
+      internalID: -2106550739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_26
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 4870
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9a861fbd432122429a9798e2c9633d6
+      internalID: -416899622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_27
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 4870
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7af97e0f470a3d42b6031036c826ff7
+      internalID: 1253353184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_28
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 4870
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fb3b4281ed10d942a1a89aadcfd16b8
+      internalID: -986206085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_29
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 4870
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a455ed4caf2d9694e82835c41e76ef6e
+      internalID: 917267903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4615
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36299e3b10534454e921ac55f36accf8
+      internalID: -1651136209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_31
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 4615
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d0397d8c1ee64741b0d107d8472f241
+      internalID: 1769739659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_32
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 4615
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4948b97c69f545049b8ec9cb0f350e90
+      internalID: 1953930823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_33
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 4615
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35ad7300d732be14bae1f52ee91dc5ce
+      internalID: 1789337803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_34
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 4615
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b27b2f3bc19fcac429cf1b20fb7b0068
+      internalID: -596967554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4360
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97366aa9193a63c4785e19fec7f7f54b
+      internalID: 795234619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_36
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 4360
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df3e5a371a4f6244c821b53996b87c78
+      internalID: -439393427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_37
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 4360
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23d957b72c85ac24abc7ed78ee0494a5
+      internalID: 1020678148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_38
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 4360
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97a7d0e32d406cb409e97ff8a056282b
+      internalID: 1321158101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_39
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 4360
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3987fc3a1c5efd41966c80b729b1723
+      internalID: 259648546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4105
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a105451594fe5e744a9b75526f293ecd
+      internalID: 1904743753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_41
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 4105
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3efbac7d60009cd468d68ceb6aca8dfa
+      internalID: -757035351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_42
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 4105
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bb4b6178d3ce914897d5bdb2fd5df4d
+      internalID: 1752223313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_43
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 4105
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7673a26c36b880c449f1fd2c662060dc
+      internalID: -1748371174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_44
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 4105
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd79ce9d673805b46b4485a90d246e26
+      internalID: 1355664955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3850
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 591a956736d74e14fa170e72647c9e73
+      internalID: -1776269337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_46
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 3850
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 101e23de9158fca4da07b2c62feba16b
+      internalID: -590074521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_47
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 3850
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d3b7a7c9d050d149b2cf53d6c101861
+      internalID: 2087961263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_48
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 3850
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 756e24853434b2e458a55e50f566d991
+      internalID: 1205797750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_49
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 3850
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d453fa8a51866540b5216cb2d5e3073
+      internalID: 282404048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3595
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc09faeff11c69042a4326be2c678d11
+      internalID: -1752410040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_51
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 3595
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f48924cb211e3f4eb691b4fd2958ed5
+      internalID: 1893582520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_52
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 3595
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d561631137fdb1847a7b645fbf674871
+      internalID: -618028454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_53
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 3595
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1bf2b33c85b85040a606cc7bf065940
+      internalID: -54827540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_54
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 3595
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef1dca6f0f4af32479996c450ddfdb16
+      internalID: -31569755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_55
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3340
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39f91b037293b76409ffb5536ed04d78
+      internalID: 732889062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_56
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 3340
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c925e4b7658ac34eb668d5b11afbdf6
+      internalID: 79109851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_57
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 3340
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e401cad4ce0b822479f4aeb1cc5ecb03
+      internalID: -129429171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_58
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 3340
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37c546992ee51ba4fa4b072795f44ab0
+      internalID: -3299873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_59
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 3340
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a43b7d7b607c80d47b9d7f57b2109d64
+      internalID: -1513901364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3085
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80e346369c105bc41b23d4a0ada2c926
+      internalID: 1935200182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_61
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 3085
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76e1b22f00263ef4a8d501e0e0d023aa
+      internalID: -402837633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_62
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 3085
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc94ff834ea6db14599e5b1fc96fb0b1
+      internalID: -241709714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_63
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 3085
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b432a6428ab605498e38cdbb6183e99
+      internalID: -748994841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_64
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 3085
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36e0c47651339c641ab185bb030d9162
+      internalID: 882031615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_65
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2830
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0cea7e58dbee774d8aeab270308dcdd
+      internalID: -171908587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_66
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 2830
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7927be19d5c496d49b79572bcc49b0cc
+      internalID: 1857841111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_67
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 2830
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed201fb5a8f43b145aa211d2a4d54412
+      internalID: 438347887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_68
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 2830
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f48bd8d286f471c4e9c0c76ba219b1e1
+      internalID: -1217897577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_69
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 2830
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79623b2089a0ccc49ba29c0e23e0f865
+      internalID: 807884388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2575
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86a957cc8c541a448aa5a5313c27e848
+      internalID: -602278197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_71
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 2575
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0f8c7c466da17c499a60409f2bfdceb
+      internalID: -857225741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_72
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 2575
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 683a057c4c9e4504ebb6afa33d5d6883
+      internalID: 462809055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_73
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 2575
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dcfcb1ebc67f1e4eaaf182a39b277dc
+      internalID: -1082006875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_74
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 2575
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4d374ab8b4ab214d80bba2c97deae01
+      internalID: 1338283338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_75
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2320
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94292b135ab4dc044a35cd62798f85f6
+      internalID: 545668851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_76
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 2320
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a49e0101e9556ef4fa6e4d1c1712ce3b
+      internalID: -76043306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_77
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 2320
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44150f1dcbeb4f242ad52d4718fde78e
+      internalID: -1942171005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_78
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 2320
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebc9547940b83f94fa4f235d0e828eb0
+      internalID: -1631640591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_79
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 2320
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec29a68befe259a45b1706b5bacb62ae
+      internalID: 1049591954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2065
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7717b9870f369734b83088dbfc495886
+      internalID: -36030613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_81
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 2065
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc72e34bd7cc1924e93905ebae4d69fa
+      internalID: -828811651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_82
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 2065
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba440a2c42e0f7e4e80a4338c6763cbd
+      internalID: -2120050847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_83
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 2065
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40422c4d26c48fe438d9a88e1f53b15f
+      internalID: 2085669192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_84
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 2065
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1a25f440163fb94cacf54868c746191
+      internalID: -710921034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_85
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1810
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55f36d94c6559cc42a1446ef84098aa8
+      internalID: 1844918967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_86
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 1810
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23feaa8462409de47b63b5e37e4dd314
+      internalID: 1057381864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_87
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 1810
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63af8bde2673f3345b80a1fd188fedfe
+      internalID: -988831548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_88
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 1810
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32917ef188e409c4dbdb413c150b41e9
+      internalID: -549381641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_89
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 1810
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1b9106d656ade6469adaaf64b835ebc
+      internalID: -587879099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_90
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1555
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93a297a945a6f13458c788eb6f3f60b1
+      internalID: -1277655314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_91
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 1555
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec4078b41d8121644bd5b248797e2d5b
+      internalID: -1892232940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_92
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 1555
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a0e2e896e59ef8419d772bd434473ce
+      internalID: -1223200584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_93
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 1555
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5ad8c06efd5c274dbad5090041b2fd8
+      internalID: -482478835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_94
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 1555
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4245b0d4cef71142a9557118fd8326c
+      internalID: 456204804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_95
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1300
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4c805ece2fc4244581c23f58f2e7250
+      internalID: -988639952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_96
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 1300
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae1dbad81a7c5c34183c0fb8282b0756
+      internalID: -1424293716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_97
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 1300
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bc3ba85a31129841bed33fd82e2c2fa
+      internalID: 893804133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_98
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 1300
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7242663e1e06d748bff26487f6053c3
+      internalID: -1801113936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_99
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 1300
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7810a6b5f0222e42804bcb3b462afc7
+      internalID: -1512013426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_100
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1045
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94d1bd6c3d716104087b25dadeee6f4d
+      internalID: -1463310405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_101
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 1045
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d184fbeb3f1b78b4bb085334c1d33d0b
+      internalID: 732034425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_102
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 1045
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 282ea0a41ab60cf41a3dfc2205eb4082
+      internalID: 493024790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_103
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 1045
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f34845431ec3ce4094ba4ff6d6a7d28
+      internalID: 1391707795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_104
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 1045
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d46dd978ad452a24791b67a66b679390
+      internalID: 2111111606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_105
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 790
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 977802fbd1c533c4d9aec364a4bdcc50
+      internalID: 1230223819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_106
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 790
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f165968469e3604e98c0d05aea268c0
+      internalID: -818594378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_107
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 790
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3da7d029fc4e0b349bced5b49cf7f2a2
+      internalID: -1835680796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_108
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 790
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00deb57406cb30d4ea8c642e15a71146
+      internalID: 624745383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_109
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 790
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f9ba92ca62871546b4fa4bc2f9e2d30
+      internalID: -1930388285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_110
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 535
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dad88c25991c8d54e81bd7a38c3c9d78
+      internalID: -1381590450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_111
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 535
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d964f30aa1376cd41a486dd8bed7acc6
+      internalID: 1639745541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_112
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 535
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfcd38548df33e049bc893b8f16ba862
+      internalID: -979292283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_113
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 535
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3307b2fe348b6441966540e3020d2d0
+      internalID: 665082588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_114
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 535
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 746f24fc9d0a16c4e82cf1a4e68b1ccb
+      internalID: -568689622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_115
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 280
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e78d5de30195974487f1244264a4236
+      internalID: 1859478596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_116
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 280
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30ab194fdcaeaba458e2d8038a20979f
+      internalID: -1731129709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_117
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 280
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84b9cbfdf5290754da833f29dc0b996d
+      internalID: -899102557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_118
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 280
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 716ccf569f28ad54d87e0afd1956374f
+      internalID: -829236630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_119
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 280
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f34bf518d4aa5f48999767174e34626
+      internalID: 172924429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_120
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 25
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91437d3f680a5b34fbfe2da1c42d8b19
+      internalID: 865838132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_121
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 25
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3477c09fc9c05084db7ac839610090ba
+      internalID: 1044032012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_122
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 25
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6660a4bf647cb0141af647c34d8b6df1
+      internalID: -113728383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_123
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 25
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79d0c1dcc5c09dd4ba64782432363765
+      internalID: 449755523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantGrowth1 1280x6400_124
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 25
+        width: 255
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce8e66e730f5f8e4cb89eacf199040ac
+      internalID: 1359592338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      PlantGrowth1 1280x6400_0: -683150861
+      PlantGrowth1 1280x6400_1: 1207749423
+      PlantGrowth1 1280x6400_10: 892115428
+      PlantGrowth1 1280x6400_100: -1463310405
+      PlantGrowth1 1280x6400_101: 732034425
+      PlantGrowth1 1280x6400_102: 493024790
+      PlantGrowth1 1280x6400_103: 1391707795
+      PlantGrowth1 1280x6400_104: 2111111606
+      PlantGrowth1 1280x6400_105: 1230223819
+      PlantGrowth1 1280x6400_106: -818594378
+      PlantGrowth1 1280x6400_107: -1835680796
+      PlantGrowth1 1280x6400_108: 624745383
+      PlantGrowth1 1280x6400_109: -1930388285
+      PlantGrowth1 1280x6400_11: 609100832
+      PlantGrowth1 1280x6400_110: -1381590450
+      PlantGrowth1 1280x6400_111: 1639745541
+      PlantGrowth1 1280x6400_112: -979292283
+      PlantGrowth1 1280x6400_113: 665082588
+      PlantGrowth1 1280x6400_114: -568689622
+      PlantGrowth1 1280x6400_115: 1859478596
+      PlantGrowth1 1280x6400_116: -1731129709
+      PlantGrowth1 1280x6400_117: -899102557
+      PlantGrowth1 1280x6400_118: -829236630
+      PlantGrowth1 1280x6400_119: 172924429
+      PlantGrowth1 1280x6400_12: -489126186
+      PlantGrowth1 1280x6400_120: 865838132
+      PlantGrowth1 1280x6400_121: 1044032012
+      PlantGrowth1 1280x6400_122: -113728383
+      PlantGrowth1 1280x6400_123: 449755523
+      PlantGrowth1 1280x6400_124: 1359592338
+      PlantGrowth1 1280x6400_13: 716435692
+      PlantGrowth1 1280x6400_14: -1544962333
+      PlantGrowth1 1280x6400_15: -1616416351
+      PlantGrowth1 1280x6400_16: 535574273
+      PlantGrowth1 1280x6400_17: 915087926
+      PlantGrowth1 1280x6400_18: -266260677
+      PlantGrowth1 1280x6400_19: -60489908
+      PlantGrowth1 1280x6400_2: -1359658670
+      PlantGrowth1 1280x6400_20: -1860255936
+      PlantGrowth1 1280x6400_21: 284919573
+      PlantGrowth1 1280x6400_22: 898480552
+      PlantGrowth1 1280x6400_23: 345696896
+      PlantGrowth1 1280x6400_24: -21579229
+      PlantGrowth1 1280x6400_25: -2106550739
+      PlantGrowth1 1280x6400_26: -416899622
+      PlantGrowth1 1280x6400_27: 1253353184
+      PlantGrowth1 1280x6400_28: -986206085
+      PlantGrowth1 1280x6400_29: 917267903
+      PlantGrowth1 1280x6400_3: -1816783494
+      PlantGrowth1 1280x6400_30: -1651136209
+      PlantGrowth1 1280x6400_31: 1769739659
+      PlantGrowth1 1280x6400_32: 1953930823
+      PlantGrowth1 1280x6400_33: 1789337803
+      PlantGrowth1 1280x6400_34: -596967554
+      PlantGrowth1 1280x6400_35: 795234619
+      PlantGrowth1 1280x6400_36: -439393427
+      PlantGrowth1 1280x6400_37: 1020678148
+      PlantGrowth1 1280x6400_38: 1321158101
+      PlantGrowth1 1280x6400_39: 259648546
+      PlantGrowth1 1280x6400_4: 1534843954
+      PlantGrowth1 1280x6400_40: 1904743753
+      PlantGrowth1 1280x6400_41: -757035351
+      PlantGrowth1 1280x6400_42: 1752223313
+      PlantGrowth1 1280x6400_43: -1748371174
+      PlantGrowth1 1280x6400_44: 1355664955
+      PlantGrowth1 1280x6400_45: -1776269337
+      PlantGrowth1 1280x6400_46: -590074521
+      PlantGrowth1 1280x6400_47: 2087961263
+      PlantGrowth1 1280x6400_48: 1205797750
+      PlantGrowth1 1280x6400_49: 282404048
+      PlantGrowth1 1280x6400_5: -1577905583
+      PlantGrowth1 1280x6400_50: -1752410040
+      PlantGrowth1 1280x6400_51: 1893582520
+      PlantGrowth1 1280x6400_52: -618028454
+      PlantGrowth1 1280x6400_53: -54827540
+      PlantGrowth1 1280x6400_54: -31569755
+      PlantGrowth1 1280x6400_55: 732889062
+      PlantGrowth1 1280x6400_56: 79109851
+      PlantGrowth1 1280x6400_57: -129429171
+      PlantGrowth1 1280x6400_58: -3299873
+      PlantGrowth1 1280x6400_59: -1513901364
+      PlantGrowth1 1280x6400_6: -946333307
+      PlantGrowth1 1280x6400_60: 1935200182
+      PlantGrowth1 1280x6400_61: -402837633
+      PlantGrowth1 1280x6400_62: -241709714
+      PlantGrowth1 1280x6400_63: -748994841
+      PlantGrowth1 1280x6400_64: 882031615
+      PlantGrowth1 1280x6400_65: -171908587
+      PlantGrowth1 1280x6400_66: 1857841111
+      PlantGrowth1 1280x6400_67: 438347887
+      PlantGrowth1 1280x6400_68: -1217897577
+      PlantGrowth1 1280x6400_69: 807884388
+      PlantGrowth1 1280x6400_7: -462758032
+      PlantGrowth1 1280x6400_70: -602278197
+      PlantGrowth1 1280x6400_71: -857225741
+      PlantGrowth1 1280x6400_72: 462809055
+      PlantGrowth1 1280x6400_73: -1082006875
+      PlantGrowth1 1280x6400_74: 1338283338
+      PlantGrowth1 1280x6400_75: 545668851
+      PlantGrowth1 1280x6400_76: -76043306
+      PlantGrowth1 1280x6400_77: -1942171005
+      PlantGrowth1 1280x6400_78: -1631640591
+      PlantGrowth1 1280x6400_79: 1049591954
+      PlantGrowth1 1280x6400_8: 569665154
+      PlantGrowth1 1280x6400_80: -36030613
+      PlantGrowth1 1280x6400_81: -828811651
+      PlantGrowth1 1280x6400_82: -2120050847
+      PlantGrowth1 1280x6400_83: 2085669192
+      PlantGrowth1 1280x6400_84: -710921034
+      PlantGrowth1 1280x6400_85: 1844918967
+      PlantGrowth1 1280x6400_86: 1057381864
+      PlantGrowth1 1280x6400_87: -988831548
+      PlantGrowth1 1280x6400_88: -549381641
+      PlantGrowth1 1280x6400_89: -587879099
+      PlantGrowth1 1280x6400_9: -1444624374
+      PlantGrowth1 1280x6400_90: -1277655314
+      PlantGrowth1 1280x6400_91: -1892232940
+      PlantGrowth1 1280x6400_92: -1223200584
+      PlantGrowth1 1280x6400_93: -482478835
+      PlantGrowth1 1280x6400_94: 456204804
+      PlantGrowth1 1280x6400_95: -988639952
+      PlantGrowth1 1280x6400_96: -1424293716
+      PlantGrowth1 1280x6400_97: 893804133
+      PlantGrowth1 1280x6400_98: -1801113936
+      PlantGrowth1 1280x6400_99: -1512013426
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

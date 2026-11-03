@@ -1,0 +1,33 @@
+# OpenCode Configuration
+# 优先使用代码图谱(Code Graph RAG)工具进行代码查询
+
+tools:
+  priority:
+    - code-graph-rag    # 优先使用代码图谱查询
+    - standard          # 其次使用标准工具(grep, read等)
+
+  code-graph-rag:
+    enabled: true
+    # 查询代码时优先使用图谱
+    prefer_for:
+      - code_query      # 代码功能查询
+      - find_references # 查找引用
+      - find_callers    # 查找调用者
+      - class_hierarchy # 类继承关系
+
+guidelines: |
+  ## 工具使用指南
+  
+  1. **代码查询优先使用 code-graph-rag**
+     - 查询类/方法功能: `code-graph-rag_query_code_graph`
+     - 获取代码片段: `code-graph-rag_get_code_snippet`
+     - 查看节点详情: `code-graph-rag_get_node_details`
+  
+  2. **标准工具作为补充**
+     - 当图谱未索引或查询无结果时，使用 grep/read
+     - 用于查找配置文件、非代码文件等
+  
+  3. **推荐工作流**
+     - 先用图谱查询代码结构和关系
+     - 用标准工具读取具体文件内容
+     - 用图谱进行代码替换: `code-graph-rag_surgical_replace_code`

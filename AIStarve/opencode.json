@@ -1,0 +1,125 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "deepseek/deepseek-chat",
+  "provider": {
+    "deepseek": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "DeepSeek",
+      "options": {
+        "baseURL": "https://api.deepseek.com/v1",
+        "apiKey": "sk-b6d1d5ba214a42e2b35a46fb415dce18"
+      },
+      "models": {
+        "deepseek-v4-pro": { "name": "DeepSeek v4 Pro" },
+        "deepseek-v4-flash": { "name": "DeepSeek v4 flash" }
+      }
+    },
+    "local-qwen": {  
+      "npm": "@ai-sdk/openai-compatible",  
+      "name": "Local Qwen (localhost:11434)",  
+      "options": {  
+        "baseURL": "http://192.168.1.241:11434/v1"  
+      },  
+      "models": {  
+        "qwen3.5:27b": {  
+          "name": "Qwen3.5:27b (local)"  
+        }  
+      }
+    } ,
+     "bailian-coding-plan": {
+      "npm": "@ai-sdk/anthropic",
+      "name": "Model Studio Coding Plan",
+      "options": {
+        "baseURL": "https://coding.dashscope.aliyuncs.com/apps/anthropic/v1",
+        "apiKey": "sk-sp-b07fca9e3502451897cab39b80074563"
+      },
+      "models": {
+        "qwen3.5-plus": {
+          "name": "Qwen3.5 Plus",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "options": {
+            "thinking": {
+              "type": "enabled",
+              "budgetTokens": 1024
+            }
+          }
+        },
+        "qwen3-max-2026-01-23": {
+          "name": "Qwen3 Max 2026-01-23"
+        },
+        "qwen3-coder-next": {
+          "name": "Qwen3 Coder Next"
+        },
+        "qwen3-coder-plus": {
+          "name": "Qwen3 Coder Plus"
+        },
+        "MiniMax-M2.5": {
+          "name": "MiniMax M2.5",
+          "options": {
+            "thinking": {
+              "type": "enabled",
+              "budgetTokens": 1024
+            }
+          }
+        },
+        "glm-5": {
+          "name": "GLM-5",
+          "options": {
+            "thinking": {
+              "type": "enabled",
+              "budgetTokens": 1024
+            }
+          }
+        },
+        "glm-4.7": {
+          "name": "GLM-4.7",
+          "options": {
+            "thinking": {
+              "type": "enabled",
+              "budgetTokens": 1024
+            }
+          }
+        },
+        "kimi-k2.5": {
+          "name": "Kimi K2.5",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "options": {
+            "thinking": {
+              "type": "enabled",
+              "budgetTokens": 1024
+            }
+          }
+        }
+      }
+    }
+  },
+  "mcp": {
+    "code-graph-rag": {
+      "type": "remote",
+      "url": "http://192.168.1.241:8000/mcp",
+      "enabled": true,
+      "timeout": 15000
+    }
+  },
+  "permission": {
+    "skill": {
+      "code-query": "allow"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+import common
+
+module scene_mgr {
+    get_scene_list req() rsp(scene_hub_info[] info) err(int32 errCode);
+    create_scene req(string scene_name) rsp(scene_hub_info info) err(int32 errCode);
+    player_level_scene req(string scene_guid) rsp() err(int32 errCode); 
+    player_into_scene req(string scene_guid, string scene_name, string userGuid, string userName, string userTableID) rsp(SceneInfo info) err(int32 errCode, scene_hub_info hub_info);
+}
+
+module scene {
+    move ntf(Pos start, Direction dir);
+    remove_building ntf(Building[] buildings, Cultivated[] cultivateds, bool rmfences);
+    building ntf(Building[] buildings, Fence fences);
+    arable_land ntf(Cultivated[] cultivateds);
+    scene_change ntf(SceneChange change);
+
+    into_subscene ntf(string subscene_name);
+
+    init_fence ntf(Fence fences, string pwd);
+    import_role req(Role role) rsp(Role[] roles) err(int32 errCode);
+    grow req(Vegetable vegetable, Cultivated cultivated) rsp(Vegetable[] vegetables) err(int32 errCode);
+    harvest req(Vegetable vegetable) rsp() err(int32 errCode);
+    cut_down req(Vegetable vegetable) rsp() err(int32 errCode);
+    steal req(Vegetable vegetable) rsp(Vegetable vegetable) err(int32 errCode);
+
+    sales_vegetable req(Vegetable vegetable, int32 coin) rsp(int32 coin) err(int32 errCode);
+
+    npc_into_scene ntf(string scene_guid, NPCInformation info);
+    npc_into_subscene ntf(string scene_guid, string npcUUID, string subscene_name);
+    npc_move ntf(string npcUUID, string scene_guid, string subscene_name, Pos start, Direction dir);
+}

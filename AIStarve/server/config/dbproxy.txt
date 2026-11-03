@@ -1,0 +1,28 @@
+{
+	"center":{
+		"name":"center_starve",
+        "gm_ip":"127.0.0.1",
+        "gm_port":1001,
+		"log_level":"trace",
+		"log_file":"center.txt",
+		"log_dir":"./log/"
+    },
+	
+    "dbproxy":{
+		"name":"dbproxy",
+		"db_url":"mongodb://127.0.0.1:27017",
+		"log_level":"trace",
+		"log_file":"dbproxy.txt",
+		"log_dir":"./log/",
+		"index":[{"db":"aiStarve", "collection":"game", "key":"SceneUUID", "is_unique":true},
+				 {"db":"aiStarve", "collection":"game", "key":"SceneName", "is_unique":false},
+				 {"db":"aiStarve", "collection":"game", "key":"UserGuid", "is_unique":false},
+				 {"db":"aiStarve", "collection":"game", "key":"FenceGuid", "is_unique":true},
+				 {"db":"aiStarve", "collection":"game", "key":"BuildingGuid", "is_unique":true}]
+    },
+
+	"redismq_listen": true,
+	"redismq_is_cluster": false,
+	"redis_for_mq": "127.0.0.1:6379",
+	"redis_for_cache": "127.0.0.1:6379"
+}

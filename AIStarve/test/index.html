@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <style>
+      /* Unity容器充满屏幕样式 */
+      #unity-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        z-index: 1;
+      }
+      
+      #unity-canvas {
+        width: 100% !important;
+        height: 100% !important;
+      }
+      
+      /* 浮动聊天按钮样式 */
+      .chat-button {
+        width: 30px;
+        height: 30px;
+        background: rgba(0, 0, 0, 0.5);
+        border: none;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .chat-button:hover {
+        transform: scale(1.1);
+      }
+
+      /* 弹出聊天窗口样式 */
+      .chat-popup {
+        position: fixed;
+        bottom: 90px;
+        left: 20px;
+        width: 350px;
+        height: 250px;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        display: none; /* 初始隐藏 */
+        flex-direction: column;
+        z-index: 9999;
+        animation: slideUp 0.3s ease;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .chat-popup-header {
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 10px 15px;
+        border-radius: 10px 10px 0 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .chat-popup-header h4 {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .close-chat-btn {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 0;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: background 0.2s ease;
+      }
+
+      .close-chat-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .chat-popup-messages {
+        flex: 1;
+        overflow-y: auto;
+        padding: 15px;
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      .message {
+        margin-bottom: 12px;
+        padding: 10px 12px;
+        border-radius: 18px;
+        max-width: 80%;
+        font-size: 14px;
+        line-height: 1.4;
+      }
+
+      .message.user {
+        background: transparent;
+        color: white;
+        margin-left: auto;
+        text-align: right;
+      }
+
+      .message.user2 {
+        background: transparent;
+        color: white;
+        margin-left: auto;
+        text-align: right;
+      }
+
+      .message.bot {
+        background: transparent;
+        color: greenyellow;
+        margin-right: auto;
+        border: none;
+      }
+
+      .chat-container {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        z-index: 9999;
+        background: rgba(0, 0, 0, 0.5);
+        border: 1px solid white;
+        border-radius: 6px;
+        padding: 4px;
+      }
+
+      .chat-popup-input-container {
+        display: flex;
+        padding: 10px;
+        background: transparent;
+        align-items: center;
+        border-radius: 0;
+      }
+
+      .chat-popup-input {
+        flex: 1;
+        padding: 6px 10px;
+        border: 1px solid white;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border-radius: 6px;
+        outline: none;
+        font-size: 12px;
+        transition: border-color 0.2s ease;
+        height: 24px;
+        z-index: 9999;
+        box-sizing: border-box;
+      }
+
+      .chat-popup-input:focus {
+        border-color: #667eea;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="unity-container" class="unity-desktop">
+      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+      </div>
+      <div id="unity-warning"> </div>
+      <div id="unity-footer">
+        
+      </div>
+    </div>
+
+    <!-- 聊天按钮和输入容器 -->
+    <div id="chatContainer" class="chat-container">
+      <!-- 浮动聊天按钮 -->
+      <div id="chatButton" class="chat-button">
+        <img id="chatButtonIcon" src="sprite/talk.png" alt="聊天" width="30" height="30">
+      </div>
+
+      <!-- 输入容器 -->
+      <div class="chat-popup-input-container">
+        <input type="text" class="chat-popup-input" id="chatInput" placeholder="输入消息..." />
+      </div>
+    </div>
+
+    <!-- 弹出聊天窗口 -->
+    <div id="chatPopup" class="chat-popup">
+      <div class="chat-popup-header">
+        <h4>聊天记录</h4>
+        <button id="closeChatBtn" class="close-chat-btn">&times;</button>
+      </div>
+      <div class="chat-popup-messages" id="chatMessages">
+        <div class="message bot">
+          <strong>组队:</strong> 欢迎来到组队聊天，请联系你的队友。
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.8.1/socket.io.js"></script>
+    <script>
+      var container = document.querySelector("#unity-container");
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+      var warningBanner = document.querySelector("#unity-warning");
+      var self_id = "xxxxxxxxxx";
+
+      const ADMIN_WEB_API="AS890Snujik29n389jkbjknjk@1";
+
+      const chatInput = document.getElementById('chatInput');
+      const chatButton = document.getElementById('chatButton');
+      const chatMessages = document.getElementById('chatMessages');
+      const chatContainer = document.getElementById('chatContainer');
+      chatInput.style.display = "none";
+      chatButton.style.display = "none";
+      chatContainer.style.display = "none";
+
+      // Shows a temporary message banner/ribbon for a few seconds, or
+      // a permanent error message on top of the canvas if type=='error'.
+      // If type=='warning', a yellow highlight color is used.
+      // Modify or remove this function to customize the visually presented
+      // way that non-critical warnings and error messages are presented to the
+      // user.
+      function unityShowBanner(msg, type) {
+        function updateBannerVisibility() {
+          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+        }
+        var div = document.createElement('div');
+        div.innerHTML = msg;
+        warningBanner.appendChild(div);
+        if (type == 'error') div.style = 'background: red; padding: 10px;';
+        else {
+          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+          setTimeout(function() {
+            warningBanner.removeChild(div);
+            updateBannerVisibility();
+          }, 5000);
+        }
+        updateBannerVisibility();
+      }
+
+      var buildUrl = "Build";
+      var loaderUrl = buildUrl + "/webgl.loader.js";
+      var config = {
+        dataUrl: buildUrl + "/webgl.data.unityweb",
+        frameworkUrl: buildUrl + "/webgl.framework.js.unityweb",
+        codeUrl: buildUrl + "/webgl.wasm.unityweb",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "Guide Tilemap",
+        productVersion: "1.0",
+        showBanner: unityShowBanner,
+      };
+
+      // By default, Unity keeps WebGL canvas render target size matched with
+      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
+      // Set this to false if you want to decouple this synchronization from
+      // happening inside the engine, and you would instead like to size up
+      // the canvas DOM size and WebGL render target sizes yourself.
+      // config.matchWebGLToCanvasSize = false;
+
+      // If you would like all file writes inside Unity Application.persistentDataPath
+      // directory to automatically persist so that the contents are remembered when
+      // the user revisits the site the next time, uncomment the following line:
+      // config.autoSyncPersistentDataPath = true;
+      // This autosyncing is currently not the default behavior to avoid regressing
+      // existing user projects that might rely on the earlier manual
+      // JS_FileSystem_Sync() behavior, but in future Unity version, this will be
+      // expected to change.
+
+      // 设置视口meta标签以适应所有设备
+      var meta = document.createElement('meta');
+      meta.name = 'viewport';
+      meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+      document.getElementsByTagName('head')[0].appendChild(meta);
+      
+      // 移除原有的移动端和桌面端样式设置，因为已经在CSS中设置了全屏样式
+      container.className = "unity-mobile";
+      canvas.className = "unity-mobile";
+
+      loadingBar.style.display = "block";
+
+      var script = document.createElement("script");
+      var unityIns = null;
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = 100 * progress + "%";
+              }).then((unityInstance) => {
+                unityIns = unityInstance;
+                loadingBar.style.display = "none";
+                if (fullscreenButton) {
+                  fullscreenButton.onclick = () => {
+                    unityInstance.SetFullscreen(1);
+                  };
+                }
+              }).catch((message) => {
+                alert(message);
+              });
+            };
+
+      document.body.appendChild(script);
+
+      var urlParams = new URLSearchParams(window.location.search);
+      var ticket = urlParams.get('ticket');
+      function handleUnitySceneLoaded() {
+        unityIns.SendMessage("Cube", "LoginJwtoken", ticket);
+        chatContainer.style.display = "flex";
+        chatInput.style.display = "flex";
+        chatButton.style.display = "flex";
+      }
+
+      function handleNtfPlayerGuid(_self_id) {
+        self_id = _self_id;
+        console.log("Received self_id from Unity:", _self_id);
+      }
+      
+      /**
+       * ReceiveJSMethod 函数用于接收来自网页的指令和消息，并将它们传递给 Unity 中的对象。
+       * @param {string} methodName - 要调用的 Unity 对象的方法名
+       * @param {string} message - 要传递给 Unity 对象的消息（可选）
+       */
+       function ReceiveJSMethod(methodName, id, name) {
+       // 在控制台输出接收到的methodName和message，用于调试
+       console.log(methodName, id, name);
+       unityIns.SendMessage("Cube", methodName, `${id}|${name}`);
+     }
+
+     // UUID到senderID的映射表
+     const uuidToSenderIdMap = new Map();
+     
+     // 聊天气泡管理
+     const chatBubbles = new Map();
+     
+     // 创建聊天气泡样式 - 白色气泡版本
+     const chatBubbleStyle = `
+       .chat-bubble {
+         position: fixed;
+         background: rgba(255, 255, 255, 0.95);
+         color: #333;
+         padding: 12px 16px;
+         border-radius: 20px;
+         font-size: 14px;
+         font-weight: 500;
+         max-width: 220px;
+         word-wrap: break-word;
+         z-index: 10000;
+         pointer-events: none;
+         animation: bubbleAppear 0.3s ease-out forwards, bubbleFloat 3s ease-in-out 0.3s forwards;
+         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2),
+                     0 2px 8px rgba(255, 255, 255, 0.3) inset;
+         border: 1px solid rgba(255, 255, 255, 0.8);
+         transform: translate(-50%, -100%) scale(0.8);
+         backdrop-filter: blur(10px);
+         line-height: 1.4;
+       }
+       
+       /* 气泡小尾巴 - 白色 */
+       .chat-bubble::after {
+         content: '';
+         position: absolute;
+         bottom: -8px;
+         left: 50%;
+         transform: translateX(-50%);
+         width: 0;
+         height: 0;
+         border-left: 8px solid transparent;
+         border-right: 8px solid transparent;
+         border-top: 8px solid rgba(255, 255, 255, 0.95);
+         filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+       }
+       
+       /* 气泡出现动画 */
+       @keyframes bubbleAppear {
+         0% {
+           opacity: 0;
+           transform: translate(-50%, -90%) scale(0.6);
+         }
+         70% {
+           opacity: 1;
+           transform: translate(-50%, -105%) scale(1.05);
+         }
+         100% {
+           opacity: 1;
+           transform: translate(-50%, -100%) scale(1);
+         }
+       }
+       
+       /* 气泡浮动和消失动画 */
+       @keyframes bubbleFloat {
+         0% {
+           opacity: 1;
+           transform: translate(-50%, -100%) scale(1);
+         }
+         70% {
+           opacity: 1;
+           transform: translate(-50%, -100%) scale(1);
+         }
+         85% {
+           opacity: 0.8;
+           transform: translate(-50%, -102%) scale(0.98);
+         }
+         100% {
+           opacity: 0;
+           transform: translate(-50%, -105%) scale(0.95);
+         }
+       }
+     `;
+     
+     // 添加聊天气泡样式到页面
+     const styleSheet = document.createElement('style');
+     styleSheet.textContent = chatBubbleStyle;
+     document.head.appendChild(styleSheet);
+     
+     // 显示聊天气泡
+     function showChatBubble(screenPosition, message, senderId, screenSize = null) {
+       console.log(`显示聊天气泡: 原始位置=(${screenPosition.x}, ${screenPosition.y}), 消息="${message}", 发送者=${senderId}`, `屏幕尺寸:`, screenSize);
+       
+      // 获取Unity WebGL容器的位置和尺寸
+      const unityContainer = document.getElementById('unity-container');
+      const canvas = document.getElementById('unity-canvas');
+      
+      if (!unityContainer || !canvas) {
+        console.error('Unity容器或画布未找到');
+        return;
+      }
+      
+      // 获取Unity容器的位置和尺寸
+      const containerRect = unityContainer.getBoundingClientRect();
+      const canvasRect = canvas.getBoundingClientRect();
+      
+      console.log(`Unity容器位置: (${containerRect.left}, ${containerRect.top}), 尺寸: ${containerRect.width}x${containerRect.height}`);
+      console.log(`Canvas位置: (${canvasRect.left}, ${canvasRect.top}), 尺寸: ${canvasRect.width}x${canvasRect.height}`);
+      
+      // 坐标转换：Unity屏幕坐标 → WebGL页面坐标
+      // Unity坐标原点在左下角，WebGL页面坐标原点在左上角
+      // Unity的WorldToScreenPoint返回的是绝对像素坐标，不是比例坐标
+      const unityScreenWidth = screenSize ? screenSize.width : canvasRect.width;
+      const unityScreenHeight = screenSize ? screenSize.height : canvasRect.height;
+      
+      console.log(`Unity实际屏幕尺寸: ${unityScreenWidth}x${unityScreenHeight}`);
+      
+      // 计算相对于Unity容器的位置
+      // Unity发送的坐标是基于Unity屏幕尺寸的，需要按比例缩放到WebGL容器尺寸
+      const scaleX = canvasRect.width / unityScreenWidth;
+      const scaleY = canvasRect.height / unityScreenHeight;
+      
+      console.log(`坐标缩放比例: X=${scaleX.toFixed(4)}, Y=${scaleY.toFixed(4)}`);
+      
+      // 缩放坐标到WebGL容器尺寸
+      const relativeX = screenPosition.x * scaleX;
+      const relativeY = (unityScreenHeight - screenPosition.y) * scaleY; // 翻转Y坐标（Unity左下角 → WebGL左上角）
+      
+      // 转换为页面绝对坐标，并向上偏移20个单位
+      const absoluteX = containerRect.left + relativeX;
+      const absoluteY = containerRect.top + relativeY - 100; // 向上偏移100px
+      
+      console.log(`转换后位置: (${absoluteX}, ${absoluteY}), 相对位置: (${relativeX}, ${relativeY}), 向上偏移20px`);
+      console.log(`缩放后坐标: X=${screenPosition.x} * ${scaleX} = ${relativeX}, Y=${unityScreenHeight - screenPosition.y} * ${scaleY} = ${relativeY}`);
+      
+      // 检查坐标是否在Unity容器范围内
+      if (relativeX < 0 || relativeX > unityScreenWidth || relativeY < 0 || relativeY > unityScreenHeight) {
+        console.warn(`坐标超出Unity容器范围: (${relativeX}, ${relativeY}) 超出 ${unityScreenWidth}x${unityScreenHeight}`);
+      }
+       
+       // 清理旧的聊天气泡
+       if (chatBubbles.has(senderId)) {
+         const oldBubble = chatBubbles.get(senderId);
+         if (oldBubble && oldBubble.parentNode) {
+           oldBubble.parentNode.removeChild(oldBubble);
+         }
+       }
+       
+       // 创建新的聊天气泡
+       const bubble = document.createElement('div');
+       bubble.className = 'chat-bubble';
+       bubble.textContent = message;
+       
+       // 设置位置
+       bubble.style.left = `${absoluteX}px`;
+       bubble.style.top = `${absoluteY}px`;
+       
+       // 添加到页面
+       document.body.appendChild(bubble);
+       
+       // 保存引用
+       chatBubbles.set(senderId, bubble);
+       
+       // 3秒后自动移除
+       setTimeout(() => {
+         if (bubble.parentNode) {
+           bubble.parentNode.removeChild(bubble);
+         }
+         chatBubbles.delete(senderId);
+       }, 3000);
+     }
+     
+     
+     
+     // 接收从Unity返回的场景信息
+     function ReceiveSceneInfo(characterInfo) {
+       console.log(`ReceiveSceneInfo called with JSON: ${characterInfo}`);
+       
+       try {
+         // 解析JSON字符串
+         const sceneInfo = JSON.parse(characterInfo);
+         console.log('解析后的场景信息:', sceneInfo);
+         
+         // 根据返回的信息类型进行处理
+         if (sceneInfo.error) {
+          console.log(`获取角色信息失败: ${sceneInfo.error}`, 'bot');
+         } else if (sceneInfo.characterFound === false) {
+           // 未找到指定角色，显示可用角色列表
+           const availableChars = sceneInfo.availableCharacters || [];
+           console.log(`未找到角色 ${sceneInfo.requestedUuid}，当前可用角色: ${availableChars.join(', ')}`, 'bot');
+         } else {
+           // 处理新的JSON格式：直接包含消息和屏幕位置
+           const uuid = sceneInfo.uuid;
+           const senderID = sceneInfo.senderID;
+           const screenPosition = sceneInfo.screenPosition;
+           const message = sceneInfo.message;
+           const screenSize = sceneInfo.screenSize;
+           
+           console.log(`UUID: ${uuid}, SenderID: ${senderID}, 屏幕位置:`, screenPosition, `消息: ${message}`, `屏幕尺寸:`, screenSize);
+           
+           // 如果包含消息和屏幕位置，直接显示聊天气泡
+           if (uuid && screenPosition && message) {
+             console.log(`直接显示聊天气泡: ${uuid} -> ${senderID}, 消息: ${message}`);
+             
+             // 建立UUID到senderID的映射
+             uuidToSenderIdMap.set(senderID, uuid);
+             uuidToSenderIdMap.set(`${senderID}_message`, message);
+             
+             // 显示聊天气泡，传递屏幕尺寸信息
+             showChatBubble(screenPosition, message, senderID, screenSize);
+             
+             console.log(`聊天气泡已显示: ${uuid} -> ${senderID}`);
+           }
+           
+           // 同时支持旧的格式：检查是否有临时存储的消息需要处理
+           const characterId = sceneInfo.characterId;
+           const requestedUuid = sceneInfo.requestedUuid;
+           
+           // 调试：打印所有临时存储的键
+           console.log('当前临时存储的键:', Array.from(uuidToSenderIdMap.keys()).filter(key => key.startsWith('pending_')));
+           
+           // 检查是否有临时存储的消息需要处理（基于senderID）
+           if (uuid && uuidToSenderIdMap.has(`pending_${uuid}`) && screenPosition) {
+             const pendingMessage = uuidToSenderIdMap.get(`pending_${uuid}`);
+             
+             console.log(`找到待显示消息: ${uuid}, 消息: ${pendingMessage}`);
+             
+             // 显示聊天气泡，传递屏幕尺寸信息
+             showChatBubble(screenPosition, pendingMessage, uuid, screenSize);
+             
+             // 清理临时存储
+             uuidToSenderIdMap.delete(`pending_${uuid}`);
+             
+             console.log(`聊天气泡已显示: ${uuid}`);
+           }
+           
+           // 同时检查基于requestedUuid的临时存储（向后兼容）
+           if (requestedUuid && uuidToSenderIdMap.has(`pending_${requestedUuid}`) && screenPosition) {
+             const pendingMessage = uuidToSenderIdMap.get(`pending_${requestedUuid}`);
+             
+             console.log(`找到待显示消息: ${requestedUuid} -> ${characterId}, 消息: ${pendingMessage}`);
+             
+             // 显示聊天气泡
+             showChatBubble(screenPosition, pendingMessage, requestedUuid);
+             
+             // 清理临时存储
+             uuidToSenderIdMap.delete(`pending_${requestedUuid}`);
+             
+             console.log(`聊天气泡已显示: ${requestedUuid} -> ${characterId}`);
+           }
+           
+           // 显示详细信息到聊天窗口
+           const position = sceneInfo.position || {};
+           const screenPos = sceneInfo.screenPosition || {};
+           console.log(`角色信息: ID=${characterId}, 世界位置=(${position.x}, ${position.y}, ${position.z}), 屏幕位置=(${screenPos.x}, ${screenPos.y})`, 'bot');
+         }
+       } catch (error) {
+         console.error('解析场景信息JSON失败:', error);
+         console.log(`获取角色信息失败: ${error.message}`, 'bot');
+       }
+     }
+
+      // 聊天功能相关代码
+      var userId;
+      var chatroomId = 'e1896503-1f17-4147-a129-ef9541c9df71';
+      
+      // 生成UUID的简单函数
+      function generateUUID() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+          var r = Math.random() * 16 | 0;
+          var v = c == 'x' ? r : (r & 0x3 | 0x8);
+          return v.toString(16);
+        });
+      }
+      
+      // 发送消息函数
+      function sendMessage(chatroomId, messageText) {
+        if (!window.gameSocket) {
+          console.log('WebSocket未连接，无法发送消息');
+          return;
+        }
+        
+        window.gameSocket.emit('message:send', {
+          chatroomId: chatroomId,
+          message: {
+            message_id: generateUUID(), // 客户端生成的消息ID
+            content: {
+              type: 'text',
+              text: messageText
+              // reference 字段可选，用于回复消息时添加
+            }
+          }
+        }, (response) => {
+          if (response && response.success) {
+            console.log('消息发送成功:', response);
+          } else {
+            console.log('消息发送失败:', response);
+          }
+        });
+      }
+      
+      function authenticateUser(socket, token) {
+        try {
+          if (verifyJWT(token)) {
+            const userId = getUserId(token);
+            socket.userId = userId; // 绑定用户ID到socket对象
+            console.log('用户身份验证成功，用户ID:', userId);
+            
+            // 可以发送认证成功消息到服务器
+            socket.emit('user_authenticated', { userId: userId });
+          } else {
+            console.error('JWT验证失败');
+            socket.disconnect();
+          }
+        } catch (error) {
+          console.error('认证过程出错:', error);
+          socket.disconnect();
+        }
+      }
+
+      // 添加消息到聊天窗口的函数
+      function addMessage(text, type) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${type}`;
+        messageDiv.innerHTML = text;
+        chatMessages.appendChild(messageDiv);
+        // 滚动到底部
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+      /**
+       * Action函数用于连接WebSocket服务器。
+       * @param {string} methodName - 方法名（可选）
+       * @param {string} message - 消息（可选）
+       */
+      function Action(methodName, message) {
+        const socket = io('http://15.235.169.39:3000', {
+          path: '/ws/matching',
+          auth: {
+            token: ticket
+          },
+          transports: ['polling'],
+          extraHeaders: {
+            'Authorization': `Bearer ${ticket}`
+          }
+        });
+        
+        // 将socket存储到全局变量供sendMessage函数使用
+        window.gameSocket = socket;
+        
+        socket.on('connect', () => {
+          console.log('Connected to WebSocket server');
+        });
+        
+        socket.on('connected', (data) => {
+            userId = data.userId;
+            console.log('Connected with userId:', data.userId);
+        });
+        
+        socket.on('error', (error) => {
+          console.log('WebSocket error:', error);
+        });
+        
+        // 加入服务器房间
+        socket.emit('message:join-room', {
+          chatroomId: chatroomId // 默认房间ID，可以根据需要修改
+        }, (response) => {
+          if (response && response.success) {
+            console.log('成功加入房间:', response);
+          }
+        });
+        
+        socket.on('message:joined', () => {
+          console.log('Successfully joined the room');
+        });
+        
+        socket.on('message:user-left', (data) => {
+          console.log(`用户 ${data.userId} 离开了房间 ${data.chatroomId}`);
+        });
+        
+        socket.on('message:new', (message) => {
+          console.log('New message:', message);
+          
+          // 从消息对象中提取文本内容
+          const messageText = message.message?.content?.text || message.content?.text || '未知消息';
+          const senderName = message.message?.sent_by || message.sent_by || '其他用户';
+          const senderID = message.message?.sent_by || message.sent_by || '其他用户';
+          
+          const adminKey = "250827AAN4F49BWD23B34H3";
+
+          // 显示消息，格式：发送者: 消息内容
+          if (self_id != senderID) {
+            fetch(`https://preview3.xiaoshuoai.com/api/dzmm/get-combined-user-info-by-uuid?uuid=${senderID}&adminKey=${adminKey}`, {
+                method: 'GET'
+            }).then(response => {
+              if (!response.ok) {
+                throw new Error('网络响应错误');
+              }
+              return response.json(); // 解析 JSON 数据
+            }).then(data => {
+              console.log(data);
+              var name = data["supabaseUser"]["full_name"]
+              if (!name) {
+                name = "testUser";
+              }
+              
+              
+              // 建立UUID到senderID的映射并存储消息
+              console.log(`建立映射: senderID=${senderID}, 消息="${messageText}"`);
+              // 临时存储消息，等待ReceiveSceneInfo回调
+              // 使用一个临时存储来保存senderID对应的消息
+              // 注意：这里使用senderID作为键，因为Unity会返回相同的UUID
+              uuidToSenderIdMap.set(`pending_${senderID}`, messageText);
+              console.log(`临时存储消息: pending_${senderID} = "${messageText}"`);
+              // 首先请求角色信息来获取UUID
+              console.log(`Calling GetSceneInfoFromJS with senderID: ${senderID}`);
+              unityIns.SendMessage("Cube", "GetSceneInfoFromJS", senderID);
+              addMessage(`${name}: ${messageText}`, 'user2');
+              unityIns.SendMessage("Cube", "ChatMsg", `${senderID}|${messageText}`);
+              
+              
+              
+            }).catch(error => console.error('请求失败:', error));
+          }
+        });
+      }
+
+      // 确保DOM加载完成后绑定事件
+      document.addEventListener("DOMContentLoaded", function() {
+        console.log("DOM加载完成，事件已绑定");
+        
+        // 聊天弹窗控制
+        const chatPopup = document.getElementById('chatPopup');
+        const closeChatBtn = document.getElementById('closeChatBtn');
+        
+        // 打开聊天窗口并切换图片
+        chatButton.addEventListener('click', function() {
+          // 获取chat-container的宽度并设置给chatPopup
+          const chatContainer = document.querySelector('.chat-container');
+          const chatContainerWidth = chatContainer.offsetWidth;
+          chatPopup.style.width = chatContainerWidth + 'px';
+          chatPopup.style.display = 'flex';
+          // 切换为发送图标
+          document.getElementById('chatButtonIcon').src = 'sprite/talk_send.png';
+        });
+
+        chatInput.addEventListener('click', function() {
+          // 获取chat-container的宽度并设置给chatPopup
+          const chatContainer = document.querySelector('.chat-container');
+          const chatContainerWidth = chatContainer.offsetWidth;
+          chatPopup.style.width = chatContainerWidth + 'px';
+          chatPopup.style.display = 'flex';
+          // 切换为发送图标
+          document.getElementById('chatButtonIcon').src = 'sprite/talk_send.png';
+        });
+        
+        // 关闭聊天窗口并恢复图片
+        closeChatBtn.addEventListener('click', function() {
+          chatPopup.style.display = 'none';
+          // 恢复为默认聊天图标
+          document.getElementById('chatButtonIcon').src = 'sprite/talk.png';
+        });
+        
+        // 点击窗口外部关闭聊天并恢复图片
+        document.addEventListener('click', function(event) {
+          // 检查点击目标是否是输入框或其它聊天弹窗内部元素
+          const isInput = event.target.classList.contains('chat-popup-input');
+          const isInsidePopup = chatPopup.contains(event.target);
+          const isChatButton = chatButton.contains(event.target);
+          
+          if (!isInsidePopup && !isChatButton && !isInput) {
+            chatPopup.style.display = 'none';
+            // 恢复为默认聊天图标
+            document.getElementById('chatButtonIcon').src = 'sprite/talk.png';
+          }
+        });
+        
+        // 发送消息功能
+        chatInput.addEventListener('keydown', function(e) {
+          e.stopPropagation(); // 阻止事件继续传播
+          console.log('keydown Key:', e.key, 'DefaultPrevented:', e.defaultPrevented);
+        }, true); // 捕获阶段
+
+        // 按回车键发送消息
+        chatInput.addEventListener('keypress', function(e) {
+          e.stopImmediatePropagation();
+          chatInput.focus();
+          canvas.style.pointerEvents = 'none';
+          if (e.key === 'Enter') {
+            const message = chatInput.value.trim();
+            if (message) {
+              // 临时存储用户自己的消息
+              uuidToSenderIdMap.set(`pending_${self_id}`, message);
+                console.log(`临时存储用户消息: pending_${self_id} = "${message}"`);
+              // 添加用户消息到聊天窗口
+              addMessage(`我: ${message}`, 'user');
+              // 发送消息到服务器
+              sendMessage(chatroomId, message);
+              
+              // 显示用户自己的聊天气泡
+              console.log(`${self_id}用户发送消息: ${message}, 请求角色信息`);
+              
+              if (unityIns && self_id && self_id !== "xxxxxxxxxx") {
+                // 请求用户自己的角色信息来获取屏幕位置
+                unityIns.SendMessage("Cube", "GetSceneInfoFromJS", self_id);
+                
+                
+              }
+              
+              // 清空输入框
+              chatInput.value = '';
+            }
+          } else {
+            chatInput.value += e.key;
+          }
+          console.log('keypress Key:', e.key, 'DefaultPrevented:', e.defaultPrevented);
+          console.trace();
+          return true;
+        });
+
+        chatInput.addEventListener('input', function(e) {
+          e.stopPropagation(); // 阻止事件继续传播
+          console.log('input Key:', e.key, 'DefaultPrevented:', e.defaultPrevented);
+        }, true); // 捕获阶段
+
+      });
+
+      // 如果URL中有ticket参数，自动触发Action函数
+      if (ticket) {
+        console.log("检测到ticket参数,自动连接WebSocket");
+        Action("ConnectWebSocket", ticket);
+      }
+
+      // 验证JWT的辅助函数（示例实现，实际需要根据JWT库调整）
+      function verifyJWT(token) {
+        // 这里应该是实际的JWT验证逻辑
+        // 示例：简单检查token是否存在且长度合理
+        return token && token.length > 10;
+      }
+      
+      // 从JWT中提取用户ID的辅助函数（示例实现）
+      function getUserId(token) {
+        // 这里应该是实际的JWT解析逻辑
+        // 示例：返回一个固定值或从token中解析
+        return 'user-' + Math.random().toString(36).substr(2, 9);
+      }
+
+      // 添加全局错误处理
+      window.addEventListener('error', function(e) {
+        console.error('全局错误:', e.error);
+      });
+
+      // 添加未处理的Promise rejection处理
+      window.addEventListener('unhandledrejection', function(e) {
+        console.error('未处理的Promise rejection:', e.reason);
+      });
+
+      // 示例：添加一个定时器，定期检查WebSocket连接状态
+      setInterval(function() {
+        if (window.gameSocket && window.gameSocket.connected) {
+          console.log('WebSocket连接正常');
+        } else {
+          console.log('WebSocket未连接或已断开');
+        }
+      }, 30000); // 每30秒检查一次
+
+      // 示例：添加页面可见性变化监听，当页面隐藏时可能减少网络活动
+      document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+          console.log('页面被隐藏，可以暂停一些活动');
+        } else {
+          console.log('页面可见，恢复活动');
+        }
+      });
+
+
+      // 初始化完成日志
+      console.log('页面初始化完成');
+    </script>
+  </body>
+</html>

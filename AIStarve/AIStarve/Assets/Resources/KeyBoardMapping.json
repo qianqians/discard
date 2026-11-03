@@ -1,0 +1,76 @@
+{
+    "keyboardMappings": [
+        {
+            "key": "1",
+            "prefabId": 1,
+            "itemGuid": "",
+            "amount": 0
+        },
+        {
+            "key": "2",
+            "prefabId": 1,
+            "itemGuid": "",
+            "amount": 0
+        },
+        {
+            "key": "3",
+            "prefabId": 1,
+            "itemGuid": "",
+            "amount": 0
+        },
+        {
+            "key": "4",
+            "prefabId": 1,
+            "itemGuid": "",
+            "amount": 0
+        },
+        {
+            "key": "5",
+            "prefabId": 1,
+            "itemGuid": "",
+            "amount": 0
+        },
+        {
+            "key": "6",
+            "prefabId": 1,
+            "itemGuid": "",
+            "amount": 0
+        },
+        {
+            "key": "7",
+            "prefabId": 25,
+            "itemGuid": "72d762af-9a4f-4931-bcab-c4cd93b63a2e",
+            "amount": 48
+        },
+        {
+            "key": "8",
+            "prefabId": 1,
+            "itemGuid": "",
+            "amount": 0
+        },
+        {
+            "key": "9",
+            "prefabId": 0,
+            "itemGuid": "",
+            "amount": 0
+        },
+        {
+            "key": "10",
+            "prefabId": 0,
+            "itemGuid": "",
+            "amount": 0
+        },
+        {
+            "key": "11",
+            "prefabId": 0,
+            "itemGuid": "",
+            "amount": 0
+        },
+        {
+            "key": "12",
+            "prefabId": 0,
+            "itemGuid": "",
+            "amount": 0
+        }
+    ]
+}

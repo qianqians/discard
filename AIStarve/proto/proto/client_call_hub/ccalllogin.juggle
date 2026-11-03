@@ -1,0 +1,7 @@
+import common
+
+module login{
+    player_login_no_token req(string account) rsp(string userGuid, scene_hub_info[] info) err(int32 err);
+
+    combined_user_info req(string ticket) rsp(string id, string name) err(int32 err);
+}

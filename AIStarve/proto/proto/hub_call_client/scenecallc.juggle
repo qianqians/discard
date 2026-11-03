@@ -1,0 +1,13 @@
+import common
+
+module scene_client{
+    import_dzmm_role_card ntf(string[] role_card);
+    remove_scene_info multicast(Building[] buildings, Cultivated[] cultivateds, Vegetable[] vegetables, Fence fences);
+    building_scene_info multicast(Building[] buildings, Fence fences);
+    arable_scene_info multicast(Cultivated[] cultivateds, Vegetable[] vegetables);
+    scene_change multicast(SceneChange change);
+    scene_info multicast(SceneInfo info);
+    move multicast(UserMoveInfo[] info);
+    player_leave_scene multicast(string userGuid);
+    time_info multicast(TimeInfo info);
+}

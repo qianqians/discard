@@ -1,0 +1,1057 @@
+{
+  "prefabs": [
+    {
+      "id": 1,
+      "path": "Perfabs/LeftBottomPanel",
+      "type": 1
+    },
+    {
+      "id": 2,
+      "path": "Perfabs/SceneObjectSelect",
+      "type": 1
+    },
+    {
+      "id": 3,
+      "path": "Perfabs/Characters/OtherCharacter",
+      "type": 1
+    },
+    {
+      "id": 4,
+      "path": "Perfabs/Characters/SelfCharacter",
+      "type": 1
+    },
+    {
+      "id": 8,
+      "path": "Tiles/Tilemap Obstacles_18",
+      "iconPath": "Tiles/Tilemap Obstacles_18",
+      "type": 2,
+      "tilemap": "Decoration Tilemap"
+    },
+    {
+      "id": 9,
+      "path": "Tiles/Tileset Obstacles_3",
+      "iconPath": "Tiles/Tileset Obstacles_3",
+      "type": 2,
+      "tilemap": "Decoration Tilemap"
+    },
+    {
+      "id": 10,
+      "path": "Tiles/Tileset Obstacles_4",
+      "iconPath": "Tiles/Tileset Obstacles_4",
+      "type": 2,
+      "tilemap": "Decoration Tilemap"
+    },
+    {
+      "id": 11,
+      "path": "Tiles/Tileset Obstacles_5",
+      "iconPath": "Tiles/Tileset Obstacles_5",
+      "type": 2,
+      "tilemap": "Decoration Tilemap"
+    },
+    {
+      "id": 12,
+      "path": "Tiles/Tilemap Obstacles_35",
+      "iconPath": "Tiles/Tilemap Obstacles_35",
+      "type": 2,
+      "tilemap": "Decoration Tilemap"
+    },
+    {
+      "id": 13,
+      "path": "Tiles/Tilemap Obstacles_27",
+      "iconPath": "Tiles/Tilemap Obstacles_27",
+      "type": 2,
+      "tilemap": "Decoration Tilemap"
+    },
+    {
+      "id": 14,
+      "path": "Tile Rules/Farmland_1",
+      "type": 2,
+      "tilemap": "FarmingTilemap"
+    },
+    {
+      "id": 15,
+      "path": "",
+      "iconPath": "Perfabs/UI/icon/Setting",
+      "type": 2,
+      "tilemap": "FarmingTilemap",
+      "description": "设置"
+    },
+    {
+      "id": 16,
+      "path": "",
+      "iconPath": "Perfabs/UI/icon/Backpack",
+      "type": 2,
+      "tilemap": "FarmingTilemap",
+      "description": "背包"
+    },
+    {
+      "id": 17,
+      "path": "",
+      "iconPath": "Perfabs/UI/icon/Character",
+      "type": 2,
+      "tilemap": "FarmingTilemap",
+      "description": "角色"
+    },
+    {
+      "id": 18,
+      "path": "Perfabs/Scene/Tool/Hoe",
+      "pathArray": [
+        "Perfabs/Scene/Tool/Hoe",
+        "Perfabs/Scene/Tool/Down"
+      ],
+      "iconPath": "Sprites/UI/icon1",
+      "type": 1,
+      "tilemap": "FarmingTilemap",
+      "description": "斧头用来伐木"
+    },
+    {
+      "id": 19,
+      "path": "Perfabs/Scene/Tool/Hoe",
+      "pathArray": [
+        "Perfabs/Scene/Tool/Hoe",
+        "Perfabs/Scene/Tool/Down"
+      ],
+      "iconPath": "Perfabs/UI/icon/Hoe",
+      "type": 1,
+      "tilemap": "FarmingTilemap",
+      "description": "锄头用来开地"
+    },
+    {
+      "id": 22,
+      "path": "Perfabs/Scene/vegetable/Corn/cron1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/Corn/Corn1",
+        "Perfabs/Scene/vegetable/Corn/Corn2",
+        "Perfabs/Scene/vegetable/Corn/Corn3",
+        "Perfabs/Scene/vegetable/Corn/Corn4",
+        "Perfabs/Scene/vegetable/Corn/Corn5",
+        "Perfabs/Scene/vegetable/Corn/Corn6"
+      ],
+      "iconPath": "Sprites/UI/icon1",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 20160,
+      "description": "玉米成长",
+      "seedPrice": 150,
+      "sellPrice": 50
+    },
+    {
+      "id": 23,
+      "path": "Sprites/UI/icon1",
+      "iconPath": "Sprites/UI/icon1",
+      "type": 1,
+      "tilemap": "FarmingTilemap",
+      "description": "水壶浇水"
+    },
+    {
+      "id": 24,
+      "path": "Perfabs/Scene/vegetable/amaranth/amaranth1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/amaranth/amaranth1",
+        "Perfabs/Scene/vegetable/amaranth/amaranth2",
+        "Perfabs/Scene/vegetable/amaranth/amaranth3",
+        "Perfabs/Scene/vegetable/amaranth/amaranth4",
+        "Perfabs/Scene/vegetable/amaranth/amaranth5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Amaranth",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Amaranth",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 10080,
+      "description": "苋菜成长",
+      "seedPrice": 70,
+      "sellPrice": 150
+    },
+    {
+      "id": 25,
+      "path": "Perfabs/Scene/vegetable/ancient fruit/ancient fruit1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/ancient fruit/ancient fruit1",
+        "Perfabs/Scene/vegetable/ancient fruit/ancient fruit2",
+        "Perfabs/Scene/vegetable/ancient fruit/ancient fruit3",
+        "Perfabs/Scene/vegetable/ancient fruit/ancient fruit4",
+        "Perfabs/Scene/vegetable/ancient fruit/ancient fruit5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Ancient Fruit",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 40320,
+      "description": "远古水果成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Ancient Fruit",
+      "seedPrice": 550,
+      "sellPrice": 550
+    },
+    {
+      "id": 26,
+      "path": "Perfabs/Scene/vegetable/apple trees/apple trees1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/apple trees/apple trees1",
+        "Perfabs/Scene/vegetable/apple trees/apple trees2",
+        "Perfabs/Scene/vegetable/apple trees/apple trees3",
+        "Perfabs/Scene/vegetable/apple trees/apple trees4",
+        "Perfabs/Scene/vegetable/apple trees/apple trees5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Apple Tree",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 40320,
+      "description": "苹果树成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Apple Tree",
+      "seedPrice": 4000,
+      "sellPrice": 100
+    },
+    {
+      "id": 27,
+      "path": "Perfabs/Scene/vegetable/apricot tree/apricot tree1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/apricot tree/apricot tree1",
+        "Perfabs/Scene/vegetable/apricot tree/apricot tree2",
+        "Perfabs/Scene/vegetable/apricot tree/apricot tree3",
+        "Perfabs/Scene/vegetable/apricot tree/apricot tree4",
+        "Perfabs/Scene/vegetable/apricot tree/apricot tree5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Apricot Tree",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 40320,
+      "description": "杏树成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Apricot Tree",
+      "seedPrice": 2000,
+      "sellPrice": 50
+    },
+    {
+      "id": 28,
+      "path": "Perfabs/Scene/vegetable/artichoke/artichoke1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/artichoke/artichoke1",
+        "Perfabs/Scene/vegetable/artichoke/artichoke2",
+        "Perfabs/Scene/vegetable/artichoke/artichoke3",
+        "Perfabs/Scene/vegetable/artichoke/artichoke4",
+        "Perfabs/Scene/vegetable/artichoke/artichoke5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Artichoke",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 11520,
+      "description": "洋蓟成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Artichoke",
+      "seedPrice": 30,
+      "sellPrice": 160
+    },
+    {
+      "id": 29,
+      "path": "Perfabs/Scene/vegetable/Banana Tree/Banana Tree1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/Banana Tree/Banana Tree1",
+        "Perfabs/Scene/vegetable/Banana Tree/Banana Tree2",
+        "Perfabs/Scene/vegetable/Banana Tree/Banana Tree3",
+        "Perfabs/Scene/vegetable/Banana Tree/Banana Tree4",
+        "Perfabs/Scene/vegetable/Banana Tree/Banana Tree5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Banana Tree",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 40320,
+      "description": "香蕉树成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Banana Tree",
+      "seedPrice": 0,
+      "sellPrice": 150
+    },
+    {
+      "id": 30,
+      "path": "Perfabs/Scene/vegetable/banana trees/banana trees1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/banana trees/banana trees1",
+        "Perfabs/Scene/vegetable/banana trees/banana trees2",
+        "Perfabs/Scene/vegetable/banana trees/banana trees3",
+        "Perfabs/Scene/vegetable/banana trees/banana trees4",
+        "Perfabs/Scene/vegetable/banana trees/banana trees5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Banana Tree",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 40320,
+      "description": "香蕉树成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Banana Tree",
+      "seedPrice": 0,
+      "sellPrice": 150
+    },
+    {
+      "id": 31,
+      "path": "Perfabs/Scene/vegetable/beet/beet1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/beet/beet1",
+        "Perfabs/Scene/vegetable/beet/beet2",
+        "Perfabs/Scene/vegetable/beet/beet3",
+        "Perfabs/Scene/vegetable/beet/beet4",
+        "Perfabs/Scene/vegetable/beet/beet5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Beet",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 8640,
+      "description": "甜菜成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Beet",
+      "seedPrice": 20,
+      "sellPrice": 100
+    },
+    {
+      "id": 32,
+      "path": "Perfabs/Scene/vegetable/Blueberry/Blueberry1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/Blueberry/Blueberry1",
+        "Perfabs/Scene/vegetable/Blueberry/Blueberry2",
+        "Perfabs/Scene/vegetable/Blueberry/Blueberry3",
+        "Perfabs/Scene/vegetable/Blueberry/Blueberry4",
+        "Perfabs/Scene/vegetable/Blueberry/Blueberry5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Blueberry",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 18720,
+      "description": "蓝莓成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Blueberry",
+      "seedPrice": 80,
+      "sellPrice": 50
+    },
+    {
+      "id": 33,
+      "path": "Perfabs/Scene/vegetable/Blues Jazz/Blues Jazz1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/Blues Jazz/Blues Jazz1",
+        "Perfabs/Scene/vegetable/Blues Jazz/Blues Jazz2",
+        "Perfabs/Scene/vegetable/Blues Jazz/Blues Jazz3",
+        "Perfabs/Scene/vegetable/Blues Jazz/Blues Jazz4",
+        "Perfabs/Scene/vegetable/Blues Jazz/Blues Jazz5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Blues Jazz",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 10080,
+      "description": "蓝调爵士成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Blues Jazz",
+      "seedPrice": 30,
+      "sellPrice": 50
+    },
+    {
+      "id": 34,
+      "path": "Perfabs/Scene/vegetable/bok choy/bok choy1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/bok choy/bok choy1",
+        "Perfabs/Scene/vegetable/bok choy/bok choy2",
+        "Perfabs/Scene/vegetable/bok choy/bok choy3",
+        "Perfabs/Scene/vegetable/bok choy/bok choy4",
+        "Perfabs/Scene/vegetable/bok choy/bok choy5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Bok Choy",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 5760,
+      "description": "小白菜成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Bok Choy",
+      "seedPrice": 50,
+      "sellPrice": 80
+    },
+    {
+      "id": 35,
+      "path": "Perfabs/Scene/vegetable/broccoli/broccoli1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/broccoli/broccoli1",
+        "Perfabs/Scene/vegetable/broccoli/broccoli2",
+        "Perfabs/Scene/vegetable/broccoli/broccoli3",
+        "Perfabs/Scene/vegetable/broccoli/broccoli4",
+        "Perfabs/Scene/vegetable/broccoli/broccoli5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Broccoli",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 11520,
+      "description": "西兰花成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Broccoli",
+      "seedPrice": 70,
+      "sellPrice": 87
+    },
+    {
+      "id": 36,
+      "path": "Perfabs/Scene/vegetable/Cactus/Cactus1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/Cactus/Cactus1",
+        "Perfabs/Scene/vegetable/Cactus/Cactus2",
+        "Perfabs/Scene/vegetable/Cactus/Cactus3",
+        "Perfabs/Scene/vegetable/Cactus/Cactus4",
+        "Perfabs/Scene/vegetable/Cactus/Cactus5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Cactus",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 17280,
+      "description": "仙人掌成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Cactus",
+      "seedPrice": 150,
+      "sellPrice": 75
+    },
+    {
+      "id": 37,
+      "path": "Perfabs/Scene/vegetable/cherry tree/cherry tree1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/cherry tree/cherry tree1",
+        "Perfabs/Scene/vegetable/cherry tree/cherry tree2",
+        "Perfabs/Scene/vegetable/cherry tree/cherry tree3",
+        "Perfabs/Scene/vegetable/cherry tree/cherry tree4",
+        "Perfabs/Scene/vegetable/cherry tree/cherry tree5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Cherry Tree",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 40320,
+      "description": "樱桃树成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Cherry Tree",
+      "seedPrice": 3400,
+      "sellPrice": 80
+    },
+    {
+      "id": 38,
+      "path": "Perfabs/Scene/vegetable/chili/chili1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/chili/chili1",
+        "Perfabs/Scene/vegetable/chili/chili2",
+        "Perfabs/Scene/vegetable/chili/chili3",
+        "Perfabs/Scene/vegetable/chili/chili4",
+        "Perfabs/Scene/vegetable/chili/chili5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Chili Pepper",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 7200,
+      "description": "辣椒成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Chili Pepper",
+      "seedPrice": 40,
+      "sellPrice": 40
+    },
+    {
+      "id": 39,
+      "path": "Perfabs/Scene/vegetable/Coffee beans/Coffee beans1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/Coffee beans/Coffee beans1",
+        "Perfabs/Scene/vegetable/Coffee beans/Coffee beans2",
+        "Perfabs/Scene/vegetable/Coffee beans/Coffee beans3",
+        "Perfabs/Scene/vegetable/Coffee beans/Coffee beans4",
+        "Perfabs/Scene/vegetable/Coffee beans/Coffee beans5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Coffee Bean",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 14400,
+      "description": "咖啡豆成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Coffee Bean",
+      "seedPrice": 2500,
+      "sellPrice": 15
+    },
+    {
+      "id": 40,
+      "path": "Perfabs/Scene/vegetable/Cranberry/Cranberry1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/Cranberry/Cranberry1",
+        "Perfabs/Scene/vegetable/Cranberry/Cranberry2",
+        "Perfabs/Scene/vegetable/Cranberry/Cranberry3",
+        "Perfabs/Scene/vegetable/Cranberry/Cranberry4",
+        "Perfabs/Scene/vegetable/Cranberry/Cranberry5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Cranberry",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 10080,
+      "description": "蔓越莓成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Cranberry",
+      "seedPrice": 240,
+      "sellPrice": 75
+    },
+    {
+      "id": 41,
+      "path": "Perfabs/Scene/vegetable/eggplant/eggplant1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/eggplant/eggplant1",
+        "Perfabs/Scene/vegetable/eggplant/eggplant2",
+        "Perfabs/Scene/vegetable/eggplant/eggplant3",
+        "Perfabs/Scene/vegetable/eggplant/eggplant4",
+        "Perfabs/Scene/vegetable/eggplant/eggplant5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Eggplant",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 7200,
+      "description": "茄子成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Eggplant",
+      "seedPrice": 20,
+      "sellPrice": 60
+    },
+    {
+      "id": 42,
+      "path": "Perfabs/Scene/vegetable/frost melon/frost melon1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/frost melon/frost melon1",
+        "Perfabs/Scene/vegetable/frost melon/frost melon2",
+        "Perfabs/Scene/vegetable/frost melon/frost melon3",
+        "Perfabs/Scene/vegetable/frost melon/frost melon4",
+        "Perfabs/Scene/vegetable/frost melon/frost melon5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Frost Gourd",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 10080,
+      "description": "霜瓜成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Frost Gourd",
+      "seedPrice": 60,
+      "sellPrice": 75
+    },
+    {
+      "id": 43,
+      "path": "Perfabs/Scene/vegetable/Fruit Tea Leaf/Fruit Tea Leaf1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/Fruit Tea Leaf/Fruit Tea Leaf1",
+        "Perfabs/Scene/vegetable/Fruit Tea Leaf/Fruit Tea Leaf2",
+        "Perfabs/Scene/vegetable/Fruit Tea Leaf/Fruit Tea Leaf3",
+        "Perfabs/Scene/vegetable/Fruit Tea Leaf/Fruit Tea Leaf4",
+        "Perfabs/Scene/vegetable/Fruit Tea Leaf/Fruit Tea Leaf5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Berry Tea Leaves",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 28800,
+      "description": "水果茶叶成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Fruit Tea Leaves",
+      "seedPrice": 50,
+      "sellPrice": 20
+    },
+    {
+      "id": 44,
+      "path": "Perfabs/Scene/vegetable/fruit tea leaves/fruit tea leaves1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/fruit tea leaves/fruit tea leaves1",
+        "Perfabs/Scene/vegetable/fruit tea leaves/fruit tea leaves2",
+        "Perfabs/Scene/vegetable/fruit tea leaves/fruit tea leaves3",
+        "Perfabs/Scene/vegetable/fruit tea leaves/fruit tea leaves4",
+        "Perfabs/Scene/vegetable/fruit tea leaves/fruit tea leaves5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Berry Tea Leaves",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 28800,
+      "description": "水果茶叶成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Fruit Tea Leaves",
+      "seedPrice": 50,
+      "sellPrice": 20
+    },
+    {
+      "id": 45,
+      "path": "Perfabs/Scene/vegetable/Garlic/Garlic1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/Garlic/Garlic1",
+        "Perfabs/Scene/vegetable/Garlic/Garlic2",
+        "Perfabs/Scene/vegetable/Garlic/Garlic3",
+        "Perfabs/Scene/vegetable/Garlic/Garlic4",
+        "Perfabs/Scene/vegetable/Garlic/Garlic5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Garlic",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 5760,
+      "description": "大蒜成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Garlic",
+      "seedPrice": 40,
+      "sellPrice": 60
+    },
+    {
+      "id": 46,
+      "path": "Perfabs/Scene/vegetable/Gem Sweet Berry/Gem Sweet Berry1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/Gem Sweet Berry/Gem Sweet Berry1",
+        "Perfabs/Scene/vegetable/Gem Sweet Berry/Gem Sweet Berry2",
+        "Perfabs/Scene/vegetable/Gem Sweet Berry/Gem Sweet Berry3",
+        "Perfabs/Scene/vegetable/Gem Sweet Berry/Gem Sweet Berry4",
+        "Perfabs/Scene/vegetable/Gem Sweet Berry/Gem Sweet Berry5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Gem Sweetberry",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 34560,
+      "description": "宝石甜莓成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Gem Sweetberry",
+      "seedPrice": 1000,
+      "sellPrice": 3000
+    },
+    {
+      "id": 47,
+      "path": "Perfabs/Scene/vegetable/Golden Zucchini/Golden Zucchini1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/Golden Zucchini/Golden Zucchini1",
+        "Perfabs/Scene/vegetable/Golden Zucchini/Golden Zucchini2",
+        "Perfabs/Scene/vegetable/Golden Zucchini/Golden Zucchini3",
+        "Perfabs/Scene/vegetable/Golden Zucchini/Golden Zucchini4",
+        "Perfabs/Scene/vegetable/Golden Zucchini/Golden Zucchini5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Golden Zucchini",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 8640,
+      "description": "黄金西葫芦成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Golden Zucchini",
+      "seedPrice": 45,
+      "sellPrice": 56
+    },
+    {
+      "id": 48,
+      "path": "Perfabs/Scene/vegetable/Grape/Grape1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/Grape/Grape1",
+        "Perfabs/Scene/vegetable/Grape/Grape2",
+        "Perfabs/Scene/vegetable/Grape/Grape3",
+        "Perfabs/Scene/vegetable/Grape/Grape4",
+        "Perfabs/Scene/vegetable/Grape/Grape5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Grape",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 14400,
+      "description": "葡萄成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Grape",
+      "seedPrice": 60,
+      "sellPrice": 80
+    },
+    {
+      "id": 49,
+      "path": "Perfabs/Scene/vegetable/Green Pea/Green Pea1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/Green Pea/Green Pea1",
+        "Perfabs/Scene/vegetable/Green Pea/Green Pea2",
+        "Perfabs/Scene/vegetable/Green Pea/Green Pea3",
+        "Perfabs/Scene/vegetable/Green Pea/Green Pea4",
+        "Perfabs/Scene/vegetable/Green Pea/Green Pea5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Green Pea",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 14400,
+      "description": "青豆成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Green Pea",
+      "seedPrice": 60,
+      "sellPrice": 40
+    },
+    {
+      "id": 50,
+      "path": "Perfabs/Scene/vegetable/Hops/Hops1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/Hops/Hops1",
+        "Perfabs/Scene/vegetable/Hops/Hops2",
+        "Perfabs/Scene/vegetable/Hops/Hops3",
+        "Perfabs/Scene/vegetable/Hops/Hops4",
+        "Perfabs/Scene/vegetable/Hops/Hops5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Hops",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 15840,
+      "description": "啤酒花成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Hops",
+      "seedPrice": 60,
+      "sellPrice": 25
+    },
+    {
+      "id": 51,
+      "path": "Perfabs/Scene/vegetable/jewel sweet berry/jewel sweet berry1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/jewel sweet berry/jewel sweet berry1",
+        "Perfabs/Scene/vegetable/jewel sweet berry/jewel sweet berry2",
+        "Perfabs/Scene/vegetable/jewel sweet berry/jewel sweet berry3",
+        "Perfabs/Scene/vegetable/jewel sweet berry/jewel sweet berry4",
+        "Perfabs/Scene/vegetable/jewel sweet berry/jewel sweet berry5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Sapphire Sweetberry",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 840,
+      "description": "珠宝甜莓成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Sapphire Sweetberry"
+    },
+    {
+      "id": 52,
+      "path": "Perfabs/Scene/vegetable/mango trees/mango trees1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/mango trees/mango trees1",
+        "Perfabs/Scene/vegetable/mango trees/mango trees2",
+        "Perfabs/Scene/vegetable/mango trees/mango trees3",
+        "Perfabs/Scene/vegetable/mango trees/mango trees4",
+        "Perfabs/Scene/vegetable/mango trees/mango trees5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Mango Tree",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 40320,
+      "description": "芒果树成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Mango Tree",
+      "seedPrice": 0,
+      "sellPrice": 130
+    },
+    {
+      "id": 53,
+      "path": "Perfabs/Scene/vegetable/melon/melon1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/melon/melon1",
+        "Perfabs/Scene/vegetable/melon/melon2",
+        "Perfabs/Scene/vegetable/melon/melon3",
+        "Perfabs/Scene/vegetable/melon/melon4",
+        "Perfabs/Scene/vegetable/melon/melon5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Melon",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 17280,
+      "description": "甜瓜成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Melon",
+      "seedPrice": 80,
+      "sellPrice": 250
+    },
+    {
+      "id": 54,
+      "path": "Perfabs/Scene/vegetable/orange tree/orange tree1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/orange tree/orange tree1",
+        "Perfabs/Scene/vegetable/orange tree/orange tree2",
+        "Perfabs/Scene/vegetable/orange tree/orange tree3",
+        "Perfabs/Scene/vegetable/orange tree/orange tree4",
+        "Perfabs/Scene/vegetable/orange tree/orange tree5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Orange",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 40320,
+      "description": "橙树成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Orange Tree",
+      "seedPrice": 4000,
+      "sellPrice": 100
+    },
+    {
+      "id": 55,
+      "path": "Perfabs/Scene/vegetable/peach trees/peach trees1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/peach trees/peach trees1",
+        "Perfabs/Scene/vegetable/peach trees/peach trees2",
+        "Perfabs/Scene/vegetable/peach trees/peach trees3",
+        "Perfabs/Scene/vegetable/peach trees/peach trees4",
+        "Perfabs/Scene/vegetable/peach trees/peach trees5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Peach Tree",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 40320,
+      "description": "桃树成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Peach Tree",
+      "seedPrice": 6000,
+      "sellPrice": 140
+    },
+    {
+      "id": 56,
+      "path": "Perfabs/Scene/vegetable/Pineapple/Pineapple1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/Pineapple/Pineapple1",
+        "Perfabs/Scene/vegetable/Pineapple/Pineapple2",
+        "Perfabs/Scene/vegetable/Pineapple/Pineapple3",
+        "Perfabs/Scene/vegetable/Pineapple/Pineapple4",
+        "Perfabs/Scene/vegetable/Pineapple/Pineapple5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Pineapple",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 20160,
+      "description": "菠萝成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Pineapple",
+      "seedPrice": 300,
+      "sellPrice": 375
+    },
+    {
+      "id": 57,
+      "path": "Perfabs/Scene/vegetable/pomegranate trees/pomegranate trees1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/pomegranate trees/pomegranate trees1",
+        "Perfabs/Scene/vegetable/pomegranate trees/pomegranate trees2",
+        "Perfabs/Scene/vegetable/pomegranate trees/pomegranate trees3",
+        "Perfabs/Scene/vegetable/pomegranate trees/pomegranate trees4",
+        "Perfabs/Scene/vegetable/pomegranate trees/pomegranate trees5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Pomegranate Tree",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 40320,
+      "description": "石榴树成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Pomegranate Tree",
+      "seedPrice": 6000,
+      "sellPrice": 140
+    },
+    {
+      "id": 58,
+      "path": "Perfabs/Scene/vegetable/poppy/poppy1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/poppy/poppy1",
+        "Perfabs/Scene/vegetable/poppy/poppy2",
+        "Perfabs/Scene/vegetable/poppy/poppy3",
+        "Perfabs/Scene/vegetable/poppy/poppy4",
+        "Perfabs/Scene/vegetable/poppy/poppy5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Poppy",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 10080,
+      "description": "罂粟成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Poppy",
+      "seedPrice": 100,
+      "sellPrice": 140
+    },
+    {
+      "id": 59,
+      "path": "Perfabs/Scene/vegetable/Pumpkin/Pumpkin1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/Pumpkin/Pumpkin1",
+        "Perfabs/Scene/vegetable/Pumpkin/Pumpkin2",
+        "Perfabs/Scene/vegetable/Pumpkin/Pumpkin3",
+        "Perfabs/Scene/vegetable/Pumpkin/Pumpkin4",
+        "Perfabs/Scene/vegetable/Pumpkin/Pumpkin5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Pumpkin",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 18720,
+      "description": "南瓜成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Pumpkin",
+      "seedPrice": 100,
+      "sellPrice": 320
+    },
+    {
+      "id": 60,
+      "path": "Perfabs/Scene/vegetable/purple cabbage/purple cabbage1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/purple cabbage/purple cabbage1",
+        "Perfabs/Scene/vegetable/purple cabbage/purple cabbage2",
+        "Perfabs/Scene/vegetable/purple cabbage/purple cabbage3",
+        "Perfabs/Scene/vegetable/purple cabbage/purple cabbage4",
+        "Perfabs/Scene/vegetable/purple cabbage/purple cabbage5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Purple Cabbage",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 12960,
+      "description": "紫甘蓝成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Purple Cabbage",
+      "seedPrice": 100,
+      "sellPrice": 260
+    },
+    {
+      "id": 61,
+      "path": "Perfabs/Scene/vegetable/radish/radish1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/radish/radish1",
+        "Perfabs/Scene/vegetable/radish/radish2",
+        "Perfabs/Scene/vegetable/radish/radish3",
+        "Perfabs/Scene/vegetable/radish/radish4",
+        "Perfabs/Scene/vegetable/radish/radish5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Carrot",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 8640,
+      "description": "萝卜成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Carrot",
+      "seedPrice": 40,
+      "sellPrice": 90
+    },
+    {
+      "id": 62,
+      "path": "Perfabs/Scene/vegetable/rose fairy/rose fairy1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/rose fairy/rose fairy1",
+        "Perfabs/Scene/vegetable/rose fairy/rose fairy2",
+        "Perfabs/Scene/vegetable/rose fairy/rose fairy3",
+        "Perfabs/Scene/vegetable/rose fairy/rose fairy4",
+        "Perfabs/Scene/vegetable/rose fairy/rose fairy5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Rose Fairy",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 17280,
+      "description": "玫瑰仙子成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Rose Fairy",
+      "seedPrice": 200,
+      "sellPrice": 290
+    },
+    {
+      "id": 63,
+      "path": "Perfabs/Scene/vegetable/starfruit/starfruit1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/starfruit/starfruit1",
+        "Perfabs/Scene/vegetable/starfruit/starfruit2",
+        "Perfabs/Scene/vegetable/starfruit/starfruit3",
+        "Perfabs/Scene/vegetable/starfruit/starfruit4",
+        "Perfabs/Scene/vegetable/starfruit/starfruit5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Starfruit",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 18720,
+      "description": "杨桃成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Starfruit",
+      "seedPrice": 400,
+      "sellPrice": 750
+    },
+    {
+      "id": 64,
+      "path": "Perfabs/Scene/vegetable/Strawberry/Strawberry1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/Strawberry/Strawberry1",
+        "Perfabs/Scene/vegetable/Strawberry/Strawberry2",
+        "Perfabs/Scene/vegetable/Strawberry/Strawberry3",
+        "Perfabs/Scene/vegetable/Strawberry/Strawberry4",
+        "Perfabs/Scene/vegetable/Strawberry/Strawberry5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Strawberry",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 11520,
+      "description": "草莓成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Strawberry",
+      "seedPrice": 100,
+      "sellPrice": 120
+    },
+    {
+      "id": 65,
+      "path": "Perfabs/Scene/vegetable/summer golden light/summer golden light1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/summer golden light/summer golden light1",
+        "Perfabs/Scene/vegetable/summer golden light/summer golden light2",
+        "Perfabs/Scene/vegetable/summer golden light/summer golden light3",
+        "Perfabs/Scene/vegetable/summer golden light/summer golden light4",
+        "Perfabs/Scene/vegetable/summer golden light/summer golden light5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Summer Sunshine",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 11520,
+      "description": "夏日金光成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Summer Sunshine",
+      "seedPrice": 50,
+      "sellPrice": 90
+    },
+    {
+      "id": 66,
+      "path": "Perfabs/Scene/vegetable/Sunflower/Sunflower1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/Sunflower/Sunflower1",
+        "Perfabs/Scene/vegetable/Sunflower/Sunflower2",
+        "Perfabs/Scene/vegetable/Sunflower/Sunflower3",
+        "Perfabs/Scene/vegetable/Sunflower/Sunflower4",
+        "Perfabs/Scene/vegetable/Sunflower/Sunflower5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Sunflower",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 11520,
+      "description": "向日葵成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Sunflower",
+      "seedPrice": 200,
+      "sellPrice": 80
+    },
+    {
+      "id": 67,
+      "path": "Perfabs/Scene/vegetable/Taro/Taro1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/Taro/Taro1",
+        "Perfabs/Scene/vegetable/Taro/Taro2",
+        "Perfabs/Scene/vegetable/Taro/Taro3",
+        "Perfabs/Scene/vegetable/Taro/Taro4",
+        "Perfabs/Scene/vegetable/Taro/Taro5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Taro",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 10080,
+      "description": "芋头成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Taro",
+      "seedPrice": 100,
+      "sellPrice": 125
+    },
+    {
+      "id": 68,
+      "path": "Perfabs/Scene/vegetable/tomato/tomato1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/tomato/tomato1",
+        "Perfabs/Scene/vegetable/tomato/tomato2",
+        "Perfabs/Scene/vegetable/tomato/tomato3",
+        "Perfabs/Scene/vegetable/tomato/tomato4",
+        "Perfabs/Scene/vegetable/tomato/tomato5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Tomato",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 15840,
+      "description": "番茄成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Tomato",
+      "seedPrice": 50,
+      "sellPrice": 60
+    },
+    {
+      "id": 69,
+      "path": "Perfabs/Scene/vegetable/Tulip/Tulip1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/Tulip/Tulip1",
+        "Perfabs/Scene/vegetable/Tulip/Tulip2",
+        "Perfabs/Scene/vegetable/Tulip/Tulip3",
+        "Perfabs/Scene/vegetable/Tulip/Tulip4",
+        "Perfabs/Scene/vegetable/Tulip/Tulip5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Tulip",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 8640,
+      "description": "郁金香成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Tulip",
+      "seedPrice": 20,
+      "sellPrice": 30
+    },
+    {
+      "id": 70,
+      "path": "Perfabs/Scene/vegetable/wheat/wheat1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/wheat/wheat1",
+        "Perfabs/Scene/vegetable/wheat/wheat2",
+        "Perfabs/Scene/vegetable/wheat/wheat3",
+        "Perfabs/Scene/vegetable/wheat/wheat4",
+        "Perfabs/Scene/vegetable/wheat/wheat5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Wheat",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 5760,
+      "description": "小麦成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Wheat",
+      "seedPrice": 10,
+      "sellPrice": 25
+    },
+    {
+      "id": 71,
+      "path": "Perfabs/Scene/vegetable/yam/yam1",
+      "pathArray": [
+        "Perfabs/Scene/vegetable/yam/yam1",
+        "Perfabs/Scene/vegetable/yam/yam2",
+        "Perfabs/Scene/vegetable/yam/yam3",
+        "Perfabs/Scene/vegetable/yam/yam4",
+        "Perfabs/Scene/vegetable/yam/yam5"
+      ],
+      "iconPath": "Perfabs/Scene/icon/Seed/Yam",
+      "type": 4,
+      "tilemap": "FarmingTilemap",
+      "time": 14400,
+      "description": "山药成长",
+      "maturePath": "Perfabs/Scene/icon/Fruit/Yam",
+      "seedPrice": 60,
+      "sellPrice": 160
+    }
+  ]
+}

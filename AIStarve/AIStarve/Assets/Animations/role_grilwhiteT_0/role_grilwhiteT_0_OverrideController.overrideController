@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: role_grilwhiteT_0_OverrideController
+  m_Controller: {fileID: 9100000, guid: e22dffafbbf9e46e79c4ce81dcbb6777, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 63d0c135585b4424d8ee4446b5b47502, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7aa42e36a96ab7841a544bf210423161, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 5a896d6fcd08a44b4a319b1b5931e6b0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6ef736dd0550fae4c9f69992d1a925bb, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 4ac8f52d16eb645ef9b758efb16201c9, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5404a3315a40e07438918d9ad1093b69, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 58226aaa083ff4a64827fe9c50f0a6e6, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 677350eed10369a479f0c721d3de18c4, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 0105d00b96d0845a58f7ce7e8f06bb6b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 1cfb1531bd6b8ec4abaf8f987b400ba0, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 4f1a672aae44e4b23ac5533ad85fd6e6, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a13bb42ef532bf4459d427492639e4d6, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 151abdf2069e54f2da8c5b1ffd31a360, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d9a320c8582bf334aa6c0b77811d9f15, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: db7d10ad3792048eca931f8ede260887, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5d81abd7d6eba2441a3f8e1a044ae139, type: 2}

@@ -1,0 +1,181 @@
+{
+    "triggerAreas": [
+        {
+            "id": 1,
+            "gameObjectName": "TargetArea_PlayHouseOne",
+            "sceneName": "PlayHouseOne.unity",
+            "description": "这是一个人的家里，家里除了自己住以外还有自己买的npc"
+        },
+        {
+            "id": 3,
+            "gameObjectName": "TargetArea_PlayHouseTwo",
+            "sceneName": "PlayHouseOne.unity",
+            "description": "这是一个人的家里，家里除了自己住以外还有自己买的npc"
+        },
+        {
+            "id": 4,
+            "gameObjectName": "TargetArea_PlayHouseThree",
+            "sceneName": "PlayHouseOne.unity",
+            "description": "这是一个人的家里，家里除了自己住以外还有自己买的npc"
+        },
+        {
+            "id": 5,
+            "gameObjectName": "TargetArea_PlayHouseFour",
+            "sceneName": "PlayHouseOne.unity",
+            "description": "这是一个人的家里，家里除了自己住以外还有自己买的npc"
+        },
+        {
+            "id": 2,
+            "gameObjectName": "TargetArea_Store",
+            "sceneName": "PlayHouseOne.unity",
+            "description": "这是一个商店，可以购买家具以及一些家居类的东西"
+        },
+        {
+            "id": 6,
+            "gameObjectName": "TargetArea_PlayHouse (19)",
+            "sceneName": "PlayHouseOne.unity",
+            "description": "这是一个人的家里，家里除了自己住以外还有自己买的npc"
+        },
+        {
+            "id": 7,
+            "gameObjectName": "TargetArea_PlayHouse (1)",
+            "sceneName": "PlayHouseOne.unity",
+            "description": "这是一个人的家里，家里除了自己住以外还有自己买的npc"
+        },
+        {
+            "id": 8,
+            "gameObjectName": "TargetArea_PlayHouse (2)",
+            "sceneName": "PlayHouseOne.unity",
+            "description": "这是一个人的家里，家里除了自己住以外还有自己买的npc"
+        },
+        {
+            "id": 9,
+            "gameObjectName": "TargetArea_PlayHouse (3)",
+            "sceneName": "PlayHouseOne.unity",
+            "description": "这是一个人的家里，家里除了自己住以外还有自己买的npc"
+        },
+        {
+            "id": 10,
+            "gameObjectName": "TargetArea_Mariposa_Saloonr",
+            "sceneName": "PlayHouseOne.unity",
+            "description": "甜水镇的酒馆，是大家喝酒，找npc妓女消遣的地方"
+        },
+        {
+            "id": 11,
+            "gameObjectName": "TargetArea_PlayHouse (5)",
+            "sceneName": "PlayHouseOne.unity",
+            "description": "这是一个人的家里，家里除了自己住以外还有自己买的npc"
+        },
+        {
+            "id": 12,
+            "gameObjectName": "TargetArea_PlayHouse (6)",
+            "sceneName": "PlayHouseOne.unity",
+            "description": "这是一个人的家里，家里除了自己住以外还有自己买的npc"
+        },
+        {
+            "id": 13,
+            "gameObjectName": "TargetArea_PlayHouse (7)",
+            "sceneName": "PlayHouseOne.unity",
+            "description": "这是一个人的家里，家里除了自己住以外还有自己买的npc"
+        },
+        {
+            "id": 14,
+            "gameObjectName": "TargetArea_PlayHouse (8)",
+            "sceneName": "PlayHouseOne.unity",
+            "description": "这是一个人的家里，家里除了自己住以外还有自己买的npc"
+        },
+        {
+            "id": 15,
+            "gameObjectName": "TargetArea_PlayHouse (9)",
+            "sceneName": "PlayHouseOne.unity",
+            "description": "这是一个人的家里，家里除了自己住以外还有自己买的npc"
+        },
+        {
+            "id": 16,
+            "gameObjectName": "TargetArea_PlayHouse (10)",
+            "sceneName": "PlayHouseOne.unity",
+            "description": "这是一个人的家里，家里除了自己住以外还有自己买的npc"
+        },
+        {
+            "id": 17,
+            "gameObjectName": "TargetArea_PlayHouse (11)",
+            "sceneName": "PlayHouseOne.unity",
+            "description": "这是一个人的家里，家里除了自己住以外还有自己买的npc"
+        },
+        {
+            "id": 18,
+            "gameObjectName": "TargetArea_PlayHouse (12)",
+            "sceneName": "PlayHouseOne.unity",
+            "description": "这是一个人的家里，家里除了自己住以外还有自己买的npc"
+        },
+        {
+            "id": 19,
+            "gameObjectName": "TargetArea_PlayHouse (13)",
+            "sceneName": "PlayHouseOne.unity",
+            "description": "这是一个人的家里，家里除了自己住以外还有自己买的npc"
+        },
+        {
+            "id": 20,
+            "gameObjectName": "TargetArea_PlayHouse (14)",
+            "sceneName": "PlayHouseOne.unity",
+            "description": "这是一个人的家里，家里除了自己住以外还有自己买的npc"
+        },
+        {
+            "id": 21,
+            "gameObjectName": "TargetArea_PlayHouse (15)",
+            "sceneName": "PlayHouseOne.unity",
+            "description": "这是一个人的家里，家里除了自己住以外还有自己买的npc"
+        },
+        {
+            "id": 22,
+            "gameObjectName": "TargetArea_DoloresHouse",
+            "sceneName": "PlayHouseOne.unity",
+            "description": "德洛丽丝的家"
+        },
+        {
+            "id": 23,
+            "gameObjectName": "TargetArea_PlayHouse (17)",
+            "sceneName": "PlayHouseOne.unity",
+            "description": "这是一个人的家里，家里除了自己住以外还有自己买的npc"
+        },
+        {
+            "id": 24,
+            "gameObjectName": "TargetArea_PlayHouse (18)",
+            "sceneName": "PlayHouseOne.unity",
+            "description": "这是一个人的家里，家里除了自己住以外还有自己买的npc"
+        },
+        {
+            "id": 25,
+            "gameObjectName": "TargetArea_Sweetwater_Center",
+            "sceneName": "",
+            "description": "这个是甜水镇的中心广场,周围有其他的房子"
+        },
+        {
+            "id": 26,
+            "gameObjectName": "TargetArea_ParkTrainStation",
+            "sceneName": "",
+            "description": "乐园的露天平台上,在火车站停下来以后的大厅"
+        },
+        {
+            "id": 27,
+            "gameObjectName": "TargetArea_DoloresFarm",
+            "sceneName": "",
+            "description": "德洛丽丝家的农场"
+        },
+        {
+            "id": 28,
+            "gameObjectName": "TargetArea_ParkBehaviorControlCenter",
+            "sceneName": "",
+            "description": "德洛丽丝家的农场"
+        },
+        {
+            "id": 29,
+            "gameObjectName": "TargetArea_ParkColdStorage",
+            "sceneName": "",
+            "description": "冷库用来退役机器人的地方"
+        }
+        
+        
+        
+    ]
+}

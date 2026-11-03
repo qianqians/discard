@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+    <head>
+        <div class="nav">
+            <label
+                for="usernameInput"
+                style="margin-right: 5px; font-weight: bold"
+                >User Name:</label
+            >
+            <input type="text" id="usernameInput" placeholder="请输入用户名" />
+            <label
+                for="userPasswordInput"
+                style="margin-right: 5px; font-weight: bold"
+                >Password:</label
+            >
+            <input
+                type="text"
+                id="userPasswordInput"
+                placeholder="请输入密码"
+            />
+            <button id="infoButton" class="nav-button">OK</button>
+        </div>
+        <title>Supabase Browser Example</title>
+        <!-- 引入 Supabase 客户端库 -->
+        <div id="generatedLink">生成的链接将显示在这里</div>
+    </head>
+    <body>
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script>
+            // 初始化 Supabase 客户端
+            SUPABASE_URL = "https://oilnksvsgeqrmpviepza.supabase.co";
+            SUPABASE_ANON_KEY =
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9pbG5rc3ZzZ2Vxcm1wdmllcHphIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDMxODA5NTYsImV4cCI6MjA1ODc1Njk1Nn0.hX7xsp3JYK9tbXqJD44HHTJ85TL1pGEO8wOAGA9LUfw";
+
+            let cookies = [];
+
+            async function main() {
+                const client = window.supabase.createClient(
+                    SUPABASE_URL,
+                    SUPABASE_ANON_KEY,
+                    {
+                        auth: {
+                            // 浏览器环境存储策略（localStorage 或 sessionStorage）
+                            storage: window.localStorage,
+                            autoRefreshToken: true,
+                            persistSession: true,
+                        },
+                    },
+                );
+
+                await client.auth.signInWithPassword({
+                    email: "qazwerty990@dzmm.ai",
+                    password: "qazwerty990@dzmm.ai",
+                });
+
+                const { data } = await client.auth.getSession();
+
+                console.log(data.session.access_token);
+                generatedLink.innerHTML = `生成的链接：<a href="http://43.137.14.232/my_index.html?ticket=${data.session.access_token}" target="_blank">https://www.ucat.games/ai_starve/index.html</a>`;
+                //generatedLink.innerHTML = `生成的链接：<a href="http://127.0.0.1:3000/my_index.html?ticket=${data.session.access_token}" target="_blank">https://www.ucat.games/ai_starve/index.html</a>`;
+            }
+            //main();
+
+            var infoButton = document.getElementById("infoButton");
+            // 获取用户名输入框
+            var usernameInput = document.getElementById("usernameInput");
+            var userPasswordInput =
+                document.getElementById("userPasswordInput");
+
+            infoButton.addEventListener("click", async function () {
+                // 获取输入的用户名，如果没有输入则使用默认值"asdf"
+                var username = usernameInput.value || "asdf";
+                var password = userPasswordInput.value || "asdf";
+
+                const client = window.supabase.createClient(
+                    SUPABASE_URL,
+                    SUPABASE_ANON_KEY,
+                    {
+                        auth: {
+                            // 浏览器环境存储策略（localStorage 或 sessionStorage）
+                            storage: window.localStorage,
+                            autoRefreshToken: true,
+                            persistSession: true,
+                        },
+                    },
+                );
+
+                const { error: signInError } =
+                    await client.auth.signInWithPassword({
+                        email: username,
+                        password: password,
+                    });
+                console.log(signInError);
+
+                const { data } = await client.auth.getSession();
+
+                console.log(data.session.access_token);
+                generatedLink.innerHTML = `生成的链接：<a href="http://43.137.14.232/index.html?ticket=${data.session.access_token}" target="_blank">https://www.ucat.games/ai_starve/index.html</a>`;
+                //generatedLink.innerHTML = `生成的链接：<a href="http://127.0.0.1:3000/index.html?ticket=${data.session.access_token}" target="_blank">https://www.ucat.games/ai_starve/index.html</a>`;
+            });
+        </script>
+    </body>
+</html>
